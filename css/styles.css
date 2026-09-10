@@ -100,8 +100,7 @@
   --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+:root[data-theme="dark"] {
     --bg: #000000;
     --bg-elevated: rgba(28,28,30,0.94);
     --card: #1c1c1e;
@@ -132,7 +131,6 @@
     --dl-day: #f0bd63;
     --dl-tick: rgba(255,255,255,0.42);
     --dl-edge: rgba(255,255,255,0.16);
-  }
 }
 
 /* ---------------------------------------------------------------------- */
@@ -336,14 +334,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
     0 1px 2px rgba(0,0,0,0.06),
     inset 0 0 0 0.5px rgba(255,255,255,0.7);
 }
-@media (prefers-color-scheme: dark) {
-  .tabbar {
-    background: rgba(30,30,32,0.74);
-    border-color: rgba(255,255,255,0.08);
-    box-shadow:
-      0 10px 30px rgba(0,0,0,0.5),
-      inset 0 0 0 0.5px rgba(255,255,255,0.08);
-  }
+:root[data-theme="dark"] .tabbar {
+  background: rgba(30,30,32,0.74);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.5),
+    inset 0 0 0 0.5px rgba(255,255,255,0.08);
 }
 .tab-btn {
   flex: 1;
@@ -755,9 +751,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   font-weight: 600;
   box-shadow: var(--shadow-xs);
 }
-@media (prefers-color-scheme: dark) {
-  .seg-btn.active, .btn-toggle button.active { background: #636366; }
-}
+:root[data-theme="dark"] .seg-btn.active, :root[data-theme="dark"] .btn-toggle button.active { background: #636366; }
 
 /* iOS switch — built from the existing two-button toggle markup. The two
    buttons become invisible halves of the track, so tapping the knob side
@@ -1259,15 +1253,13 @@ body.sheet-open .toast.show { transform: translateX(-50%) translateY(0); }
 .poi-icon.cat-medical svg { color: #d92b1f; }
 .poi-icon.cat-repair { background: rgba(142,142,147,0.18); }
 .poi-icon.cat-repair svg { color: #5c5c60; }
-@media (prefers-color-scheme: dark) {
-  .poi-icon.cat-gas svg { color: #4da3ff; }
-  .poi-icon.cat-food svg { color: #ffb14d; }
-  .poi-icon.cat-camp svg { color: #4fd97a; }
-  .poi-icon.cat-nature svg { color: #8c8aff; }
-  .poi-icon.cat-lodging svg { color: #c876ec; }
-  .poi-icon.cat-medical svg { color: #ff6b60; }
-  .poi-icon.cat-repair svg { color: #a8a8ad; }
-}
+:root[data-theme="dark"] .poi-icon.cat-gas svg { color: #4da3ff; }
+:root[data-theme="dark"] .poi-icon.cat-food svg { color: #ffb14d; }
+:root[data-theme="dark"] .poi-icon.cat-camp svg { color: #4fd97a; }
+:root[data-theme="dark"] .poi-icon.cat-nature svg { color: #8c8aff; }
+:root[data-theme="dark"] .poi-icon.cat-lodging svg { color: #c876ec; }
+:root[data-theme="dark"] .poi-icon.cat-medical svg { color: #ff6b60; }
+:root[data-theme="dark"] .poi-icon.cat-repair svg { color: #a8a8ad; }
 
 /* ---------------------------------------------------------------------- */
 /* POI detail sheet (UISheetPresentationController-style)                  */

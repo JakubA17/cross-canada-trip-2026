@@ -1,4 +1,4 @@
-const CACHE_NAME = 'c2c-v21';
+const CACHE_NAME = 'c2c-v22';
 const PRECACHE = [
   '/',
   '/index.html',

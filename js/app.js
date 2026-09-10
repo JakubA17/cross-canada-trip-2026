@@ -30,6 +30,23 @@
     root.setProperty('--phase-accent', c.sun);
   }
 
+  // ---- light/dark appearance mode -------------------------------------------
+  // 'auto' (default) follows the OS; 'light'/'dark' pin it regardless of the
+  // device setting. Every color in the app is a CSS custom property keyed off
+  // :root[data-theme="dark"], so flipping this one attribute re-themes the
+  // whole app — cards, text, icons, toggles, everything — in one shot.
+  function systemPrefersDark() {
+    return typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function applyTheme(mode) {
+    const dark = mode === 'dark' || (mode !== 'light' && systemPrefersDark());
+    const root = document.documentElement;
+    if (dark) root.setAttribute('data-theme', 'dark');
+    else root.removeAttribute('data-theme');
+    root.style.colorScheme = mode === 'light' ? 'light' : (mode === 'dark' ? 'dark' : 'light dark');
+  }
+
   // ---- small utils ---------------------------------------------------------
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   function esc(str) {
@@ -1385,6 +1402,7 @@
     }).join('');
 
     $$('#unitsToggle button').forEach((b) => b.classList.toggle('active', b.dataset.unit === prefs.units));
+    $$('#themeToggle button').forEach((b) => b.classList.toggle('active', b.dataset.themeMode === (prefs.themeMode || 'auto')));
     const fix = Geo.GeoWatch.getLast();
     $('#gpsStatusSub').textContent = fix
       ? `Accurate to ${Math.round(fix.accuracy)} m · updated ${timeAgo(fix.ts)}`
@@ -1704,6 +1722,15 @@
       const unitBtn = e.target.closest('#unitsToggle button');
       if (unitBtn) { prefs = Store.setPrefs({ units: unitBtn.dataset.unit }); renderAll(); return; }
 
+      const themeBtn = e.target.closest('#themeToggle button');
+      if (themeBtn) {
+        const mode = themeBtn.dataset.themeMode;
+        prefs = Store.setPrefs({ themeMode: mode });
+        applyTheme(mode);
+        $$('#themeToggle button').forEach((b) => b.classList.toggle('active', b.dataset.themeMode === mode));
+        return;
+      }
+
       const refreshBtn = e.target.closest('#btnRefreshWeather');
       if (refreshBtn) { forceRefreshWeather(); return; }
 
@@ -1830,6 +1857,12 @@
     Store.migrateSavedIds(zonePoiId);
 
     prefs = Store.getPrefs();
+    applyTheme(prefs.themeMode || 'auto');
+    if (typeof window.matchMedia === 'function') {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if ((Store.getPrefs().themeMode || 'auto') === 'auto') applyTheme('auto');
+      });
+    }
     const wantedRouteId = (prefs.selectedRouteId && MANIFEST.routes.some((r) => r.id === prefs.selectedRouteId))
       ? prefs.selectedRouteId : MANIFEST.defaultRoute;
 

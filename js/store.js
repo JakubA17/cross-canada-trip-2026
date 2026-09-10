@@ -74,6 +74,7 @@
       return read(KEY_PREFS, {
         units: 'km', selectedDayIndex: null, lastWeatherFetch: null,
         autoSyncAllWeather: true, lastFullWeatherSync: null,
+        themeMode: 'auto', // 'auto' | 'light' | 'dark'
       });
     },
     setPrefs(patch) {

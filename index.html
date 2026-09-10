@@ -4,6 +4,20 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Coast2Coast — Road Trip &amp; Light</title>
+<script>
+// Apply the saved appearance mode before first paint so there's no flash of
+// the wrong theme. Reads localStorage directly (store.js hasn't loaded yet).
+(function () {
+  try {
+    var raw = localStorage.getItem('c2c_prefs_v1');
+    var mode = (raw && JSON.parse(raw).themeMode) || 'auto';
+    var dark = mode === 'dark' || (mode !== 'light' && window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.style.colorScheme = mode === 'light' ? 'light' : (mode === 'dark' ? 'dark' : 'light dark');
+  } catch (e) {}
+})();
+</script>
 <meta name="description" content="Offline day-by-day itinerary, light &amp; weather guide for a cross-Canada road trip." />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="mobile-web-app-capable" content="yes" />
@@ -233,6 +247,17 @@
 
       <div class="card">
         <div class="card-header"><div class="card-title">Settings</div></div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Appearance</div>
+            <div class="settings-sub">Auto follows your device setting</div>
+          </div>
+          <div class="btn-toggle" id="themeToggle">
+            <button data-theme-mode="auto">Auto</button>
+            <button data-theme-mode="light">Light</button>
+            <button data-theme-mode="dark">Dark</button>
+          </div>
+        </div>
         <div class="settings-row">
           <div>
             <div class="settings-label">Distance units</div>
