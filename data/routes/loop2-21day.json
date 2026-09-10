@@ -1,0 +1,425 @@
+{
+  "id": "alt_loop2_21day",
+  "label": "ChatGPT Loop 2 — 21-Day Canada/US Loop",
+  "type": "alternate",
+  "originCity": "Midland, ON",
+  "destCity": "Midland, ON",
+  "days": [
+    {
+      "id": "l2-d01",
+      "index": 1,
+      "date": "2026-09-19",
+      "tz": "America/Toronto",
+      "city": "Sault Ste. Marie, ON",
+      "region": "Northern Ontario",
+      "lat": 46.5136,
+      "lng": -84.3358,
+      "driveFromPrev": null,
+      "summary": "Depart Midland and drive north through Ontario to Sault Ste. Marie on the St. Marys River, gateway to Lake Superior.",
+      "agenda": [
+        { "time": "09:00", "title": "Depart Midland, ON", "type": "drive" },
+        { "time": "17:00", "title": "Arrive Sault Ste. Marie", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Sault Ste. Marie", "lat": 46.5136, "lng": -84.3358 } ]
+    },
+    {
+      "id": "l2-d02",
+      "index": 2,
+      "date": "2026-09-20",
+      "tz": "America/Toronto",
+      "city": "Marathon, ON",
+      "region": "Lake Superior North Shore, ON",
+      "lat": 48.7788,
+      "lng": -86.3925,
+      "driveFromPrev": "430 km",
+      "summary": "Follow the Trans-Canada Highway along Lake Superior's rugged north shore through Wawa, known for its giant Canada goose statue, continuing to Marathon.",
+      "agenda": [
+        { "time": "08:30", "title": "Depart Sault Ste. Marie", "type": "drive" },
+        { "time": "12:00", "title": "Wawa — Canada Goose monument", "type": "sight" },
+        { "time": "17:00", "title": "Arrive Marathon", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [
+        { "name": "Wawa", "lat": 47.9908, "lng": -84.7728 },
+        { "name": "Marathon", "lat": 48.7788, "lng": -86.3925 }
+      ]
+    },
+    {
+      "id": "l2-d03",
+      "index": 3,
+      "date": "2026-09-21",
+      "tz": "America/Thunder_Bay",
+      "city": "Thunder Bay, ON",
+      "region": "Northwestern Ontario",
+      "lat": 48.3809,
+      "lng": -89.2477,
+      "driveFromPrev": "300 km",
+      "summary": "Shorter driving day continuing west along Lake Superior to Thunder Bay, with views of the Sleeping Giant formation.",
+      "agenda": [
+        { "time": "09:00", "title": "Depart Marathon", "type": "drive" },
+        { "time": "14:00", "title": "Arrive Thunder Bay", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Thunder Bay", "lat": 48.3809, "lng": -89.2477 } ]
+    },
+    {
+      "id": "l2-d04",
+      "index": 4,
+      "date": "2026-09-22",
+      "tz": "America/Winnipeg",
+      "city": "Kenora, ON",
+      "region": "Northwestern Ontario",
+      "lat": 49.7669,
+      "lng": -94.4894,
+      "driveFromPrev": "500 km",
+      "summary": "Continue west across northwestern Ontario's Canadian Shield lake country to Kenora on Lake of the Woods, crossing into Central time.",
+      "agenda": [
+        { "time": "08:30", "title": "Depart Thunder Bay", "type": "drive" },
+        { "time": "16:00", "title": "Arrive Kenora", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Kenora", "lat": 49.7669, "lng": -94.4894 } ]
+    },
+    {
+      "id": "l2-d05",
+      "index": 5,
+      "date": "2026-09-23",
+      "tz": "America/Regina",
+      "city": "Regina, SK",
+      "region": "Saskatchewan Prairies",
+      "lat": 50.4452,
+      "lng": -104.6189,
+      "driveFromPrev": "700 km",
+      "summary": "Long prairie driving day westward across Manitoba into Saskatchewan, watching the landscape open into big-sky farmland en route to Regina.",
+      "agenda": [
+        { "time": "07:30", "title": "Depart Kenora", "type": "drive" },
+        { "time": "17:30", "title": "Arrive Regina", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Regina", "lat": 50.4452, "lng": -104.6189 } ]
+    },
+    {
+      "id": "l2-d06",
+      "index": 6,
+      "date": "2026-09-24",
+      "tz": "America/Edmonton",
+      "city": "Banff, AB",
+      "region": "Canadian Rockies, AB",
+      "lat": 51.1784,
+      "lng": -115.5708,
+      "driveFromPrev": "850 km",
+      "summary": "The longest driving day of the loop, crossing the Saskatchewan prairies and entering the Canadian Rockies at Banff National Park.",
+      "agenda": [
+        { "time": "07:00", "title": "Depart Regina", "type": "drive" },
+        { "time": "19:00", "title": "Arrive Banff", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Banff", "lat": 51.1784, "lng": -115.5708 } ]
+    },
+    {
+      "id": "l2-d07",
+      "index": 7,
+      "date": "2026-09-25",
+      "tz": "America/Edmonton",
+      "city": "Jasper, AB",
+      "region": "Icefields Parkway, AB",
+      "lat": 52.8737,
+      "lng": -118.0814,
+      "driveFromPrev": "250 km",
+      "summary": "Drive the spectacular Icefields Parkway from Banff to Jasper, past glaciers, turquoise lakes, and towering peaks.",
+      "agenda": [
+        { "time": "09:00", "title": "Depart Banff", "type": "drive" },
+        { "time": "12:00", "title": "Icefields Parkway — Columbia Icefield", "type": "sight" },
+        { "time": "16:00", "title": "Arrive Jasper", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [
+        { "name": "Columbia Icefield", "lat": 52.2178, "lng": -117.2244 },
+        { "name": "Jasper", "lat": 52.8737, "lng": -118.0814 }
+      ]
+    },
+    {
+      "id": "l2-d08",
+      "index": 8,
+      "date": "2026-09-26",
+      "tz": "America/Vancouver",
+      "city": "Kelowna, BC",
+      "region": "BC Interior / Okanagan",
+      "lat": 49.8880,
+      "lng": -119.4960,
+      "driveFromPrev": "520 km",
+      "summary": "Depart Jasper past Mount Robson, the highest peak in the Canadian Rockies, then descend into British Columbia's Okanagan Valley wine country at Kelowna.",
+      "agenda": [
+        { "time": "08:30", "title": "Depart Jasper", "type": "drive" },
+        { "time": "10:30", "title": "Mount Robson viewpoint", "type": "sight" },
+        { "time": "17:00", "title": "Arrive Kelowna", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [
+        { "name": "Mount Robson", "lat": 53.0700, "lng": -119.1517 },
+        { "name": "Kelowna", "lat": 49.8880, "lng": -119.4960 }
+      ]
+    },
+    {
+      "id": "l2-d09",
+      "index": 9,
+      "date": "2026-09-27",
+      "tz": "America/Vancouver",
+      "city": "Kelowna, BC",
+      "region": "Okanagan Valley, BC",
+      "lat": 49.8880,
+      "lng": -119.4960,
+      "driveFromPrev": "0 km — rest day",
+      "summary": "Flex day exploring the Okanagan Valley's wineries, orchards, and lakeside towns.",
+      "agenda": [
+        { "time": "10:00", "title": "Okanagan Valley wineries", "type": "sight" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Kelowna", "lat": 49.8880, "lng": -119.4960 } ]
+    },
+    {
+      "id": "l2-d10",
+      "index": 10,
+      "date": "2026-09-28",
+      "tz": "America/Vancouver",
+      "city": "Kelowna, BC",
+      "region": "Okanagan Valley, BC",
+      "lat": 49.8880,
+      "lng": -119.4960,
+      "driveFromPrev": "0 km — rest day",
+      "summary": "Second flex day exploring the Okanagan Valley's wineries, orchards, and lakeside towns.",
+      "agenda": [
+        { "time": "10:00", "title": "Okanagan Valley wineries", "type": "sight" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Kelowna", "lat": 49.8880, "lng": -119.4960 } ]
+    },
+    {
+      "id": "l2-d11",
+      "index": 11,
+      "date": "2026-09-29",
+      "tz": "America/Vancouver",
+      "city": "Kelowna, BC",
+      "region": "Okanagan Valley, BC",
+      "lat": 49.8880,
+      "lng": -119.4960,
+      "driveFromPrev": "0 km — rest day",
+      "summary": "Third flex day exploring the Okanagan Valley's wineries, orchards, and lakeside towns.",
+      "agenda": [
+        { "time": "10:00", "title": "Okanagan Valley wineries", "type": "sight" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Kelowna", "lat": 49.8880, "lng": -119.4960 } ]
+    },
+    {
+      "id": "l2-d12",
+      "index": 12,
+      "date": "2026-09-30",
+      "tz": "America/Vancouver",
+      "city": "Vancouver, BC",
+      "region": "BC Interior to Coast",
+      "lat": 49.2827,
+      "lng": -123.1207,
+      "driveFromPrev": "400 km",
+      "summary": "Drive from Kelowna through Manning Park to Vancouver; instead of turning back, prepare to cross into the United States.",
+      "agenda": [
+        { "time": "08:30", "title": "Depart Kelowna", "type": "drive" },
+        { "time": "11:30", "title": "Manning Park", "type": "sight" },
+        { "time": "16:00", "title": "Arrive Vancouver", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [
+        { "name": "Manning Park", "lat": 49.0983, "lng": -120.7825 },
+        { "name": "Vancouver", "lat": 49.2827, "lng": -123.1207 }
+      ]
+    },
+    {
+      "id": "l2-d13",
+      "index": 13,
+      "date": "2026-10-01",
+      "tz": "America/Los_Angeles",
+      "city": "Winthrop, WA",
+      "region": "North Cascades, WA",
+      "lat": 48.4762,
+      "lng": -120.1859,
+      "driveFromPrev": "330 km",
+      "summary": "Cross the border into the U.S. and drive one of America's finest mountain roads, the North Cascades Highway, to the old-west town of Winthrop.",
+      "agenda": [
+        { "time": "08:00", "title": "Cross US border", "type": "drive" },
+        { "time": "12:00", "title": "North Cascades Highway", "type": "sight" },
+        { "time": "16:30", "title": "Arrive Winthrop", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [
+        { "name": "North Cascades Highway", "lat": 48.6501, "lng": -120.7318 },
+        { "name": "Winthrop", "lat": 48.4762, "lng": -120.1859 }
+      ]
+    },
+    {
+      "id": "l2-d14",
+      "index": 14,
+      "date": "2026-10-02",
+      "tz": "America/Los_Angeles",
+      "city": "Coeur d'Alene, ID",
+      "region": "Inland Northwest, WA/ID",
+      "lat": 47.6777,
+      "lng": -116.7805,
+      "driveFromPrev": "320 km",
+      "summary": "Drive east through Spokane's beautiful lakes and forests into the Idaho panhandle to Coeur d'Alene.",
+      "agenda": [
+        { "time": "09:00", "title": "Depart Winthrop", "type": "drive" },
+        { "time": "13:00", "title": "Spokane", "type": "sight" },
+        { "time": "15:30", "title": "Arrive Coeur d'Alene", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [
+        { "name": "Spokane", "lat": 47.6588, "lng": -117.4260 },
+        { "name": "Coeur d'Alene", "lat": 47.6777, "lng": -116.7805 }
+      ]
+    },
+    {
+      "id": "l2-d15",
+      "index": 15,
+      "date": "2026-10-03",
+      "tz": "America/Denver",
+      "city": "Glacier National Park, MT",
+      "region": "Northern Rockies, MT",
+      "lat": 48.6960,
+      "lng": -113.8181,
+      "driveFromPrev": "350 km",
+      "summary": "Drive to Glacier National Park; if Going-to-the-Sun Road is still open it's unforgettable, otherwise U.S. Highway 2 offers magnificent scenery.",
+      "agenda": [
+        { "time": "08:30", "title": "Depart Coeur d'Alene", "type": "drive" },
+        { "time": "14:00", "title": "Going-to-the-Sun Road (or US-2)", "type": "sight" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Glacier National Park", "lat": 48.6960, "lng": -113.8181 } ]
+    },
+    {
+      "id": "l2-d16",
+      "index": 16,
+      "date": "2026-10-04",
+      "tz": "America/Denver",
+      "city": "Yellowstone National Park, WY",
+      "region": "Greater Yellowstone, WY",
+      "lat": 44.4280,
+      "lng": -110.5885,
+      "driveFromPrev": "550 km",
+      "summary": "A longer driving day south to Yellowstone; October brings fewer visitors, active elk rut, more active wolves, and occasional light snow.",
+      "agenda": [
+        { "time": "07:30", "title": "Depart Glacier National Park", "type": "drive" },
+        { "time": "17:00", "title": "Arrive Yellowstone", "type": "drive" },
+        { "time": "18:00", "title": "Elk rut viewing", "type": "sight" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Yellowstone National Park", "lat": 44.4280, "lng": -110.5885 } ]
+    },
+    {
+      "id": "l2-d17",
+      "index": 17,
+      "date": "2026-10-05",
+      "tz": "America/Denver",
+      "city": "Bighorn Mountains, WY",
+      "region": "Bighorn Mountains, WY",
+      "lat": 44.8500,
+      "lng": -107.3500,
+      "driveFromPrev": "200 km",
+      "summary": "One of the most underrated drives in the western U.S., heading from Yellowstone through Cody into the Bighorn Mountains.",
+      "agenda": [
+        { "time": "09:00", "title": "Depart Yellowstone", "type": "drive" },
+        { "time": "11:30", "title": "Cody, Wyoming", "type": "sight" },
+        { "time": "15:00", "title": "Bighorn Mountains", "type": "sight" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [
+        { "name": "Cody", "lat": 44.5263, "lng": -109.0565 },
+        { "name": "Bighorn Mountains", "lat": 44.8500, "lng": -107.3500 }
+      ]
+    },
+    {
+      "id": "l2-d18",
+      "index": 18,
+      "date": "2026-10-06",
+      "tz": "America/Denver",
+      "city": "Custer, SD",
+      "region": "Black Hills, SD",
+      "lat": 43.7669,
+      "lng": -103.5967,
+      "driveFromPrev": "460 km",
+      "summary": "Drive to the Black Hills to visit Mount Rushmore, Crazy Horse Memorial, Custer State Park, and the Needles Highway (weather permitting).",
+      "agenda": [
+        { "time": "08:00", "title": "Depart Bighorn Mountains", "type": "drive" },
+        { "time": "15:00", "title": "Mount Rushmore", "type": "sight" },
+        { "time": "16:30", "title": "Crazy Horse Memorial", "type": "sight" },
+        { "time": "17:30", "title": "Custer State Park / Needles Highway", "type": "sight" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [
+        { "name": "Mount Rushmore", "lat": 43.8791, "lng": -103.4591 },
+        { "name": "Crazy Horse Memorial", "lat": 43.8375, "lng": -103.6252 },
+        { "name": "Custer State Park", "lat": 43.7569, "lng": -103.4230 }
+      ]
+    },
+    {
+      "id": "l2-d19",
+      "index": 19,
+      "date": "2026-10-07",
+      "tz": "America/Denver",
+      "city": "Badlands National Park, SD",
+      "region": "Badlands, SD",
+      "lat": 43.8554,
+      "lng": -102.3397,
+      "driveFromPrev": "130 km",
+      "summary": "Short drive to Badlands National Park for excellent sunrise or sunset photography of the eroded rock formations.",
+      "agenda": [
+        { "time": "09:00", "title": "Depart Black Hills", "type": "drive" },
+        { "time": "17:30", "title": "Badlands sunset viewpoint", "type": "sight" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Badlands National Park", "lat": 43.8554, "lng": -102.3397 } ]
+    },
+    {
+      "id": "l2-d20",
+      "index": 20,
+      "date": "2026-10-08",
+      "tz": "America/Chicago",
+      "city": "Minneapolis, MN",
+      "region": "Upper Midwest, MN",
+      "lat": 44.9778,
+      "lng": -93.2650,
+      "driveFromPrev": "900 km",
+      "summary": "Long drive east across South Dakota and Minnesota farmland to Minneapolis.",
+      "agenda": [
+        { "time": "07:00", "title": "Depart Badlands National Park", "type": "drive" },
+        { "time": "18:00", "title": "Arrive Minneapolis", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [ { "name": "Minneapolis", "lat": 44.9778, "lng": -93.2650 } ]
+    },
+    {
+      "id": "l2-d21",
+      "index": 21,
+      "date": "2026-10-09",
+      "tz": "America/Toronto",
+      "city": "Midland, ON",
+      "region": "Great Lakes / Ontario",
+      "lat": 44.7500,
+      "lng": -79.8880,
+      "driveFromPrev": "1600 km — very long final day (source notes this could be split into two easier days)",
+      "summary": "Final long drive home via Duluth and Sault Ste. Marie back to Midland, closing the loop; the source notes this could be split into two easier days.",
+      "agenda": [
+        { "time": "06:00", "title": "Depart Minneapolis", "type": "drive" },
+        { "time": "09:00", "title": "Duluth, Minnesota", "type": "sight" },
+        { "time": "16:00", "title": "Sault Ste. Marie", "type": "drive" },
+        { "time": "23:00", "title": "Arrive Midland, ON", "type": "drive" }
+      ],
+      "local": { "food": [], "gas": [], "photo": [], "events": [] },
+      "keyLocations": [
+        { "name": "Duluth", "lat": 46.7867, "lng": -92.1005 },
+        { "name": "Sault Ste. Marie", "lat": 46.5136, "lng": -84.3358 },
+        { "name": "Midland", "lat": 44.7500, "lng": -79.8880 }
+      ]
+    }
+  ]
+}

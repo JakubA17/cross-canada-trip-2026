@@ -1,0 +1,508 @@
+{
+  "id": "alt_v1_10day",
+  "label": "ChatGPT 1st Version — 10-Day Midland to Okanagan",
+  "type": "alternate",
+  "originCity": "Midland, ON",
+  "destCity": "Kelowna, BC",
+  "days": [
+    {
+      "id": "v1-d01",
+      "index": 1,
+      "date": "2026-09-19",
+      "tz": "America/Toronto",
+      "city": "Killarney, ON",
+      "region": "Georgian Bay / North Channel",
+      "lat": 45.9832,
+      "lng": -81.4306,
+      "driveFromPrev": null,
+      "summary": "Depart Midland westbound along Georgian Bay toward the North Channel, settling into an easy first night around Killarney (Killbear is the closer alternative if a shorter first day is preferred).",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Midland, ON",
+          "type": "drive"
+        },
+        {
+          "time": "16:00",
+          "title": "Arrive Killarney area, set up camp",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Killarney, ON",
+          "lat": 45.9832,
+          "lng": -81.4306
+        }
+      ],
+      "zoneId": "z1",
+      "sun": {
+        "dawn": "06:39",
+        "sunrise": "07:09",
+        "noon": "13:19",
+        "sunset": "19:30",
+        "dusk": "19:59",
+        "blueEnd": "06:51",
+        "goldenEnd": "07:49",
+        "goldenStart": "18:50",
+        "blueStart": "19:48",
+        "daylight": 741,
+        "tzAbbr": "EDT"
+      }
+    },
+    {
+      "id": "v1-d02",
+      "index": 2,
+      "date": "2026-09-20",
+      "tz": "America/Toronto",
+      "city": "Wawa, ON",
+      "region": "Lake Superior North Shore",
+      "lat": 47.9813,
+      "lng": -84.7793,
+      "driveFromPrev": "510 km / ~6.5 hrs",
+      "summary": "A long push through Sault Ste. Marie and along Lake Superior's spectacular fall-colour shoreline to the famous Wawa goose landmark.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Killarney area",
+          "type": "drive"
+        },
+        {
+          "time": "12:30",
+          "title": "Pass through Sault Ste. Marie",
+          "type": "sight"
+        },
+        {
+          "time": "17:30",
+          "title": "Arrive Wawa, photo stop at the Wawa Goose",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Wawa, ON",
+          "lat": 47.9813,
+          "lng": -84.7793
+        }
+      ],
+      "zoneId": "z2",
+      "sun": {
+        "dawn": "06:53",
+        "sunrise": "07:24",
+        "noon": "13:32",
+        "sunset": "19:41",
+        "dusk": "20:12",
+        "blueEnd": "07:05",
+        "goldenEnd": "08:04",
+        "goldenStart": "19:01",
+        "blueStart": "20:00",
+        "daylight": 737,
+        "tzAbbr": "EDT"
+      }
+    },
+    {
+      "id": "v1-d03",
+      "index": 3,
+      "date": "2026-09-21",
+      "tz": "America/Thunder_Bay",
+      "city": "Thunder Bay, ON",
+      "region": "Lake Superior North Shore",
+      "lat": 48.3809,
+      "lng": -89.2477,
+      "driveFromPrev": "480 km / ~5.5 hrs",
+      "summary": "Continue west along Lake Superior's rugged shoreline, one of the best stretches of fall colour on the route, into Thunder Bay.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Wawa",
+          "type": "drive"
+        },
+        {
+          "time": "13:00",
+          "title": "Lake Superior scenic viewpoints",
+          "type": "sight"
+        },
+        {
+          "time": "16:30",
+          "title": "Arrive Thunder Bay",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Thunder Bay, ON",
+          "lat": 48.3809,
+          "lng": -89.2477
+        }
+      ],
+      "zoneId": "z2",
+      "sun": {
+        "dawn": "07:12",
+        "sunrise": "07:43",
+        "noon": "13:50",
+        "sunset": "19:57",
+        "dusk": "20:28",
+        "blueEnd": "07:24",
+        "goldenEnd": "08:24",
+        "goldenStart": "19:16",
+        "blueStart": "20:16",
+        "daylight": 734,
+        "tzAbbr": "EDT"
+      }
+    },
+    {
+      "id": "v1-d04",
+      "index": 4,
+      "date": "2026-09-22",
+      "tz": "America/Rainy_River",
+      "city": "Kenora, ON",
+      "region": "Lake of the Woods",
+      "lat": 49.7669,
+      "lng": -94.4894,
+      "driveFromPrev": "490 km / ~5.5 hrs",
+      "summary": "Leave Lake Superior behind and cross into the Canadian Shield lake country around Lake of the Woods, crossing into Central time at Kenora.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Thunder Bay",
+          "type": "drive"
+        },
+        {
+          "time": "16:00",
+          "title": "Arrive Kenora, Lake of the Woods waterfront",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Kenora, ON",
+          "lat": 49.7669,
+          "lng": -94.4894
+        }
+      ],
+      "zoneId": "z3",
+      "sun": {
+        "dawn": "06:33",
+        "sunrise": "07:05",
+        "noon": "13:11",
+        "sunset": "19:16",
+        "dusk": "19:48",
+        "blueEnd": "06:45",
+        "goldenEnd": "07:47",
+        "goldenStart": "18:34",
+        "blueStart": "19:36",
+        "daylight": 731,
+        "tzAbbr": "CDT"
+      }
+    },
+    {
+      "id": "v1-d05",
+      "index": 5,
+      "date": "2026-09-23",
+      "tz": "America/Winnipeg",
+      "city": "Riding Mountain National Park, MB",
+      "region": "Manitoba Escarpment",
+      "lat": 50.6501,
+      "lng": -99.9977,
+      "driveFromPrev": "470 km / ~5.5 hrs",
+      "summary": "Cross Manitoba through Winnipeg, then detour north off the Trans-Canada into the forested hills of Riding Mountain National Park for an optional wildlife-watching overnight.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Kenora",
+          "type": "drive"
+        },
+        {
+          "time": "12:00",
+          "title": "Pass through Winnipeg",
+          "type": "drive"
+        },
+        {
+          "time": "16:30",
+          "title": "Arrive Riding Mountain National Park (Wasagaming)",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Riding Mountain National Park, MB",
+          "lat": 50.6501,
+          "lng": -99.9977
+        }
+      ],
+      "zoneId": "z4",
+      "sun": {
+        "dawn": "06:56",
+        "sunrise": "07:28",
+        "noon": "13:32",
+        "sunset": "19:36",
+        "dusk": "20:09",
+        "blueEnd": "07:08",
+        "goldenEnd": "08:12",
+        "goldenStart": "18:53",
+        "blueStart": "19:56",
+        "daylight": 728,
+        "tzAbbr": "CDT"
+      }
+    },
+    {
+      "id": "v1-d06",
+      "index": 6,
+      "date": "2026-09-24",
+      "tz": "America/Regina",
+      "city": "Moose Jaw, SK",
+      "region": "Saskatchewan Prairie",
+      "lat": 50.3934,
+      "lng": -105.5347,
+      "driveFromPrev": "500 km / ~5.5 hrs",
+      "summary": "Back south to the Trans-Canada Highway and across the open Saskatchewan prairie to Moose Jaw, entering Saskatchewan's non-DST Central time.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Riding Mountain National Park",
+          "type": "drive"
+        },
+        {
+          "time": "16:00",
+          "title": "Arrive Moose Jaw",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Moose Jaw, SK",
+          "lat": 50.3934,
+          "lng": -105.5347
+        }
+      ],
+      "zoneId": "z5",
+      "sun": {
+        "dawn": "06:20",
+        "sunrise": "06:52",
+        "noon": "12:54",
+        "sunset": "18:56",
+        "dusk": "19:28",
+        "blueEnd": "06:32",
+        "goldenEnd": "07:35",
+        "goldenStart": "18:13",
+        "blueStart": "19:16",
+        "daylight": 724,
+        "tzAbbr": "CST"
+      }
+    },
+    {
+      "id": "v1-d07",
+      "index": 7,
+      "date": "2026-09-25",
+      "tz": "America/Edmonton",
+      "city": "Banff, AB",
+      "region": "Canadian Rockies",
+      "lat": 51.1784,
+      "lng": -115.5708,
+      "driveFromPrev": "740 km / ~7.5 hrs",
+      "summary": "A big westward push through Medicine Hat and Calgary, arriving at the foot of the Canadian Rockies in Banff (Canmore is the alternative base).",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart Moose Jaw",
+          "type": "drive"
+        },
+        {
+          "time": "12:30",
+          "title": "Pass through Medicine Hat",
+          "type": "drive"
+        },
+        {
+          "time": "15:30",
+          "title": "Pass through Calgary",
+          "type": "drive"
+        },
+        {
+          "time": "17:30",
+          "title": "Arrive Banff, first Rockies views",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Banff, AB",
+          "lat": 51.1784,
+          "lng": -115.5708
+        }
+      ],
+      "zoneId": "z6",
+      "sun": {
+        "dawn": "07:01",
+        "sunrise": "07:34",
+        "noon": "13:34",
+        "sunset": "19:34",
+        "dusk": "20:07",
+        "blueEnd": "07:14",
+        "goldenEnd": "08:18",
+        "goldenStart": "18:50",
+        "blueStart": "19:54",
+        "daylight": 720,
+        "tzAbbr": "MDT"
+      }
+    },
+    {
+      "id": "v1-d08",
+      "index": 8,
+      "date": "2026-09-26",
+      "tz": "America/Edmonton",
+      "city": "Jasper, AB",
+      "region": "Icefields Parkway / Canadian Rockies",
+      "lat": 52.8737,
+      "lng": -118.0814,
+      "driveFromPrev": "290 km / ~4 hrs driving (full day with stops)",
+      "summary": "One of the world's great scenic drives: via Lake Louise and the full length of the Icefields Parkway, watching for early-season snow at higher elevations, into Jasper.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Banff via Lake Louise",
+          "type": "drive"
+        },
+        {
+          "time": "10:30",
+          "title": "Lake Louise viewpoint stop",
+          "type": "sight"
+        },
+        {
+          "time": "12:00",
+          "title": "Icefields Parkway scenic drive",
+          "type": "sight"
+        },
+        {
+          "time": "16:30",
+          "title": "Arrive Jasper",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Jasper, AB",
+          "lat": 52.8737,
+          "lng": -118.0814
+        }
+      ],
+      "zoneId": "z8",
+      "sun": {
+        "dawn": "07:12",
+        "sunrise": "07:46",
+        "noon": "13:44",
+        "sunset": "19:41",
+        "dusk": "20:16",
+        "blueEnd": "07:25",
+        "goldenEnd": "08:31",
+        "goldenStart": "18:56",
+        "blueStart": "20:02",
+        "daylight": 715,
+        "tzAbbr": "MDT"
+      }
+    },
+    {
+      "id": "v1-d09",
+      "index": 9,
+      "date": "2026-09-27",
+      "tz": "America/Vancouver",
+      "city": "Clearwater, BC",
+      "region": "Wells Gray / Thompson Country",
+      "lat": 51.6506,
+      "lng": -120.0435,
+      "driveFromPrev": "350 km / ~4.5 hrs",
+      "summary": "Cross into British Columbia past Mount Robson, the highest peak in the Canadian Rockies, then descend the Yellowhead Highway to Clearwater at the gateway to Wells Gray Provincial Park.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Jasper",
+          "type": "drive"
+        },
+        {
+          "time": "10:00",
+          "title": "Mount Robson viewpoint",
+          "type": "sight"
+        },
+        {
+          "time": "15:00",
+          "title": "Arrive Clearwater",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Clearwater, BC",
+          "lat": 51.6506,
+          "lng": -120.0435
+        }
+      ],
+      "zoneId": "z8",
+      "sun": {
+        "dawn": "06:22",
+        "sunrise": "06:55",
+        "noon": "12:51",
+        "sunset": "18:47",
+        "dusk": "19:20",
+        "blueEnd": "06:35",
+        "goldenEnd": "07:40",
+        "goldenStart": "18:03",
+        "blueStart": "19:07",
+        "daylight": 712,
+        "tzAbbr": "PDT"
+      }
+    },
+    {
+      "id": "v1-d10",
+      "index": 10,
+      "date": "2026-09-28",
+      "tz": "America/Vancouver",
+      "city": "Kelowna, BC",
+      "region": "Okanagan Valley",
+      "lat": 49.888,
+      "lng": -119.496,
+      "driveFromPrev": "330 km / ~4 hrs",
+      "summary": "Final leg through Kamloops and down into the Okanagan Valley, arriving in Kelowna during grape harvest season with vineyards and lakefront in full autumn colour.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Clearwater",
+          "type": "drive"
+        },
+        {
+          "time": "10:30",
+          "title": "Pass through Kamloops",
+          "type": "drive"
+        },
+        {
+          "time": "14:00",
+          "title": "Arrive Kelowna, Okanagan Lake waterfront",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Kelowna, BC",
+          "lat": 49.888,
+          "lng": -119.496
+        }
+      ],
+      "zoneId": "z8",
+      "sun": {
+        "dawn": "06:22",
+        "sunrise": "06:54",
+        "noon": "12:49",
+        "sunset": "18:43",
+        "dusk": "19:15",
+        "blueEnd": "06:34",
+        "goldenEnd": "07:37",
+        "goldenStart": "18:00",
+        "blueStart": "19:03",
+        "daylight": 709,
+        "tzAbbr": "PDT"
+      }
+    }
+  ],
+  "sunWindow": {
+    "start": 330,
+    "end": 1260
+  }
+}

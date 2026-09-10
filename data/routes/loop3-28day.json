@@ -1,0 +1,1525 @@
+{
+  "id": "alt_loop3_28day",
+  "label": "ChatGPT Loop \u2014 28-Day Midland Loop",
+  "type": "alternate",
+  "originCity": "Midland, ON",
+  "destCity": "Midland, ON",
+  "days": [
+    {
+      "id": "l3-d01",
+      "index": 1,
+      "date": "2026-09-19",
+      "tz": "America/Toronto",
+      "city": "Sault Ste. Marie, ON",
+      "region": "Algoma District, Northern Ontario",
+      "lat": 46.5136,
+      "lng": -84.3358,
+      "driveFromPrev": null,
+      "summary": "Depart Midland and drive Highway 17 (deliberately avoiding 401/Trans-Canada speed) toward Sault Ste. Marie, the gateway to the Lake Superior photography phase.",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart Midland, ON",
+          "type": "drive"
+        },
+        {
+          "time": "18:00",
+          "title": "Arrive Sault Ste. Marie",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Sault Ste. Marie",
+          "lat": 46.5136,
+          "lng": -84.3358
+        }
+      ]
+    },
+    {
+      "id": "l3-d02",
+      "index": 2,
+      "date": "2026-09-20",
+      "tz": "America/Toronto",
+      "city": "Wawa, ON",
+      "region": "Lake Superior Provincial Park, Northern Ontario",
+      "lat": 47.9997,
+      "lng": -84.7772,
+      "driveFromPrev": "~230 km",
+      "summary": "Drive Highway 17 along Lake Superior into Lake Superior Provincial Park; exposed granite, dark water, boreal forest and autumn colour make this one of the strongest photographic sections of the whole trip.",
+      "agenda": [
+        {
+          "time": "07:00",
+          "title": "Sunrise at Pancake Bay",
+          "type": "photo"
+        },
+        {
+          "time": "09:00",
+          "title": "Depart Sault Ste. Marie",
+          "type": "drive"
+        },
+        {
+          "time": "18:30",
+          "title": "Sunset at Old Woman Bay",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Pancake Bay",
+          "lat": 46.9556,
+          "lng": -84.8095
+        },
+        {
+          "name": "Old Woman Bay",
+          "lat": 47.7333,
+          "lng": -84.8667
+        },
+        {
+          "name": "Agawa Bay",
+          "lat": 47.7,
+          "lng": -84.85
+        }
+      ]
+    },
+    {
+      "id": "l3-d03",
+      "index": 3,
+      "date": "2026-09-21",
+      "tz": "America/Toronto",
+      "city": "Marathon, ON",
+      "region": "North Shore of Lake Superior, Northern Ontario",
+      "lat": 48.7334,
+      "lng": -86.3798,
+      "driveFromPrev": "~200 km",
+      "summary": "Continue along the Lake Superior shoreline from Wawa toward Marathon on Highway 17, staying with the boreal-and-water scenery.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Wawa / Lake Superior Provincial Park",
+          "type": "drive"
+        },
+        {
+          "time": "18:00",
+          "title": "Batchawana Bay area, evening light",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Batchawana Bay",
+          "lat": 46.9333,
+          "lng": -84.5667
+        },
+        {
+          "name": "Marathon",
+          "lat": 48.7334,
+          "lng": -86.3798
+        }
+      ]
+    },
+    {
+      "id": "l3-d04",
+      "index": 4,
+      "date": "2026-09-22",
+      "tz": "America/Thunder_Bay",
+      "city": "Thunder Bay, ON",
+      "region": "Northwestern Ontario",
+      "lat": 48.3809,
+      "lng": -89.2477,
+      "driveFromPrev": "~300 km",
+      "summary": "Finish the Lake Superior shoreline drive and arrive in Thunder Bay, closing out the Days 1-4 Lake Superior photography phase.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Marathon",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Arrive Thunder Bay",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Thunder Bay",
+          "lat": 48.3809,
+          "lng": -89.2477
+        }
+      ]
+    },
+    {
+      "id": "l3-d05",
+      "index": 5,
+      "date": "2026-09-23",
+      "tz": "America/Rainy_River",
+      "city": "Kenora, ON",
+      "region": "Northwestern Ontario / Lake of the Woods",
+      "lat": 49.7669,
+      "lng": -94.4894,
+      "driveFromPrev": "~500 km",
+      "summary": "Begin the prairie crossing with a long boreal-landscape driving day from Thunder Bay to Kenora \u2014 the one unavoidable long section of the trip.",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart Thunder Bay",
+          "type": "drive"
+        },
+        {
+          "time": "17:30",
+          "title": "Arrive Kenora",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Kenora",
+          "lat": 49.7669,
+          "lng": -94.4894
+        }
+      ]
+    },
+    {
+      "id": "l3-d06",
+      "index": 6,
+      "date": "2026-09-24",
+      "tz": "America/Winnipeg",
+      "city": "Riding Mountain National Park, MB",
+      "region": "Manitoba Escarpment",
+      "lat": 50.6501,
+      "lng": -99.9954,
+      "driveFromPrev": "~400 km",
+      "summary": "Detour into Riding Mountain National Park to break up the prairie crossing with a completely different, forested landscape before the open prairie begins.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Kenora",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Arrive Riding Mountain National Park",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Riding Mountain National Park (Wasagaming)",
+          "lat": 50.6501,
+          "lng": -99.9954
+        }
+      ]
+    },
+    {
+      "id": "l3-d07",
+      "index": 7,
+      "date": "2026-09-25",
+      "tz": "America/Regina",
+      "city": "Regina, SK",
+      "region": "Saskatchewan Prairie",
+      "lat": 50.4452,
+      "lng": -104.6189,
+      "driveFromPrev": "~350 km",
+      "summary": "Cross into open prairie photography territory: grain elevators, harvested fields, old churches, shelterbelts, grain bins and huge autumn cloud formations under low sun.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Riding Mountain",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Grain elevators & prairie fields, late-afternoon light",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Regina",
+          "lat": 50.4452,
+          "lng": -104.6189
+        }
+      ]
+    },
+    {
+      "id": "l3-d08",
+      "index": 8,
+      "date": "2026-09-26",
+      "tz": "America/Edmonton",
+      "city": "Medicine Hat, AB",
+      "region": "Southern Alberta Badlands/Prairie",
+      "lat": 50.0405,
+      "lng": -110.6764,
+      "driveFromPrev": "~450 km",
+      "summary": "Continue west across the prairie, watching for grain elevators, abandoned farm buildings and roadside signage before reaching Medicine Hat's badlands-and-prairie terrain.",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart Regina",
+          "type": "drive"
+        },
+        {
+          "time": "17:30",
+          "title": "Arrive Medicine Hat",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Medicine Hat",
+          "lat": 50.0405,
+          "lng": -110.6764
+        }
+      ]
+    },
+    {
+      "id": "l3-d09",
+      "index": 9,
+      "date": "2026-09-27",
+      "tz": "America/Edmonton",
+      "city": "Banff, AB",
+      "region": "Banff National Park, Canadian Rockies",
+      "lat": 51.1784,
+      "lng": -115.5708,
+      "driveFromPrev": "~330 km",
+      "summary": "Drive from Medicine Hat into the Rockies and settle into Banff/Canmore for two nights, slowing the pace considerably for the Rockies phase.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Medicine Hat",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Arrive Banff / Canmore",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Banff",
+          "lat": 51.1784,
+          "lng": -115.5708
+        },
+        {
+          "name": "Canmore",
+          "lat": 51.0891,
+          "lng": -115.3594
+        }
+      ]
+    },
+    {
+      "id": "l3-d10",
+      "index": 10,
+      "date": "2026-09-28",
+      "tz": "America/Edmonton",
+      "city": "Banff, AB",
+      "region": "Banff National Park, Canadian Rockies",
+      "lat": 51.1784,
+      "lng": -115.5708,
+      "driveFromPrev": "~50 km (local)",
+      "summary": "A full photography day around Banff rather than fighting Lake Louise crowds: sunrise at Vermilion Lakes with Mount Rundle reflected in the water, an afternoon along the Bow Valley Parkway, and sunset at Morant's Curve.",
+      "agenda": [
+        {
+          "time": "06:45",
+          "title": "Sunrise at Vermilion Lakes",
+          "type": "photo"
+        },
+        {
+          "time": "13:00",
+          "title": "Bow Valley Parkway",
+          "type": "drive"
+        },
+        {
+          "time": "18:30",
+          "title": "Sunset at Morant's Curve",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Vermilion Lakes",
+          "lat": 51.1811,
+          "lng": -115.6153
+        },
+        {
+          "name": "Bow Valley Parkway",
+          "lat": 51.25,
+          "lng": -115.85
+        },
+        {
+          "name": "Morant's Curve",
+          "lat": 51.3389,
+          "lng": -116.1633
+        }
+      ]
+    },
+    {
+      "id": "l3-d11",
+      "index": 11,
+      "date": "2026-09-29",
+      "tz": "America/Edmonton",
+      "city": "Columbia Icefield, AB",
+      "region": "Icefields Parkway, Banff/Jasper NP boundary",
+      "lat": 52.2064,
+      "lng": -117.2246,
+      "driveFromPrev": "~150 km",
+      "summary": "Take the Icefields Parkway slowly \u2014 Parks Canada recommends a full day one-way with no cell coverage: Lake Louise to Bow Lake, Peyto Lake, Saskatchewan River Crossing, Parker Ridge and the Columbia Icefield.",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart Lake Louise / Banff",
+          "type": "drive"
+        },
+        {
+          "time": "10:30",
+          "title": "Peyto Lake viewpoint",
+          "type": "photo"
+        },
+        {
+          "time": "14:00",
+          "title": "Parker Ridge",
+          "type": "photo"
+        },
+        {
+          "time": "16:30",
+          "title": "Columbia Icefield",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Herbert Lake",
+          "lat": 51.4256,
+          "lng": -116.2431
+        },
+        {
+          "name": "Bow Lake",
+          "lat": 51.6725,
+          "lng": -116.4739
+        },
+        {
+          "name": "Peyto Lake",
+          "lat": 51.7314,
+          "lng": -116.5228
+        },
+        {
+          "name": "Saskatchewan River Crossing",
+          "lat": 52.0011,
+          "lng": -116.7361
+        },
+        {
+          "name": "Parker Ridge",
+          "lat": 52.2081,
+          "lng": -117.1917
+        },
+        {
+          "name": "Columbia Icefield",
+          "lat": 52.2064,
+          "lng": -117.2246
+        }
+      ]
+    },
+    {
+      "id": "l3-d12",
+      "index": 12,
+      "date": "2026-09-30",
+      "tz": "America/Edmonton",
+      "city": "Jasper, AB",
+      "region": "Jasper National Park, Canadian Rockies",
+      "lat": 52.8737,
+      "lng": -118.0814,
+      "driveFromPrev": "~105 km",
+      "summary": "Continue north on the Icefields Parkway from the Columbia Icefield through Sunwapta Falls and Athabasca Falls into Jasper.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Columbia Icefield",
+          "type": "drive"
+        },
+        {
+          "time": "10:00",
+          "title": "Sunwapta Falls",
+          "type": "photo"
+        },
+        {
+          "time": "11:30",
+          "title": "Athabasca Falls",
+          "type": "photo"
+        },
+        {
+          "time": "14:00",
+          "title": "Arrive Jasper",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Sunwapta Falls",
+          "lat": 52.6931,
+          "lng": -117.6353
+        },
+        {
+          "name": "Athabasca Falls",
+          "lat": 52.6636,
+          "lng": -117.8814
+        },
+        {
+          "name": "Jasper",
+          "lat": 52.8737,
+          "lng": -118.0814
+        }
+      ]
+    },
+    {
+      "id": "l3-d13",
+      "index": 13,
+      "date": "2026-10-01",
+      "tz": "America/Edmonton",
+      "city": "Jasper, AB",
+      "region": "Jasper National Park, Canadian Rockies",
+      "lat": 52.8737,
+      "lng": -118.0814,
+      "driveFromPrev": "~150 km (local loop)",
+      "summary": "Spend the morning around Maligne Lake and Medicine Lake, then head to Miette Hot Springs in the late afternoon \u2014 open with fall hours through mid-October in 2026.",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Maligne Lake / Medicine Lake",
+          "type": "photo"
+        },
+        {
+          "time": "15:00",
+          "title": "Miette Hot Springs",
+          "type": "other"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Maligne Lake",
+          "lat": 52.7133,
+          "lng": -117.6389
+        },
+        {
+          "name": "Medicine Lake",
+          "lat": 52.7717,
+          "lng": -117.7364
+        },
+        {
+          "name": "Miette Hot Springs",
+          "lat": 53.0089,
+          "lng": -117.7433
+        }
+      ]
+    },
+    {
+      "id": "l3-d14",
+      "index": 14,
+      "date": "2026-10-02",
+      "tz": "America/Vancouver",
+      "city": "Blue River, BC",
+      "region": "Yellowhead Highway / Robson Valley, BC Interior",
+      "lat": 52.1268,
+      "lng": -119.2905,
+      "driveFromPrev": "~220 km",
+      "summary": "Instead of the fastest route south, drive Jasper to Mount Robson, Valemount and Blue River \u2014 with a Sprinter you can simply stop when the light gets interesting. Sunrise near Mount Edith Cavell if accessible, sunset at Mount Robson.",
+      "agenda": [
+        {
+          "time": "06:30",
+          "title": "Sunrise near Mount Edith Cavell",
+          "type": "photo"
+        },
+        {
+          "time": "09:30",
+          "title": "Depart Jasper",
+          "type": "drive"
+        },
+        {
+          "time": "18:00",
+          "title": "Sunset at Mount Robson",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Mount Edith Cavell",
+          "lat": 52.6825,
+          "lng": -118.0561
+        },
+        {
+          "name": "Mount Robson",
+          "lat": 53.0989,
+          "lng": -119.1522
+        },
+        {
+          "name": "Valemount",
+          "lat": 52.8267,
+          "lng": -119.2653
+        },
+        {
+          "name": "Blue River",
+          "lat": 52.1268,
+          "lng": -119.2905
+        }
+      ]
+    },
+    {
+      "id": "l3-d15",
+      "index": 15,
+      "date": "2026-10-03",
+      "tz": "America/Vancouver",
+      "city": "West Kelowna, BC",
+      "region": "Central Okanagan, BC",
+      "lat": 49.8646,
+      "lng": -119.5906,
+      "driveFromPrev": "~330 km",
+      "summary": "Drive south into the Okanagan and base yourself around West Kelowna / Westside Road for the first of three nights in the valley; Bear Creek Provincial Park is an attractive lakeside base.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Blue River",
+          "type": "drive"
+        },
+        {
+          "time": "18:30",
+          "title": "Sunset over Okanagan Lake, Westside Road",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Bear Creek Provincial Park",
+          "lat": 49.8797,
+          "lng": -119.5217
+        },
+        {
+          "name": "Westside Road",
+          "lat": 49.95,
+          "lng": -119.65
+        }
+      ]
+    },
+    {
+      "id": "l3-d16",
+      "index": 16,
+      "date": "2026-10-04",
+      "tz": "America/Vancouver",
+      "city": "Naramata, BC",
+      "region": "Naramata Bench, Okanagan Valley, BC",
+      "lat": 49.5988,
+      "lng": -119.5876,
+      "driveFromPrev": "~40 km (local)",
+      "summary": "A slow wine-and-photography day: morning at Naramata Bench, afternoon touring wineries, then back to the vineyards for sunset \u2014 the geometry of vineyard rows leading toward Okanagan Lake is fantastic for both ground and telephoto work.",
+      "agenda": [
+        {
+          "time": "10:00",
+          "title": "Naramata Bench",
+          "type": "photo"
+        },
+        {
+          "time": "13:00",
+          "title": "Winery tour",
+          "type": "other"
+        },
+        {
+          "time": "18:00",
+          "title": "Sunset over the vineyards",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Naramata Bench",
+          "lat": 49.5988,
+          "lng": -119.5876
+        }
+      ]
+    },
+    {
+      "id": "l3-d17",
+      "index": 17,
+      "date": "2026-10-05",
+      "tz": "America/Vancouver",
+      "city": "Osoyoos, BC",
+      "region": "South Okanagan, BC",
+      "lat": 49.0316,
+      "lng": -119.4425,
+      "driveFromPrev": "~90 km",
+      "summary": "Drive Penticton to Okanagan Falls, Oliver and Osoyoos as the valley becomes progressively drier and more desert-like; overnight near Cawston at the Similkameen Wild Riverside Retreat for a quiet, off-grid setting.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Penticton / Naramata",
+          "type": "drive"
+        },
+        {
+          "time": "12:00",
+          "title": "Vaseux Lake & vineyards near Oliver",
+          "type": "photo"
+        },
+        {
+          "time": "16:00",
+          "title": "McIntyre Bluff / Osoyoos Lake desert hills",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Vaseux Lake",
+          "lat": 49.2667,
+          "lng": -119.5333
+        },
+        {
+          "name": "McIntyre Bluff",
+          "lat": 49.2333,
+          "lng": -119.55
+        },
+        {
+          "name": "Osoyoos Lake",
+          "lat": 49.0316,
+          "lng": -119.4425
+        }
+      ]
+    },
+    {
+      "id": "l3-d18",
+      "index": 18,
+      "date": "2026-10-06",
+      "tz": "America/Vancouver",
+      "city": "Manning Park, BC",
+      "region": "Cascade Mountains, BC",
+      "lat": 49.0621,
+      "lng": -120.7845,
+      "driveFromPrev": "~180 km",
+      "summary": "Take the more interesting Kettle/Similkameen route \u2014 Osoyoos to Keremeos, Princeton and Manning Park \u2014 and overnight at Lightning Lake Campground, a beautiful autumn base surrounded by mountains and lake.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Osoyoos",
+          "type": "drive"
+        },
+        {
+          "time": "12:00",
+          "title": "Keremeos",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Lightning Lake, Manning Park",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Keremeos",
+          "lat": 49.2058,
+          "lng": -119.8386
+        },
+        {
+          "name": "Princeton",
+          "lat": 49.459,
+          "lng": -120.511
+        },
+        {
+          "name": "Lightning Lake",
+          "lat": 49.0644,
+          "lng": -120.8134
+        }
+      ]
+    },
+    {
+      "id": "l3-d19",
+      "index": 19,
+      "date": "2026-10-07",
+      "tz": "America/Edmonton",
+      "city": "Radium Hot Springs, BC",
+      "region": "Columbia Valley, East Kootenay, BC",
+      "lat": 50.6234,
+      "lng": -116.0631,
+      "driveFromPrev": "~500 km",
+      "summary": "The longest day of the trip but through exceptionally scenic country: Manning Park to Hope, Princeton, Osoyoos, Castlegar, Nelson and Radium (breaking at Nelson is an option). Evening photography in Sinclair Canyon and the Columbia Valley.",
+      "agenda": [
+        {
+          "time": "07:30",
+          "title": "Depart Manning Park",
+          "type": "drive"
+        },
+        {
+          "time": "13:00",
+          "title": "Nelson, BC",
+          "type": "drive"
+        },
+        {
+          "time": "18:30",
+          "title": "Sinclair Canyon / Columbia Valley, evening light",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Nelson",
+          "lat": 49.4928,
+          "lng": -117.2948
+        },
+        {
+          "name": "Sinclair Canyon",
+          "lat": 50.6167,
+          "lng": -116.0833
+        },
+        {
+          "name": "Radium Hot Springs",
+          "lat": 50.6234,
+          "lng": -116.0631
+        }
+      ]
+    },
+    {
+      "id": "l3-d20",
+      "index": 20,
+      "date": "2026-10-08",
+      "tz": "America/Los_Angeles",
+      "city": "Sandpoint, ID",
+      "region": "Idaho Panhandle",
+      "lat": 48.2766,
+      "lng": -116.5535,
+      "driveFromPrev": "~280 km",
+      "summary": "Cross into the U.S. around Eastport/Kingsgate and head toward Sandpoint / Lake Pend Oreille via Cranbrook and Creston, spending the night beside the lake if conditions permit.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Radium Hot Springs",
+          "type": "drive"
+        },
+        {
+          "time": "11:00",
+          "title": "Cranbrook / Creston",
+          "type": "drive"
+        },
+        {
+          "time": "13:30",
+          "title": "Cross border at Eastport/Kingsgate",
+          "type": "other"
+        },
+        {
+          "time": "17:00",
+          "title": "Arrive Sandpoint / Lake Pend Oreille",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Cranbrook",
+          "lat": 49.5122,
+          "lng": -115.7694
+        },
+        {
+          "name": "Creston",
+          "lat": 49.0955,
+          "lng": -116.5135
+        },
+        {
+          "name": "Lake Pend Oreille",
+          "lat": 48.2766,
+          "lng": -116.5535
+        }
+      ]
+    },
+    {
+      "id": "l3-d21",
+      "index": 21,
+      "date": "2026-10-09",
+      "tz": "America/Los_Angeles",
+      "city": "Coeur d'Alene, ID",
+      "region": "Idaho Panhandle",
+      "lat": 47.6777,
+      "lng": -116.7805,
+      "driveFromPrev": "~120 km",
+      "summary": "A deliberately slow day exploring Lake Pend Oreille, Sandpoint, Priest River and Coeur d'Alene \u2014 the Pacific Northwest forest landscape is a wonderful contrast to the Okanagan.",
+      "agenda": [
+        {
+          "time": "10:00",
+          "title": "Sandpoint & Lake Pend Oreille",
+          "type": "photo"
+        },
+        {
+          "time": "13:00",
+          "title": "Priest River",
+          "type": "drive"
+        },
+        {
+          "time": "16:00",
+          "title": "Coeur d'Alene",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Priest River",
+          "lat": 48.1793,
+          "lng": -116.9082
+        },
+        {
+          "name": "Coeur d'Alene",
+          "lat": 47.6777,
+          "lng": -116.7805
+        }
+      ]
+    },
+    {
+      "id": "l3-d22",
+      "index": 22,
+      "date": "2026-10-10",
+      "tz": "America/Denver",
+      "city": "West Glacier, MT",
+      "region": "Glacier National Park, Montana",
+      "lat": 48.495,
+      "lng": -113.9812,
+      "driveFromPrev": "~350 km",
+      "summary": "Drive from Idaho into Montana and base yourself around Whitefish/West Glacier for two nights; drive Going-to-the-Sun Road if it's open, but don't plan the whole trip around that.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Coeur d'Alene",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Arrive West Glacier / Whitefish",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "West Glacier",
+          "lat": 48.495,
+          "lng": -113.9812
+        },
+        {
+          "name": "Whitefish",
+          "lat": 48.4108,
+          "lng": -114.3376
+        }
+      ]
+    },
+    {
+      "id": "l3-d23",
+      "index": 23,
+      "date": "2026-10-11",
+      "tz": "America/Denver",
+      "city": "West Glacier, MT",
+      "region": "Glacier National Park, Montana",
+      "lat": 48.495,
+      "lng": -113.9812,
+      "driveFromPrev": "~100 km (local)",
+      "summary": "A full day in Glacier: sunrise and sunset at Lake McDonald / Apgar, and if roads and conditions permit, wildlife photography around Two Medicine / Many Glacier.",
+      "agenda": [
+        {
+          "time": "07:00",
+          "title": "Sunrise at Lake McDonald",
+          "type": "photo"
+        },
+        {
+          "time": "11:00",
+          "title": "Going-to-the-Sun Road (if open)",
+          "type": "drive"
+        },
+        {
+          "time": "18:30",
+          "title": "Sunset at Lake McDonald / Apgar",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Lake McDonald",
+          "lat": 48.6158,
+          "lng": -113.8869
+        },
+        {
+          "name": "Apgar",
+          "lat": 48.5236,
+          "lng": -113.9967
+        },
+        {
+          "name": "Two Medicine",
+          "lat": 48.4956,
+          "lng": -113.3653
+        },
+        {
+          "name": "Many Glacier",
+          "lat": 48.7961,
+          "lng": -113.6586
+        }
+      ]
+    },
+    {
+      "id": "l3-d24",
+      "index": 24,
+      "date": "2026-10-12",
+      "tz": "America/Denver",
+      "city": "West Yellowstone, MT",
+      "region": "Yellowstone Gateway, Montana",
+      "lat": 44.6621,
+      "lng": -111.1046,
+      "driveFromPrev": "~420 km",
+      "summary": "A long mountain drive south from Glacier to Yellowstone, treated as a scenic driving day in its own right.",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart West Glacier",
+          "type": "drive"
+        },
+        {
+          "time": "18:00",
+          "title": "Arrive West Yellowstone",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "West Yellowstone",
+          "lat": 44.6621,
+          "lng": -111.1046
+        }
+      ]
+    },
+    {
+      "id": "l3-d25",
+      "index": 25,
+      "date": "2026-10-13",
+      "tz": "America/Denver",
+      "city": "Yellowstone National Park, WY",
+      "region": "Yellowstone National Park",
+      "lat": 44.7278,
+      "lng": -110.4996,
+      "driveFromPrev": "~150 km (local)",
+      "summary": "Two nights in Yellowstone deserve a full day: dawn wildlife photography (bison, elk, pronghorn, coyotes, possibly wolves) in Lamar Valley, midday at the thermal areas, and sunset over the geothermal landscape \u2014 treated as a ground-camera/telephoto destination since drones are restricted.",
+      "agenda": [
+        {
+          "time": "06:00",
+          "title": "Dawn wildlife photography, Lamar Valley",
+          "type": "photo"
+        },
+        {
+          "time": "12:00",
+          "title": "Thermal areas",
+          "type": "photo"
+        },
+        {
+          "time": "18:30",
+          "title": "Sunset over the geothermal landscape",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Lamar Valley",
+          "lat": 44.9089,
+          "lng": -110.2321
+        },
+        {
+          "name": "Old Faithful area",
+          "lat": 44.4605,
+          "lng": -110.8281
+        }
+      ]
+    },
+    {
+      "id": "l3-d26",
+      "index": 26,
+      "date": "2026-10-14",
+      "tz": "America/Denver",
+      "city": "Buffalo, WY",
+      "region": "Bighorn Mountains, Wyoming",
+      "lat": 44.3483,
+      "lng": -106.6959,
+      "driveFromPrev": "~300 km",
+      "summary": "Drive Yellowstone to Cody, Wyoming and then across the Bighorn Mountains via Buffalo \u2014 a much more interesting route than the interstate, with the drive itself as important as the destination.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Yellowstone",
+          "type": "drive"
+        },
+        {
+          "time": "11:30",
+          "title": "Cody, Wyoming",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Cross the Bighorn Mountains to Buffalo",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Cody",
+          "lat": 44.5263,
+          "lng": -109.0565
+        },
+        {
+          "name": "Buffalo",
+          "lat": 44.3483,
+          "lng": -106.6959
+        }
+      ]
+    },
+    {
+      "id": "l3-d27",
+      "index": 27,
+      "date": "2026-10-15",
+      "tz": "America/Denver",
+      "city": "Custer State Park, SD",
+      "region": "Black Hills, South Dakota",
+      "lat": 43.7595,
+      "lng": -103.4271,
+      "driveFromPrev": "~280 km",
+      "summary": "Spend the day around Custer State Park, the Needles Highway, Sylvan Lake and Iron Mountain Road, staying at Sylvan Lake through sunset.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Buffalo, WY",
+          "type": "drive"
+        },
+        {
+          "time": "14:00",
+          "title": "Needles Highway / Iron Mountain Road",
+          "type": "photo"
+        },
+        {
+          "time": "18:00",
+          "title": "Sunset at Sylvan Lake",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Custer State Park",
+          "lat": 43.7595,
+          "lng": -103.4271
+        },
+        {
+          "name": "Needles Highway",
+          "lat": 43.85,
+          "lng": -103.4667
+        },
+        {
+          "name": "Sylvan Lake",
+          "lat": 43.8386,
+          "lng": -103.5836
+        },
+        {
+          "name": "Iron Mountain Road",
+          "lat": 43.7833,
+          "lng": -103.4167
+        }
+      ]
+    },
+    {
+      "id": "l3-d28",
+      "index": 28,
+      "date": "2026-10-16",
+      "tz": "America/Denver",
+      "city": "Badlands National Park, SD",
+      "region": "Badlands, South Dakota",
+      "lat": 43.8554,
+      "lng": -102.3397,
+      "driveFromPrev": "~130 km",
+      "summary": "Drive through the Badlands: sunrise at Big Badlands Overlook, midday along Badlands Loop Road, sunset at Pinnacles Overlook \u2014 then begin the long eastern return toward Midland.",
+      "agenda": [
+        {
+          "time": "06:30",
+          "title": "Sunrise at Big Badlands Overlook",
+          "type": "photo"
+        },
+        {
+          "time": "11:00",
+          "title": "Badlands Loop Road",
+          "type": "photo"
+        },
+        {
+          "time": "18:30",
+          "title": "Sunset at Pinnacles Overlook",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Big Badlands Overlook",
+          "lat": 43.8397,
+          "lng": -102.2153
+        },
+        {
+          "name": "Pinnacles Overlook",
+          "lat": 43.9014,
+          "lng": -102.3406
+        }
+      ]
+    },
+    {
+      "id": "l3-d29",
+      "index": 29,
+      "date": "2026-10-17",
+      "tz": "America/Chicago",
+      "city": "Minneapolis, MN",
+      "region": "Twin Cities, Minnesota",
+      "lat": 44.9778,
+      "lng": -93.265,
+      "driveFromPrev": "~600 km",
+      "summary": "Begin the fast interstate return: Badlands to Minneapolis, the first leg of the optional four-week extension.",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart Badlands National Park",
+          "type": "drive"
+        },
+        {
+          "time": "18:00",
+          "title": "Arrive Minneapolis",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Minneapolis",
+          "lat": 44.9778,
+          "lng": -93.265
+        }
+      ]
+    },
+    {
+      "id": "l3-d30",
+      "index": 30,
+      "date": "2026-10-18",
+      "tz": "America/Chicago",
+      "city": "Duluth, MN",
+      "region": "Lake Superior North Shore, Minnesota",
+      "lat": 46.7867,
+      "lng": -92.1005,
+      "driveFromPrev": "~250 km",
+      "summary": "Continue northeast from Minneapolis to Duluth on the return leg, rejoining Lake Superior's shoreline.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Minneapolis",
+          "type": "drive"
+        },
+        {
+          "time": "14:00",
+          "title": "Arrive Duluth",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Duluth",
+          "lat": 46.7867,
+          "lng": -92.1005
+        }
+      ]
+    },
+    {
+      "id": "l3-d31",
+      "index": 31,
+      "date": "2026-10-19",
+      "tz": "America/New_York",
+      "city": "Munising, MI",
+      "region": "Pictured Rocks, Michigan Upper Peninsula",
+      "lat": 46.4106,
+      "lng": -86.6497,
+      "driveFromPrev": "~350 km",
+      "summary": "Drive from Duluth into Michigan's Upper Peninsula to Munising and Pictured Rocks National Lakeshore for another dose of fall colour and Great Lakes shoreline.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Duluth",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Pictured Rocks National Lakeshore",
+          "type": "photo"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Munising",
+          "lat": 46.4106,
+          "lng": -86.6497
+        },
+        {
+          "name": "Pictured Rocks National Lakeshore",
+          "lat": 46.5583,
+          "lng": -86.3722
+        }
+      ]
+    },
+    {
+      "id": "l3-d32",
+      "index": 32,
+      "date": "2026-10-20",
+      "tz": "America/Toronto",
+      "city": "Sault Ste. Marie, ON",
+      "region": "Algoma District, Northern Ontario",
+      "lat": 46.5136,
+      "lng": -84.3358,
+      "driveFromPrev": "~270 km",
+      "summary": "Continue along the Upper Peninsula and cross back into Canada at Sault Ste. Marie, closing the loop on the Great Lakes.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Pictured Rocks / Munising",
+          "type": "drive"
+        },
+        {
+          "time": "16:00",
+          "title": "Cross border at Sault Ste. Marie",
+          "type": "other"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Sault Ste. Marie, MI",
+          "lat": 46.4952,
+          "lng": -84.3453
+        },
+        {
+          "name": "Sault Ste. Marie, ON",
+          "lat": 46.5136,
+          "lng": -84.3358
+        }
+      ]
+    },
+    {
+      "id": "l3-d33",
+      "index": 33,
+      "date": "2026-10-21",
+      "tz": "America/Toronto",
+      "city": "Midland, ON",
+      "region": "Georgian Bay, Ontario",
+      "lat": 44.75,
+      "lng": -79.8833,
+      "driveFromPrev": "~300 km",
+      "summary": "Final leg of the fast return, closing the loop back to Midland to complete the full 33-day version of the trip.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Sault Ste. Marie",
+          "type": "drive"
+        },
+        {
+          "time": "16:00",
+          "title": "Arrive back in Midland, ON",
+          "type": "drive"
+        }
+      ],
+      "local": {
+        "food": [],
+        "gas": [],
+        "photo": [],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Midland",
+          "lat": 44.75,
+          "lng": -79.8833
+        }
+      ]
+    }
+  ]
+}

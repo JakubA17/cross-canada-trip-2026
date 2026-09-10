@@ -1,0 +1,858 @@
+{
+  "id": "ground_truth",
+  "label": "Confirmed Itinerary",
+  "type": "confirmed",
+  "originCity": "Copeland, ON",
+  "destCity": "Enderby, BC (heading south to US border, TBD)",
+  "days": [
+    {
+      "id": "gt-d01",
+      "index": 1,
+      "date": "2026-09-19",
+      "tz": "America/Toronto",
+      "city": "North of Thessalon, ON",
+      "region": "Northern Ontario",
+      "lat": 46.45,
+      "lng": -83.62,
+      "driveFromPrev": null,
+      "summary": "Depart Copeland, ON and drive as far as possible north of Thessalon along Highway 129 to maximize time in Pukaskwa National Park over the coming days; boondock camp somewhere along Hwy 129 North. Total drive 486 km / ~5 hr.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Copeland, ON",
+          "type": "drive"
+        },
+        {
+          "time": "18:00",
+          "title": "Boondock camp along Hwy 129 North, past Thessalon",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Copeland, ON",
+          "lat": 44.593,
+          "lng": -79.698
+        },
+        {
+          "name": "Thessalon, ON (Hwy 129 North)",
+          "lat": 46.2578,
+          "lng": -83.5586
+        }
+      ],
+      "zoneId": "z1",
+      "sun": {
+        "dawn": "06:48",
+        "sunrise": "07:18",
+        "noon": "13:28",
+        "sunset": "19:38",
+        "dusk": "20:09",
+        "blueEnd": "07:00",
+        "goldenEnd": "07:58",
+        "goldenStart": "18:59",
+        "blueStart": "19:57",
+        "daylight": 740,
+        "tzAbbr": "EDT"
+      }
+    },
+    {
+      "id": "gt-d02",
+      "index": 2,
+      "date": "2026-09-20",
+      "tz": "America/Toronto",
+      "city": "Pukaskwa National Park, ON",
+      "region": "Northern Ontario / Lake Superior",
+      "lat": 48.6167,
+      "lng": -86.2833,
+      "driveFromPrev": "531 km / 6 hr",
+      "summary": "Drive from the Thessalon area to Pukaskwa National Park on Lake Superior's north shore, a long 531 km / 6-hour push.",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart Thessalon area (Hwy 129 North campsite)",
+          "type": "drive"
+        },
+        {
+          "time": "14:00",
+          "title": "Arrive Pukaskwa National Park",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Pukaskwa National Park (Hattie Cove), ON",
+          "lat": 48.6167,
+          "lng": -86.2833
+        }
+      ],
+      "zoneId": "z2",
+      "sun": {
+        "dawn": "06:58",
+        "sunrise": "07:29",
+        "noon": "13:38",
+        "sunset": "19:48",
+        "dusk": "20:19",
+        "blueEnd": "07:10",
+        "goldenEnd": "08:11",
+        "goldenStart": "19:06",
+        "blueStart": "20:07",
+        "daylight": 739,
+        "tzAbbr": "EDT"
+      }
+    },
+    {
+      "id": "gt-d03",
+      "index": 3,
+      "date": "2026-09-21",
+      "tz": "America/Toronto",
+      "city": "Pukaskwa National Park, ON",
+      "region": "Northern Ontario / Lake Superior",
+      "lat": 48.6167,
+      "lng": -86.2833,
+      "driveFromPrev": "0 km (day off)",
+      "summary": "Day off in Pukaskwa National Park for hikes.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Hikes in Pukaskwa National Park",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Pukaskwa National Park, ON",
+          "lat": 48.6167,
+          "lng": -86.2833
+        }
+      ],
+      "zoneId": "z2",
+      "sun": {
+        "dawn": "06:59",
+        "sunrise": "07:31",
+        "noon": "13:38",
+        "sunset": "19:45",
+        "dusk": "20:17",
+        "blueEnd": "07:12",
+        "goldenEnd": "08:12",
+        "goldenStart": "19:04",
+        "blueStart": "20:05",
+        "daylight": 734,
+        "tzAbbr": "EDT"
+      }
+    },
+    {
+      "id": "gt-d04",
+      "index": 4,
+      "date": "2026-09-22",
+      "tz": "America/Winnipeg",
+      "city": "Quetico Provincial Park, ON",
+      "region": "Northwestern Ontario",
+      "lat": 48.7333,
+      "lng": -91.6167,
+      "driveFromPrev": "460 km / 5 hr",
+      "summary": "Drive from Pukaskwa National Park to Quetico Provincial Park, 460 km / 5 hours.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Pukaskwa National Park",
+          "type": "drive"
+        },
+        {
+          "time": "15:00",
+          "title": "Arrive Quetico Provincial Park",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Quetico Provincial Park, ON",
+          "lat": 48.7333,
+          "lng": -91.6167
+        }
+      ],
+      "zoneId": "z3",
+      "sun": {
+        "dawn": "06:22",
+        "sunrise": "06:54",
+        "noon": "12:59",
+        "sunset": "19:05",
+        "dusk": "19:36",
+        "blueEnd": "06:34",
+        "goldenEnd": "07:35",
+        "goldenStart": "18:23",
+        "blueStart": "19:24",
+        "daylight": 731,
+        "tzAbbr": "CDT"
+      }
+    },
+    {
+      "id": "gt-d05",
+      "index": 5,
+      "date": "2026-09-23",
+      "tz": "America/Winnipeg",
+      "city": "Kenora, ON",
+      "region": "Northwestern Ontario",
+      "lat": 49.7669,
+      "lng": -94.4894,
+      "driveFromPrev": "380 km / 4.3 hr",
+      "summary": "Drive from Quetico Provincial Park to Kenora, Ontario, 380 km / 4.3 hours.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Quetico Provincial Park",
+          "type": "drive"
+        },
+        {
+          "time": "13:30",
+          "title": "Arrive Kenora, ON",
+          "type": "drive"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Kenora, ON",
+          "lat": 49.7669,
+          "lng": -94.4894
+        }
+      ],
+      "zoneId": "z3",
+      "sun": {
+        "dawn": "06:34",
+        "sunrise": "07:06",
+        "noon": "13:10",
+        "sunset": "19:14",
+        "dusk": "19:46",
+        "blueEnd": "06:47",
+        "goldenEnd": "07:49",
+        "goldenStart": "18:32",
+        "blueStart": "19:34",
+        "daylight": 728,
+        "tzAbbr": "CDT"
+      }
+    },
+    {
+      "id": "gt-d06",
+      "index": 6,
+      "date": "2026-09-24",
+      "tz": "America/Winnipeg",
+      "city": "Riding Mountain National Park, MB",
+      "region": "Manitoba Prairies",
+      "lat": 50.6501,
+      "lng": -99.9926,
+      "driveFromPrev": "209 km to Winnipeg + 267 km to Riding Mountain NP (476 km total) / ~5.3 hr",
+      "summary": "Drive from Kenora to Winnipeg (209 km / 2.3 hr) for a health food store and downtown stop, then continue on to Riding Mountain National Park (267 km / 3 hr) to overnight.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Kenora, ON",
+          "type": "drive"
+        },
+        {
+          "time": "11:30",
+          "title": "Health food store + downtown Winnipeg",
+          "type": "food"
+        },
+        {
+          "time": "14:00",
+          "title": "Continue to Riding Mountain National Park",
+          "type": "drive"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Winnipeg, MB",
+          "lat": 49.8951,
+          "lng": -97.1384
+        },
+        {
+          "name": "Riding Mountain National Park, MB",
+          "lat": 50.6501,
+          "lng": -99.9926
+        }
+      ],
+      "zoneId": "z4",
+      "sun": {
+        "dawn": "06:57",
+        "sunrise": "07:30",
+        "noon": "13:32",
+        "sunset": "19:34",
+        "dusk": "20:06",
+        "blueEnd": "07:10",
+        "goldenEnd": "08:13",
+        "goldenStart": "18:51",
+        "blueStart": "19:54",
+        "daylight": 724,
+        "tzAbbr": "CDT"
+      }
+    },
+    {
+      "id": "gt-d07",
+      "index": 7,
+      "date": "2026-09-25",
+      "tz": "America/Regina",
+      "city": "Regina, SK",
+      "region": "Prairies",
+      "lat": 50.4452,
+      "lng": -104.6189,
+      "driveFromPrev": "388 km / 4 hr",
+      "summary": "Drive from Riding Mountain National Park to Regina, Saskatchewan across the prairies, 388 km / 4 hours.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Riding Mountain National Park",
+          "type": "drive"
+        },
+        {
+          "time": "13:00",
+          "title": "Arrive Regina, SK",
+          "type": "drive"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Regina, SK",
+          "lat": 50.4452,
+          "lng": -104.6189
+        }
+      ],
+      "zoneId": "z5",
+      "sun": {
+        "dawn": "06:18",
+        "sunrise": "06:50",
+        "noon": "12:50",
+        "sunset": "18:50",
+        "dusk": "19:23",
+        "blueEnd": "06:30",
+        "goldenEnd": "07:33",
+        "goldenStart": "18:07",
+        "blueStart": "19:10",
+        "daylight": 720,
+        "tzAbbr": "CST"
+      }
+    },
+    {
+      "id": "gt-d08",
+      "index": 8,
+      "date": "2026-09-26",
+      "tz": "America/Edmonton",
+      "city": "Medicine Hat, AB",
+      "region": "Prairies",
+      "lat": 50.0407,
+      "lng": -110.6764,
+      "driveFromPrev": "465 km / 4.5 hr",
+      "summary": "Drive from Regina to Medicine Hat, Alberta, 465 km / 4.5 hours.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Regina, SK",
+          "type": "drive"
+        },
+        {
+          "time": "13:30",
+          "title": "Arrive Medicine Hat, AB",
+          "type": "drive"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Medicine Hat, AB",
+          "lat": 50.0407,
+          "lng": -110.6764
+        }
+      ],
+      "zoneId": "z5",
+      "sun": {
+        "dawn": "06:44",
+        "sunrise": "07:16",
+        "noon": "13:14",
+        "sunset": "19:12",
+        "dusk": "19:44",
+        "blueEnd": "06:56",
+        "goldenEnd": "07:59",
+        "goldenStart": "18:29",
+        "blueStart": "19:32",
+        "daylight": 716,
+        "tzAbbr": "MDT"
+      }
+    },
+    {
+      "id": "gt-d09",
+      "index": 9,
+      "date": "2026-09-27",
+      "tz": "America/Edmonton",
+      "city": "Calgary, AB",
+      "region": "Alberta Foothills",
+      "lat": 51.0447,
+      "lng": -114.0719,
+      "driveFromPrev": "300 km / 3 hr",
+      "summary": "Drive from Medicine Hat to Calgary, 300 km / 3 hours; check out the suburbs, possibly visit Birgita.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Medicine Hat, AB",
+          "type": "drive"
+        },
+        {
+          "time": "12:00",
+          "title": "Check out Calgary suburbs, Birgita?",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Calgary, AB",
+          "lat": 51.0447,
+          "lng": -114.0719
+        }
+      ],
+      "zoneId": "z6",
+      "sun": {
+        "dawn": "06:58",
+        "sunrise": "07:31",
+        "noon": "13:27",
+        "sunset": "19:23",
+        "dusk": "19:56",
+        "blueEnd": "07:11",
+        "goldenEnd": "08:15",
+        "goldenStart": "18:39",
+        "blueStart": "19:43",
+        "daylight": 712,
+        "tzAbbr": "MDT"
+      }
+    },
+    {
+      "id": "gt-d10",
+      "index": 10,
+      "date": "2026-09-28",
+      "tz": "America/Edmonton",
+      "city": "Canmore, AB",
+      "region": "Canadian Rockies",
+      "lat": 51.0891,
+      "lng": -115.3594,
+      "driveFromPrev": "104 km / 1.1 hr",
+      "summary": "Short drive from Calgary to Canmore, 104 km / 1.1 hours, with hikes at Grassi Lakes and Spray Lakes.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Calgary, AB",
+          "type": "drive"
+        },
+        {
+          "time": "11:00",
+          "title": "Grassi Lakes hike",
+          "type": "sight"
+        },
+        {
+          "time": "14:00",
+          "title": "Spray Lakes hike",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Canmore, AB",
+          "lat": 51.0891,
+          "lng": -115.3594
+        },
+        {
+          "name": "Grassi Lakes",
+          "lat": 51.0692,
+          "lng": -115.3872
+        },
+        {
+          "name": "Spray Lakes Reservoir",
+          "lat": 50.9667,
+          "lng": -115.3167
+        }
+      ],
+      "zoneId": "z6",
+      "sun": {
+        "dawn": "07:05",
+        "sunrise": "07:38",
+        "noon": "13:32",
+        "sunset": "19:26",
+        "dusk": "19:59",
+        "blueEnd": "07:18",
+        "goldenEnd": "08:22",
+        "goldenStart": "18:42",
+        "blueStart": "19:46",
+        "daylight": 708,
+        "tzAbbr": "MDT"
+      }
+    },
+    {
+      "id": "gt-d11",
+      "index": 11,
+      "date": "2026-09-29",
+      "tz": "America/Edmonton",
+      "city": "Canmore, AB",
+      "region": "Canadian Rockies",
+      "lat": 51.0891,
+      "lng": -115.3594,
+      "driveFromPrev": "0 km (day off)",
+      "summary": "Day off in Canmore to rest and hike.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Rest and hike around Canmore",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Canmore, AB",
+          "lat": 51.0891,
+          "lng": -115.3594
+        }
+      ],
+      "zoneId": "z6",
+      "sun": {
+        "dawn": "07:07",
+        "sunrise": "07:40",
+        "noon": "13:32",
+        "sunset": "19:24",
+        "dusk": "19:57",
+        "blueEnd": "07:19",
+        "goldenEnd": "08:23",
+        "goldenStart": "18:40",
+        "blueStart": "19:44",
+        "daylight": 704,
+        "tzAbbr": "MDT"
+      }
+    },
+    {
+      "id": "gt-d12",
+      "index": 12,
+      "date": "2026-09-30",
+      "tz": "America/Edmonton",
+      "city": "Golden, BC",
+      "region": "Canadian Rockies",
+      "lat": 51.2966,
+      "lng": -116.9631,
+      "driveFromPrev": "162 km / 1.75 hr",
+      "summary": "Drive from Canmore to Golden, BC via Banff, Lake Louise, and Yoho National Park, 162 km / 1.75 hours.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Canmore, AB",
+          "type": "drive"
+        },
+        {
+          "time": "10:30",
+          "title": "Banff",
+          "type": "sight"
+        },
+        {
+          "time": "12:00",
+          "title": "Lake Louise",
+          "type": "sight"
+        },
+        {
+          "time": "14:00",
+          "title": "Yoho National Park",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Golden, BC",
+          "lat": 51.2966,
+          "lng": -116.9631
+        },
+        {
+          "name": "Banff, AB",
+          "lat": 51.1784,
+          "lng": -115.5708
+        },
+        {
+          "name": "Lake Louise, AB",
+          "lat": 51.4254,
+          "lng": -116.1773
+        },
+        {
+          "name": "Yoho National Park, BC",
+          "lat": 51.4432,
+          "lng": -116.4909
+        }
+      ],
+      "zoneId": "z6",
+      "sun": {
+        "dawn": "07:15",
+        "sunrise": "07:48",
+        "noon": "13:38",
+        "sunset": "19:28",
+        "dusk": "20:01",
+        "blueEnd": "07:27",
+        "goldenEnd": "08:32",
+        "goldenStart": "18:44",
+        "blueStart": "19:48",
+        "daylight": 700,
+        "tzAbbr": "MDT"
+      }
+    },
+    {
+      "id": "gt-d13",
+      "index": 13,
+      "date": "2026-10-01",
+      "tz": "America/Edmonton",
+      "city": "Golden, BC",
+      "region": "Canadian Rockies",
+      "lat": 51.2966,
+      "lng": -116.9631,
+      "driveFromPrev": "0 km (day off)",
+      "summary": "Day off in Golden, BC to rest and hike. (Source itinerary listed this day's date as the non-existent \"31.9\" — Sept has only 30 days — corrected here to Oct 1, 2026.)",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Rest and hike around Golden, BC",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Golden, BC",
+          "lat": 51.2966,
+          "lng": -116.9631
+        }
+      ],
+      "zoneId": "z7",
+      "sun": {
+        "dawn": "07:16",
+        "sunrise": "07:49",
+        "noon": "13:37",
+        "sunset": "19:26",
+        "dusk": "19:59",
+        "blueEnd": "07:29",
+        "goldenEnd": "08:33",
+        "goldenStart": "18:41",
+        "blueStart": "19:46",
+        "daylight": 697,
+        "tzAbbr": "MDT"
+      }
+    },
+    {
+      "id": "gt-d14",
+      "index": 14,
+      "date": "2026-10-02",
+      "tz": "America/Vancouver",
+      "city": "Enderby, BC",
+      "region": "Okanagan / Interior BC",
+      "lat": 50.5497,
+      "lng": -119.1414,
+      "driveFromPrev": "260 km / 3 hr",
+      "summary": "Drive from Golden, BC to Enderby, BC, passing through Glacier National Park and Mount Revelstoke National Park, 260 km / 3 hours.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Golden, BC",
+          "type": "drive"
+        },
+        {
+          "time": "10:30",
+          "title": "Glacier National Park",
+          "type": "sight"
+        },
+        {
+          "time": "12:00",
+          "title": "Mount Revelstoke National Park",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Enderby, BC",
+          "lat": 50.5497,
+          "lng": -119.1414
+        },
+        {
+          "name": "Glacier National Park (Rogers Pass), BC",
+          "lat": 51.3,
+          "lng": -117.52
+        },
+        {
+          "name": "Mount Revelstoke National Park, BC",
+          "lat": 51.0,
+          "lng": -118.2
+        }
+      ],
+      "zoneId": "z7",
+      "sun": {
+        "dawn": "06:27",
+        "sunrise": "06:59",
+        "noon": "12:46",
+        "sunset": "18:32",
+        "dusk": "19:05",
+        "blueEnd": "06:39",
+        "goldenEnd": "07:43",
+        "goldenStart": "17:49",
+        "blueStart": "18:52",
+        "daylight": 693,
+        "tzAbbr": "PDT"
+      }
+    },
+    {
+      "id": "gt-d15",
+      "index": 15,
+      "date": "2026-10-03",
+      "tz": "America/Vancouver",
+      "city": "Enderby (Splatsin Centre), BC",
+      "region": "Okanagan Valley",
+      "lat": 50.52,
+      "lng": -119.08,
+      "driveFromPrev": "0 km (retreat)",
+      "summary": "Okanagan Valley retreat at the Splatsin Centre, 5767 Old Vernon Rd, near Enderby.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Retreat at Splatsin Centre",
+          "type": "event"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Splatsin Centre, 5767 Old Vernon Rd, Enderby, BC",
+          "lat": 50.52,
+          "lng": -119.08
+        }
+      ],
+      "zoneId": "z7",
+      "sun": {
+        "dawn": "06:28",
+        "sunrise": "07:00",
+        "noon": "12:45",
+        "sunset": "18:30",
+        "dusk": "19:03",
+        "blueEnd": "06:40",
+        "goldenEnd": "07:44",
+        "goldenStart": "17:46",
+        "blueStart": "18:50",
+        "daylight": 690,
+        "tzAbbr": "PDT"
+      }
+    },
+    {
+      "id": "gt-d16",
+      "index": 16,
+      "date": "2026-10-04",
+      "tz": "America/Vancouver",
+      "city": "Enderby (Splatsin Centre), BC",
+      "region": "Okanagan Valley",
+      "lat": 50.52,
+      "lng": -119.08,
+      "driveFromPrev": "0 km (retreat)",
+      "summary": "Okanagan Valley retreat at the Splatsin Centre, 5767 Old Vernon Rd, near Enderby.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Retreat at Splatsin Centre",
+          "type": "event"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Splatsin Centre, 5767 Old Vernon Rd, Enderby, BC",
+          "lat": 50.52,
+          "lng": -119.08
+        }
+      ],
+      "zoneId": "z7",
+      "sun": {
+        "dawn": "06:29",
+        "sunrise": "07:02",
+        "noon": "12:45",
+        "sunset": "18:28",
+        "dusk": "19:00",
+        "blueEnd": "06:42",
+        "goldenEnd": "07:46",
+        "goldenStart": "17:44",
+        "blueStart": "18:48",
+        "daylight": 686,
+        "tzAbbr": "PDT"
+      }
+    },
+    {
+      "id": "gt-d17",
+      "index": 17,
+      "date": "2026-10-05",
+      "tz": "America/Vancouver",
+      "city": "Enderby (Splatsin Centre), BC",
+      "region": "Okanagan Valley",
+      "lat": 50.52,
+      "lng": -119.08,
+      "driveFromPrev": "0 km (retreat)",
+      "summary": "Okanagan Valley retreat at the Splatsin Centre, 5767 Old Vernon Rd, near Enderby.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Retreat at Splatsin Centre",
+          "type": "event"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Splatsin Centre, 5767 Old Vernon Rd, Enderby, BC",
+          "lat": 50.52,
+          "lng": -119.08
+        }
+      ],
+      "zoneId": "z7",
+      "sun": {
+        "dawn": "06:31",
+        "sunrise": "07:04",
+        "noon": "12:45",
+        "sunset": "18:26",
+        "dusk": "18:58",
+        "blueEnd": "06:44",
+        "goldenEnd": "07:47",
+        "goldenStart": "17:42",
+        "blueStart": "18:46",
+        "daylight": 682,
+        "tzAbbr": "PDT"
+      }
+    },
+    {
+      "id": "gt-d18",
+      "index": 18,
+      "date": "2026-10-06",
+      "tz": "America/Vancouver",
+      "city": "Enderby, BC (heading south to US border, destination TBD)",
+      "region": "Okanagan Valley",
+      "lat": 50.5497,
+      "lng": -119.1414,
+      "driveFromPrev": "TBD",
+      "summary": "Depart Enderby, BC heading south toward the US border; exact route, destination, and distance still to be determined.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Depart Enderby, BC, heading south to the US",
+          "type": "drive"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Enderby, BC",
+          "lat": 50.5497,
+          "lng": -119.1414
+        }
+      ],
+      "zoneId": "z7",
+      "sun": {
+        "dawn": "06:33",
+        "sunrise": "07:05",
+        "noon": "12:45",
+        "sunset": "18:24",
+        "dusk": "18:56",
+        "blueEnd": "06:45",
+        "goldenEnd": "07:49",
+        "goldenStart": "17:40",
+        "blueStart": "18:44",
+        "daylight": 679,
+        "tzAbbr": "PDT"
+      }
+    }
+  ],
+  "sunWindow": {
+    "start": 330,
+    "end": 1260
+  }
+}
