@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Coast2Coast — Road Trip &amp; Light</title>
+<meta name="description" content="Offline day-by-day itinerary, light &amp; weather guide for a cross-Canada road trip." />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Coast2Coast" />
+<meta name="theme-color" content="#131210" />
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+<link rel="icon" href="/icons/favicon-32.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+</head>
+<body>
+<div id="app"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function () {
+  'use strict';
+  var CHUNKS = 44;
+  var urls = [];
+  for (var i = 0; i < CHUNKS; i++) urls.push('/app/' + i + '.b64');
+  Promise.all(urls.map(function (u) {
+    return fetch(u).then(function (r) {
+      if (!r.ok) throw new Error('chunk ' + u + ' ' + r.status);
+      return r.text();
+    });
+  })).then(function (parts) {
+    var bin = atob(parts.join('').trim());
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    var stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+    return new Response(stream).text();
+  }).then(function (text) {
+    var b = JSON.parse(text);
+    var style = document.createElement('style');
+    style.textContent = b.c;
+    document.head.appendChild(style);
+    document.getElementById('app').innerHTML = b.h;
+    window.__C2C_DATA__ = b.d;
+    (new Function(b.j))();
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(function () {});
+  }).catch(function (err) {
+    document.getElementById('app').innerHTML =
+      '<div style="padding:60px 24px;text-align:center;font-family:sans-serif;color:#5c5647">' +
+      'Could not load Coast2Coast. Connect once online, then reload — after that it works fully offline.' +
+      '</div>';
+    console.error('Coast2Coast boot failed:', err);
+  });
+})();
+</script>
+</body>
+</html>

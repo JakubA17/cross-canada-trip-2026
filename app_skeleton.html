@@ -1,0 +1,281 @@
+
+
+  <!-- ============================= TOP DAY BANNER ============================= -->
+  <header class="day-banner" id="dayBanner">
+    <div class="day-banner__row">
+      <button class="day-nav-btn" id="btnPrevDay" aria-label="Previous day"></button>
+      <div class="day-banner__center">
+        <div class="day-banner__pill" id="bannerPill">DAY 1 OF 16</div>
+        <div class="day-banner__date" id="bannerDate">Sep 5</div>
+        <div class="day-banner__weekday">
+          <span id="bannerWeekday">Saturday</span>
+          <span class="dot"></span>
+          <span class="day-banner__city" id="bannerCity">Victoria, BC</span>
+        </div>
+        <div class="day-banner__route" id="bannerRouteChip"></div>
+      </div>
+      <button class="day-nav-btn" id="btnNextDay" aria-label="Next day"></button>
+    </div>
+    <div class="route-strip" id="routeStrip"></div>
+    <div class="route-strip-meta" id="routeStripMeta"></div>
+  </header>
+
+  <!-- ============================= SCROLLABLE CONTENT ============================= -->
+  <main class="content" id="content">
+
+    <div class="offline-banner" id="offlineBanner"></div>
+
+    <!-- ---------------- TODAY VIEW ---------------- -->
+    <div id="todayNearbySlot"></div>
+    <section class="view active" id="view-today">
+
+      <!-- Sun / light card -->
+      <div class="card sun-card" id="sunCard">
+        <div class="card-header">
+          <div class="card-title" id="sunCardTitle">Light Today</div>
+          <span class="gps-badge" id="gpsBadge"></span>
+        </div>
+        <div class="sun-arc-wrap">
+          <div class="sun-arc-labels">
+            <div class="sun-arc-label">
+              <div class="k">Sunrise</div>
+              <div class="v" id="sunriseVal">—:—</div>
+            </div>
+            <div class="sun-arc-label end">
+              <div class="k">Sunset</div>
+              <div class="v" id="sunsetVal">—:—</div>
+            </div>
+          </div>
+          <svg class="sun-arc-svg" id="sunArcSvg" viewBox="0 0 320 130" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="arcFillGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="var(--phase-sun)" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="var(--phase-sun)" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <line class="horizon" x1="10" y1="100" x2="310" y2="100"/>
+            <path class="arc-fill" id="arcFillPath" d=""/>
+            <path class="arc-path" id="arcOutlinePath" d=""/>
+            <circle class="sun-dot" id="sunDot" r="7" fill="var(--phase-sun)"/>
+            <text class="axis-label" x="10" y="118" id="nowLabel">NOW</text>
+            <text class="axis-label" x="290" y="118" text-anchor="end" id="solarNoonLabel">NOON</text>
+          </svg>
+        </div>
+        <div id="daylightPanel"></div>
+        <div class="sun-events" id="sunEvents"></div>
+      </div>
+
+      <!-- Weather card -->
+      <div class="card" id="weatherCard">
+        <div class="card-header">
+          <div class="card-title">Weather</div>
+          <span class="card-sub" id="weatherPlace"></span>
+        </div>
+        <div id="weatherBody">
+          <div class="empty-note">Loading forecast…</div>
+        </div>
+      </div>
+
+      <!-- Agenda -->
+      <div class="card" id="agendaCard">
+        <div class="card-header">
+          <div class="card-title">Today's Agenda</div>
+        </div>
+        <div id="agendaList"></div>
+      </div>
+
+      <!-- What's local -->
+      <div class="card" id="localCard">
+        <div class="card-header">
+          <div class="card-title">What's Local</div>
+        </div>
+        <div class="segmented" id="localTabs"></div>
+        <div class="poi-list" id="localList"></div>
+      </div>
+
+      <!-- Key locations / map -->
+      <div class="card" id="mapCard">
+        <div class="card-header">
+          <div class="card-title">Key Locations</div>
+          <span class="card-sub">Tap to open in Maps</span>
+        </div>
+        <div id="keyLocationsList"></div>
+      </div>
+
+      <!-- Zone guide: blurb, local tips, offline safety info -->
+      <div class="card zone-card" id="zoneCard">
+        <div class="card-header">
+          <div class="card-title"><span id="zoneCardIcon"></span><span id="zoneCardTitle">Zone</span></div>
+          <span class="card-sub" id="zoneCardSub"></span>
+        </div>
+        <div class="zone-blurb" id="zoneBlurb"></div>
+        <ul class="zone-tips" id="zoneTips"></ul>
+        <div class="zone-safety" id="zoneSafety"></div>
+        <button class="btn-refresh" id="btnBrowseZone">Browse everything in this zone</button>
+      </div>
+
+      <!-- Day notes: offline personal journal, on-device only -->
+      <div class="card" id="notesCard">
+        <div class="card-header">
+          <div class="card-title">Notes for This Day</div>
+          <span class="card-sub">Saved on this device</span>
+        </div>
+        <textarea id="dayNotesInput" class="notes-input" rows="3" placeholder="Reservation numbers, plan changes, anything worth remembering…"></textarea>
+      </div>
+
+    </section>
+
+    <!-- ---------------- REPOSITORY VIEW ---------------- -->
+    <section class="view" id="view-repo">
+      <div class="repo-head" id="repoHead"><div class="section-title">Repository</div></div>
+      <div class="search-bar">
+        <span id="repoSearchIcon"></span>
+        <input type="search" id="repoSearch" placeholder="Search all stops, towns, areas…" autocomplete="off" autocorrect="off" autocapitalize="off" />
+      </div>
+      <div class="btn-toggle repo-mode-toggle" id="repoModeToggle"></div>
+      <div class="chip-row" id="repoChips"></div>
+      <div id="repoResults"></div>
+    </section>
+
+    <!-- ---------------- MAP VIEW ---------------- -->
+    <section class="view" id="view-map">
+      <div class="section-title">Map</div>
+      <div class="card map-card">
+        <div class="map-wrap">
+          <div id="mapEl"></div>
+          <div class="map-unavailable" id="mapUnavailable" style="display:none">
+            <div class="empty-note">Map tiles need a connection the first time through an area. The route and your saved spots still work offline elsewhere in the app.</div>
+          </div>
+          <div class="map-controls">
+            <button class="map-fab" id="btnMapRecenter" aria-label="Center on me"><span id="mapRecenterIcon"></span></button>
+            <button class="map-fab" id="btnMapFitRoute" aria-label="Fit whole route"><span id="mapFitIcon"></span></button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="empty-note">Blue dot is your live GPS position. Orange line marks distance already driven; tap any stop to jump to that day.</div>
+      </div>
+    </section>
+
+    <!-- ---------------- SAVED VIEW ---------------- -->
+    <section class="view" id="view-saved">
+      <div class="section-title">Saved Spots</div>
+      <div id="nearbySlot"></div>
+      <div id="savedList"></div>
+    </section>
+
+    <!-- ---------------- TRIP VIEW ---------------- -->
+    <section class="view" id="view-trip">
+      <div class="card trip-hero">
+        <div class="name" id="tripName">Coast to Coast</div>
+        <div class="type-badge" id="tripTypeBadge"></div>
+        <div class="span" id="tripSpan"></div>
+        <div class="route-svg-wrap" id="routeSvgWrap"></div>
+        <div class="route-progress-label">
+          <span id="routeStartLabel">Victoria</span>
+          <span id="routeEndLabel">Halifax</span>
+        </div>
+        <div class="trip-hero-actions">
+          <button class="btn-open-route" id="btnOpenRoute"><span id="openRouteIcon"></span>Open full route in Maps</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-title">Choose Your Route</div><span class="card-sub">Applies app-wide</span></div>
+        <div class="route-picker" id="routePicker"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-title">All Days</div></div>
+        <div id="dayList"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-title">Trip Zones</div><span class="card-sub">Full offline directory by area</span></div>
+        <div id="tripZoneList"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><div class="card-title">Settings</div></div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Distance units</div>
+            <div class="settings-sub">Used throughout the app</div>
+          </div>
+          <div class="btn-toggle" id="unitsToggle">
+            <button data-unit="km">km</button>
+            <button data-unit="mi">mi</button>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Weather data</div>
+            <div class="settings-sub" id="weatherRefreshSub">Auto-refreshes when online</div>
+          </div>
+          <button class="btn-refresh" id="btnRefreshWeather"><span id="refreshIcon"></span>Refresh</button>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Sync weather for all routes</div>
+            <div class="settings-sub" id="weatherSyncSub">Not yet synced</div>
+          </div>
+          <div class="btn-toggle" id="autoWeatherToggle">
+            <button data-val="on">On</button>
+            <button data-val="off">Off</button>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">All-route forecast cache</div>
+            <div class="settings-sub">Pre-fetches weather for every day, every route</div>
+          </div>
+          <button class="btn-refresh" id="btnSyncAllWeather"><span id="syncAllIcon"></span>Sync Now</button>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">GPS location</div>
+            <div class="settings-sub" id="gpsStatusSub">Requesting…</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div>
+            <div class="settings-label">Backup saved spots &amp; notes</div>
+            <div class="settings-sub">Downloads a JSON file you can keep</div>
+          </div>
+          <button class="btn-refresh" id="btnExportData"><span id="exportIcon"></span>Export</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================= BOTTOM TAB BAR ============================= -->
+  <nav class="tabbar" id="tabbar">
+    <button class="tab-btn active" data-view="today">
+      <span class="tab-icon" id="tabIconToday"></span>
+      <span>Today</span>
+    </button>
+    <button class="tab-btn" data-view="repo">
+      <span class="tab-icon" id="tabIconRepo"></span>
+      <span>Repository</span>
+    </button>
+    <button class="tab-btn" data-view="saved">
+      <span class="tab-icon" id="tabIconSaved"></span>
+      <span>Saved</span>
+    </button>
+    <button class="tab-btn" data-view="map">
+      <span class="tab-icon" id="tabIconMap"></span>
+      <span>Map</span>
+    </button>
+    <button class="tab-btn" data-view="trip">
+      <span class="tab-icon" id="tabIconTrip"></span>
+      <span>Trip</span>
+    </button>
+  </nav>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- POI detail sheet (iOS-style bottom sheet) -->
+  <div class="sheet-backdrop" id="sheetBackdrop">
+    <div class="sheet" id="poiSheet" role="dialog" aria-modal="true"></div>
+  </div>

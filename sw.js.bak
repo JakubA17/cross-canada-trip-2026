@@ -1,0 +1,66 @@
+/* sw.js — offline-first service worker for Coast2Coast.
+   App-shell + data precache so the installed home-screen app works with
+   zero connectivity. Bump CACHE_NAME on any asset change to roll caches. */
+
+const CACHE_NAME = 'c2c-v14';
+const CHUNK_COUNTS = { 'css/bundle': 4, 'js/bundle': 5, 'data/bundle': 4 };
+const PRECACHE = [
+  '/',
+  '/index.html',
+  '/manifest.webmanifest',
+  '/data/manifest.json',
+];
+Object.keys(CHUNK_COUNTS).forEach((dir) => {
+  for (let i = 0; i < CHUNK_COUNTS[dir]; i++) PRECACHE.push('/' + dir + '/' + i + '.b64');
+});
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(PRECACHE))
+      .then(() => self.skipWaiting())
+  );
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+    ).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  const req = event.request;
+  if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+
+  // Cross-origin (weather API etc.) — network only, never intercept/cache.
+  if (url.origin !== self.location.origin) return;
+
+  // Navigations: network-first, falling back to cached app shell offline.
+  if (req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req).then((res) => {
+        const copy = res.clone();
+        caches.open(CACHE_NAME).then((c) => c.put('/index.html', copy));
+        return res;
+      }).catch(() => caches.match('/index.html'))
+    );
+    return;
+  }
+
+  // Same-origin static assets: cache-first, refresh in background.
+  event.respondWith(
+    caches.match(req).then((cached) => {
+      const fetchPromise = fetch(req).then((res) => {
+        if (res && res.status === 200) {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(req, copy));
+        }
+        return res;
+      }).catch(() => cached);
+      return cached || fetchPromise;
+    })
+  );
+});

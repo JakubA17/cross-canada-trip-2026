@@ -1,0 +1,18 @@
+{
+  "name": "Coast2Coast — Road Trip & Light",
+  "short_name": "Coast2Coast",
+  "description": "Offline day-by-day itinerary, light & weather guide, and travel repository for a cross-Canada road trip.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f3efe6",
+  "theme_color": "#f3efe6",
+  "categories": ["travel", "photo", "navigation"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
