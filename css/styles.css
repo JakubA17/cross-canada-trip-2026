@@ -1,0 +1,1293 @@
+/* =========================================================================
+   Coast2Coast — design system (iOS-native pass)
+
+   Built on Apple HIG conventions so the installed PWA reads as a native
+   iPhone/iPad app:
+     • SF Pro via the system font stack (no web fonts, fully offline).
+       Numerals are tabular where they line up (times, distances, temps).
+     • iOS semantic color roles (label / secondaryLabel / separator /
+       systemFill / grouped backgrounds), with a full dark-mode palette.
+     • Inset-grouped cards: no outlines, hairline (0.5px) inset separators,
+       full-bleed press highlight on rows, 44pt minimum tap targets.
+     • Real iOS controls: segmented control, switch, tinted buttons,
+       search field, circular material buttons.
+     • Floating glass tab bar (iOS 26 style), safe-area aware.
+   Time-of-day "phase" accent tokens are still applied dynamically via JS.
+   ========================================================================= */
+
+:root {
+  color-scheme: light dark;
+
+  /* ---- grouped surfaces (iOS light) ------------------------------------ */
+  --bg: #f2f2f7;                       /* systemGroupedBackground */
+  --bg-elevated: rgba(249,249,249,0.94);
+  --card: #ffffff;                     /* secondarySystemGroupedBackground */
+  --card-2: #f2f2f7;                   /* tertiary — tiles inside cards */
+  --card-3: #e5e5ea;
+  --fill: rgba(120,120,128,0.12);      /* tertiarySystemFill */
+  --fill-2: rgba(120,120,128,0.20);    /* secondarySystemFill */
+  --fill-pressed: rgba(120,120,128,0.18);
+  --separator: rgba(60,60,67,0.29);
+  --border: var(--separator);
+  --border-strong: rgba(60,60,67,0.36);
+  --hairline: 0.5px;
+
+  /* ---- text roles ------------------------------------------------------ */
+  --text: #000000;                     /* label */
+  /* Measured contrast on --card in light: the old 0.60/0.45 alphas came out
+     to 3.44:1 / 2.39:1 against white — both fail WCAG AA (4.5:1) for the
+     body copy, tips, safety warnings and distances they're used on. Raised
+     to land at ~4.6:1 / ~4.5:1+. */
+  --text-dim: rgba(60,60,67,0.78);     /* secondaryLabel */
+  --text-faint: rgba(60,60,67,0.70);   /* between secondary & tertiary */
+
+  /* ---- brand + system tints -------------------------------------------- */
+  --accent: #e8792b;                   /* brand orange (fills, icons — not text-contrast-critical) */
+  --accent-text: #a8500f;              /* orange for TEXT on white/tint — ~5.5:1 (was #c4621a at 4.11:1, failing under 18.66px bold) */
+  --accent-strong: #b85a17;            /* orange FILL behind white text (chips, primary buttons, badges) — white-on-this ~4.65:1, vs. ~2.92:1 using --accent directly */
+  --accent-tint: rgba(232,121,43,0.14);
+  --accent-2: #e5484d;
+  --blue: #007aff;
+  --green: #34c759;
+  --green-text: #0f7a30;               /* green for TEXT on light surfaces — ~5.5:1 (was --green itself at 1.98–2.39:1) */
+  --red: #ff3b30;
+
+  --shadow: 0 12px 32px -8px rgba(0,0,0,0.22);
+  --shadow-sm: none;
+  --shadow-xs: 0 3px 8px rgba(0,0,0,0.12), 0 3px 1px rgba(0,0,0,0.04);
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+
+  /* System font everywhere; --mono is kept as an alias so numerals set in
+     "mono" contexts become SF with tabular figures instead of a web font. */
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+    system-ui, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono: var(--font);
+
+  --ink: #131210;                      /* dark hero surfaces */
+  --hero-end: #23283a;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* daylight-bar palette — a small sky: indigo night, dusky-rose civil
+     twilight, warm daylight. Fixed hues (they depict real light, not UI
+     chrome) but nudged per theme so the bar keeps its contrast on both
+     the white and the near-black card surfaces. */
+  --dl-night: #363d68;
+  --dl-twilight: #a4638a;
+  --dl-day: #f2bf62;
+  --dl-tick: rgba(255,255,255,0.55);
+  --dl-edge: rgba(0,0,0,0.14);
+
+  /* sun-phase tokens — overwritten at runtime via JS per phase */
+  --phase-a: #d98a3d;
+  --phase-b: var(--bg);
+  --phase-sun: #ffcf6e;
+  --phase-accent: #e8792b;
+
+  /* route type accents — the "CONFIRMED" badge renders white text directly
+     on this fill; #34c759 measured 2.22:1 white-on (fails AA both themes
+     since it's a fixed solid color, not surface-relative). */
+  --route-confirmed: #157a40;
+  --route-alternate: #5e5ce6;
+
+  /* tab bar geometry (used by content padding + toast) */
+  --tabbar-h: 62px;
+  --tabbar-gap: 10px;
+  --ease-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --bg-elevated: rgba(28,28,30,0.94);
+    --card: #1c1c1e;
+    --card-2: #2c2c2e;
+    --card-3: #3a3a3c;
+    --fill: rgba(120,120,128,0.24);
+    --fill-2: rgba(120,120,128,0.32);
+    --fill-pressed: rgba(120,120,128,0.30);
+    --separator: rgba(84,84,88,0.65);
+    --border-strong: rgba(84,84,88,0.85);
+    --text: #ffffff;
+    --text-dim: rgba(235,235,245,0.60);
+    --text-faint: rgba(235,235,245,0.62);
+    --accent-text: #f0954a;
+    --accent-tint: rgba(232,121,43,0.22);
+    --blue: #0a84ff;
+    --green: #30d158;
+    --green-text: #30d158;             /* already ~6.3:1 against dark surfaces — no change needed */
+    --red: #ff453a;
+    --shadow-xs: 0 3px 8px rgba(0,0,0,0.40), 0 3px 1px rgba(0,0,0,0.20);
+    --ink: #121213;
+    /* --route-confirmed intentionally NOT overridden here — it's a fixed
+       solid badge fill with white text on it, so the same darker green from
+       :root (passing white-on-fill contrast) is correct in both themes. */
+    --route-alternate: #6e6cf0;
+    --dl-night: #2b3157;
+    --dl-twilight: #a05f87;
+    --dl-day: #f0bd63;
+    --dl-tick: rgba(255,255,255,0.42);
+    --dl-edge: rgba(255,255,255,0.16);
+  }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Base                                                                    */
+/* ---------------------------------------------------------------------- */
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+input, textarea { user-select: text; -webkit-user-select: text; }
+img { max-width: 100%; display: block; }
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+.num { font-variant-numeric: tabular-nums; }
+
+#app {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Top day-navigation banner (dark hero — the app's identity)              */
+/* ---------------------------------------------------------------------- */
+.day-banner {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  padding: calc(var(--safe-top) + 8px) max(16px, var(--safe-left)) 12px max(16px, var(--safe-right));
+  background: var(--ink);
+  border-bottom: var(--hairline) solid rgba(255,255,255,0.10);
+}
+.day-banner__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.day-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.14);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 160ms var(--ease-spring), background 160ms ease;
+}
+.day-nav-btn:active { transform: scale(0.92); background: rgba(255,255,255,0.26); }
+.day-nav-btn:disabled { opacity: 0.3; }
+.day-nav-btn svg { width: 20px; height: 20px; stroke-width: 2.5; }
+
+.day-banner__center { text-align: center; flex: 1; min-width: 0; }
+.day-banner__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.14);
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 6px;
+}
+.day-banner__date {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+}
+.day-banner__weekday {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.72);
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  line-height: 1.25;
+}
+.day-banner__weekday .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.45); flex-shrink: 0; }
+.day-banner__city { color: #fff; font-weight: 600; }
+
+.day-banner__route {
+  margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.10);
+  padding: 4px 10px 4px 8px;
+  border-radius: 100px;
+}
+.day-banner__route:empty { display: none; }
+.day-banner__route svg { width: 12px; height: 12px; }
+.day-banner__route.is-alternate { background: rgba(110,108,240,0.40); }
+
+/* Compact banner on non-Today tabs: date + city only, nav-bar height. */
+.day-banner--compact .day-banner__pill,
+.day-banner--compact .day-banner__route,
+.day-banner--compact .route-strip,
+.day-banner--compact .route-strip-meta { display: none; }
+.day-banner--compact .day-banner__date { font-size: 20px; }
+.day-banner--compact .day-banner__weekday { font-size: 13px; margin-top: 1px; }
+.day-banner--compact { padding-bottom: 10px; }
+
+/* compact geographic route strip under the banner content */
+.route-strip { margin-top: 10px; }
+.route-strip svg { width: 100%; height: auto; display: block; overflow: visible; }
+.route-strip .rs-track { stroke: rgba(255,255,255,0.28); stroke-width: 2.5; fill: none; stroke-linecap: round; }
+.route-strip .rs-progress { stroke: #fff; stroke-width: 2.5; fill: none; stroke-linecap: round; }
+.route-strip .rs-dot { fill: rgba(255,255,255,0.5); }
+.route-strip .rs-dot.start { fill: rgba(255,255,255,0.85); }
+.route-strip .rs-dot.current { fill: #fff; filter: drop-shadow(0 0 6px rgba(255,255,255,0.9)); }
+
+.route-strip-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255,255,255,0.55);
+}
+.route-strip-meta .pct { color: #fff; font-weight: 600; }
+
+/* ---------------------------------------------------------------------- */
+/* Scroll content + floating glass tab bar                                 */
+/* ---------------------------------------------------------------------- */
+.content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Contain Leaflet's z-indexed panes/controls so nothing in the scroll
+     area can paint over the floating tab bar or the sticky banner. */
+  isolation: isolate;
+  padding: 16px max(16px, var(--safe-left))
+    calc(var(--tabbar-h) + var(--tabbar-gap) + 20px + var(--safe-bottom))
+    max(16px, var(--safe-right));
+}
+.view { display: none; animation: fadeIn 240ms var(--ease-spring); }
+.view.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+.tabbar {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--tabbar-gap) + var(--safe-bottom));
+  transform: translateX(-50%);
+  z-index: 50;
+  width: min(calc(100% - 32px), 520px);
+  height: var(--tabbar-h);
+  display: flex;
+  align-items: stretch;
+  padding: 6px;
+  border-radius: calc(var(--tabbar-h) / 2);
+  background: rgba(255,255,255,0.74);
+  -webkit-backdrop-filter: blur(28px) saturate(1.8);
+  backdrop-filter: blur(28px) saturate(1.8);
+  border: var(--hairline) solid rgba(0,0,0,0.06);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.14),
+    0 1px 2px rgba(0,0,0,0.06),
+    inset 0 0 0 0.5px rgba(255,255,255,0.7);
+}
+@media (prefers-color-scheme: dark) {
+  .tabbar {
+    background: rgba(30,30,32,0.74);
+    border-color: rgba(255,255,255,0.08);
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.5),
+      inset 0 0 0 0.5px rgba(255,255,255,0.08);
+  }
+}
+.tab-btn {
+  flex: 1;
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 4px 2px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0;
+  border-radius: 100px;
+  transition: color 160ms ease, background 160ms ease;
+}
+.tab-btn svg { width: 24px; height: 24px; stroke-width: 1.9; }
+.tab-icon svg { width: 24px; height: 24px; display: block; }
+.tab-btn.active { color: var(--accent-text); background: var(--fill); font-weight: 600; }
+.tab-btn.active svg { stroke-width: 2.2; }
+.tab-btn:active { opacity: 0.6; }
+
+/* ---------------------------------------------------------------------- */
+/* Cards — inset grouped                                                    */
+/* ---------------------------------------------------------------------- */
+.card {
+  background: var(--card);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  /* Row press states (.area-row:active etc.) paint a square --fill-pressed
+     rect that otherwise pokes out past the card's own rounded corners. */
+  overflow: hidden;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-bottom: 10px;
+}
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.card-title svg { width: 14px; height: 14px; flex-shrink: 0; }
+.card-sub { font-size: 13px; color: var(--text-faint); flex-shrink: 0; text-align: right; }
+
+/* Full-bleed list rows inside cards: negative margins so the press
+   highlight and separators run edge-to-edge like a UITableView cell. */
+.agenda-item, .loc-row, .day-list-item, .settings-row, .poi-row, .route-option {
+  position: relative;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.agenda-item::before, .loc-row::before, .day-list-item::before,
+.settings-row::before, .poi-row::before, .route-option::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: var(--hairline);
+  background: var(--separator);
+}
+.agenda-item:first-child::before, .loc-row:first-child::before,
+.day-list-item:first-child::before, .settings-row:first-child::before,
+.poi-row:first-child::before, .route-option:first-child::before { display: none; }
+
+/* ---------------------------------------------------------------------- */
+/* Sun / light card                                                         */
+/* ---------------------------------------------------------------------- */
+.sun-card { overflow: hidden; position: relative; }
+.sun-arc-wrap { position: relative; padding: 4px 0 0; }
+.sun-arc-labels { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.sun-arc-label { text-align: left; }
+.sun-arc-label.end { text-align: right; }
+.sun-arc-label .k {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 600;
+}
+.sun-arc-label .v {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  white-space: nowrap;
+  margin-top: 1px;
+}
+.sun-arc-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.sun-arc-svg .horizon { stroke: var(--separator); stroke-width: 1; stroke-dasharray: 2 4; }
+.sun-arc-svg .arc-path { fill: none; stroke: var(--separator); stroke-width: 1.5; }
+.sun-arc-svg .arc-fill { fill: url(#arcFillGradient); opacity: 0.55; }
+.sun-arc-svg .sun-dot { filter: drop-shadow(0 0 8px var(--phase-sun)); }
+.sun-arc-svg text.axis-label { fill: var(--text-faint); font-size: 9px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+
+.sun-events {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.sun-event {
+  background: var(--card-2);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 10px 6px;
+  text-align: center;
+  min-width: 0;
+}
+.sun-event .k { font-size: 10px; font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase; color: var(--text-faint); }
+.sun-event .v {
+  font-size: 13px; font-weight: 600; margin-top: 3px; color: var(--text);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere; word-break: break-word; line-height: 1.3;
+}
+.sun-event .v.dim { color: var(--text-dim); font-weight: 500; }
+
+.gps-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dim);
+  background: var(--fill);
+  padding: 5px 10px 5px 8px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.gps-badge:empty { display: none; }
+.gps-badge svg { width: 12px; height: 12px; }
+.gps-badge.live { color: var(--green-text); }
+.gps-badge.stale { color: var(--text-faint); }
+
+/* ---------------------------------------------------------------------- */
+/* Daylight indicator                                                       */
+/* ---------------------------------------------------------------------- */
+/* One bar per day: night at both ends, civil twilight fading in and out,
+   daylight in the middle. Every day in a route is drawn against the same
+   clock window (route.sunWindow), so the bars are directly comparable — the
+   daylight visibly shrinks as the itinerary runs into October.
+   Stop positions arrive as --dawn/--rise/--set/--dusk custom properties. */
+.daylight { --dl-h: 7px; }
+.daylight .dl-track {
+  position: relative;
+  height: var(--dl-h);
+  border-radius: calc(var(--dl-h) / 2);
+  overflow: hidden;
+  background: linear-gradient(to right,
+    var(--dl-night) 0%,
+    var(--dl-night) var(--dawn, 8%),
+    var(--dl-twilight) var(--dawnmid, 10%),
+    var(--dl-day) var(--rise, 12%),
+    var(--dl-day) var(--set, 88%),
+    var(--dl-twilight) var(--duskmid, 90%),
+    var(--dl-night) var(--dusk, 92%),
+    var(--dl-night) 100%);
+  box-shadow: inset 0 0 0 var(--hairline) var(--dl-edge);
+}
+.daylight .dl-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--dl-tick);
+}
+.daylight .dl-tick.rise { left: var(--rise, 12%); }
+.daylight .dl-tick.set { left: var(--set, 88%); }
+.daylight .dl-now {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 2px;
+  margin-left: -1px;
+  border-radius: 1px;
+  background: var(--text);
+  box-shadow: 0 0 0 1.5px var(--card);
+}
+
+.daylight .dl-scale {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  line-height: 1.2;
+}
+.daylight .dl-t { color: var(--text-dim); font-weight: 600; white-space: nowrap; }
+.daylight .dl-t.faint { color: var(--text-faint); font-weight: 500; }
+.daylight .dl-t.len { color: var(--text-faint); font-weight: 500; }
+
+.daylight.compact { margin-top: 8px; }
+/* On the narrowest phones the five figures stop fitting on one line inside a
+   list row. The derived daylight total is the one that can go — the four
+   times the row exists to show all stay. */
+@media (max-width: 360px) {
+  .daylight.compact .dl-scale { gap: 4px; }
+  .daylight.compact .dl-t.len { display: none; }
+}
+
+.daylight.full {
+  --dl-h: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: var(--hairline) solid var(--separator);
+}
+.daylight.full .dl-legend {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+}
+.daylight.full .dl-cell { text-align: center; min-width: 0; }
+.daylight.full .dl-cell:first-child { text-align: left; }
+.daylight.full .dl-cell:last-child { text-align: right; }
+.daylight.full .dl-cell .k {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.02em;
+  text-transform: uppercase; color: var(--text-faint);
+}
+.daylight.full .dl-cell .v {
+  font-size: 14px; font-weight: 600; margin-top: 2px;
+  font-variant-numeric: tabular-nums; color: var(--text); white-space: nowrap;
+}
+.daylight.full .dl-cell.faint .v { color: var(--text-dim); font-weight: 500; }
+.daylight.full .dl-cell.mid .v { color: var(--text-dim); font-weight: 500; }
+
+/* Content is duplicated as text for assistive tech; the bar itself is
+   aria-hidden, so nothing is lost by not seeing it. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Weather card                                                             */
+/* ---------------------------------------------------------------------- */
+.weather-row { display: flex; align-items: center; gap: 14px; }
+.weather-temp { font-size: 44px; font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.weather-icon { width: 46px; height: 46px; flex-shrink: 0; }
+.weather-icon svg { width: 100%; height: 100%; color: var(--phase-accent, var(--accent)); stroke-width: 1.6; }
+.weather-meta { flex: 1; min-width: 0; }
+.weather-desc { font-size: 17px; font-weight: 600; }
+.weather-range { font-size: 15px; color: var(--text-dim); margin-top: 2px; font-variant-numeric: tabular-nums; }
+.weather-updated {
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.weather-updated svg { width: 12px; height: 12px; }
+.weather-forecast {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(52px, 1fr));
+  gap: 6px;
+  margin-top: 12px;
+}
+.wf-day {
+  text-align: center;
+  background: var(--card-2);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 8px 4px;
+}
+.wf-day .d { font-size: 11px; font-weight: 600; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.02em; }
+.wf-day svg { width: 22px; height: 22px; margin: 4px auto; stroke-width: 1.6; }
+.wf-day .t { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.wf-day .t .lo { color: var(--text-faint); font-weight: 400; }
+
+/* ---------------------------------------------------------------------- */
+/* Agenda — timeline rows                                                   */
+/* ---------------------------------------------------------------------- */
+.agenda-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  border-top: none;
+}
+.agenda-item::before { left: 82px; }
+.agenda-time {
+  width: 50px; flex-shrink: 0;
+  font-size: 15px; font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-text);
+  padding-top: 6px;
+}
+.agenda-icon {
+  width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-tint); border: none;
+}
+.agenda-icon svg { width: 17px; height: 17px; color: var(--accent-text); }
+.agenda-body { flex: 1; min-width: 0; padding-top: 5px; }
+.agenda-title { font-size: 16px; font-weight: 500; line-height: 1.3; }
+.agenda-link { font-size: 14px; color: var(--blue); font-weight: 500; margin-top: 3px; display: inline-flex; align-items: center; gap: 3px; }
+.agenda-link svg { width: 12px; height: 12px; }
+
+/* ---------------------------------------------------------------------- */
+/* Segmented control (UISegmentedControl)                                   */
+/* ---------------------------------------------------------------------- */
+.segmented, .btn-toggle {
+  display: flex;
+  background: var(--fill);
+  border: none;
+  border-radius: 9px;
+  padding: 2px;
+  gap: 2px;
+}
+.segmented { overflow-x: auto; }
+.segmented::-webkit-scrollbar { display: none; }
+/* What's Local is always exactly 4 categories — a real iOS segmented
+   control never scrolls, and this one was silently clipping "Nature" (and
+   sometimes "Camp & Park") off the right edge with no visible affordance.
+   Force 4 equal columns instead of flex+scroll so all four are always on
+   screen, and shrink the icon/label/padding enough to fit at 375px. */
+#localTabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  overflow: visible;
+}
+#localTabs .seg-btn { min-width: 0; padding: 5px 4px; gap: 3px; font-size: 11px; }
+#localTabs .seg-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+.seg-btn, .btn-toggle button {
+  flex: 1;
+  min-width: max-content;
+  min-height: 44px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+  transition: background 160ms ease, box-shadow 160ms ease;
+}
+.seg-btn svg { width: 14px; height: 14px; }
+.seg-btn.active, .btn-toggle button.active {
+  background: var(--card);
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: var(--shadow-xs);
+}
+@media (prefers-color-scheme: dark) {
+  .seg-btn.active, .btn-toggle button.active { background: #636366; }
+}
+
+/* iOS switch — built from the existing two-button toggle markup. The two
+   buttons become invisible halves of the track, so tapping the knob side
+   always flips to the other state. */
+#autoWeatherToggle {
+  position: relative;
+  width: 51px;
+  height: 31px;
+  flex-shrink: 0;
+  padding: 0;
+  gap: 0;
+  border-radius: 31px;
+  background: var(--fill-2);
+  transition: background 200ms ease;
+}
+#autoWeatherToggle:has(button[data-val="on"].active) { background: var(--green); }
+#autoWeatherToggle button {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  padding: 0;
+  opacity: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+#autoWeatherToggle::after {
+  content: '';
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 27px; height: 27px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15), 0 3px 1px rgba(0,0,0,0.06);
+  transition: transform 220ms var(--ease-spring);
+  pointer-events: none;
+}
+#autoWeatherToggle:has(button[data-val="on"].active)::after { transform: translateX(20px); }
+
+/* ---------------------------------------------------------------------- */
+/* POI rows (What's Local / Repository / Saved)                             */
+/* ---------------------------------------------------------------------- */
+.poi-list { margin-top: 8px; display: flex; flex-direction: column; gap: 0; }
+/* Row grid: icon | text | trailing column (actions over distance), so the
+   text column keeps its width instead of fighting three trailing items. */
+.poi-row {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  grid-template-areas:
+    'icon body actions'
+    'icon body dist';
+  column-gap: 12px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 60px;
+  transition: background 120ms ease;
+}
+.poi-row::before { left: 60px; }
+.poi-row:active { background: var(--fill-pressed); }
+.poi-icon {
+  grid-area: icon;
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-tint); border: none;
+}
+.poi-icon svg { width: 17px; height: 17px; color: var(--accent-text); }
+.poi-body { grid-area: body; min-width: 0; }
+.poi-name { font-size: 16px; font-weight: 500; line-height: 1.25; }
+.poi-note { font-size: 13px; color: var(--text-dim); margin-top: 2px; line-height: 1.3; }
+.poi-dist {
+  grid-area: dist; justify-self: end; align-self: start;
+  font-size: 12px; font-weight: 500; color: var(--text-faint);
+  text-align: right; font-variant-numeric: tabular-nums; margin-top: 4px;
+}
+.poi-dist:empty { display: none; }
+.poi-actions { grid-area: actions; justify-self: end; align-self: end; display: flex; gap: 6px; }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: none;
+  background: var(--fill);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-text);
+  transition: transform 160ms var(--ease-spring), background 160ms ease;
+  position: relative;
+}
+/* Pad the 34px visual circle out to ~44pt of actual tap target without
+   changing the row layout — two of these sit 6px apart (heart + pin), so
+   growing the visible circle itself would collide; an invisible hit-area
+   extension doesn't. */
+.icon-btn::after { content: ''; position: absolute; inset: -5px; }
+.icon-btn svg { width: 17px; height: 17px; }
+.icon-btn.saved { color: #fff; background: var(--accent-2); }
+.icon-btn:active { transform: scale(0.9); }
+.empty-note { font-size: 14px; color: var(--text-faint); padding: 14px 8px; text-align: center; line-height: 1.4; }
+
+/* ---------------------------------------------------------------------- */
+/* Key locations                                                            */
+/* ---------------------------------------------------------------------- */
+.loc-row {
+  display: flex; align-items: center; gap: 12px;
+  padding-top: 10px; padding-bottom: 10px;
+  border-top: none;
+  min-height: 56px;
+  transition: background 120ms ease;
+}
+.loc-row::before { left: 64px; }
+.loc-row:active { background: var(--fill-pressed); }
+.loc-compass {
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
+  background: var(--fill); border: none;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  color: var(--text-dim);
+}
+.loc-compass svg { width: 16px; height: 16px; transition: transform 300ms ease; }
+.loc-body { flex: 1; min-width: 0; }
+.loc-name { font-size: 16px; font-weight: 500; }
+.loc-sub { font-size: 13px; color: var(--text-dim); margin-top: 2px; font-variant-numeric: tabular-nums; }
+.loc-chevron { color: var(--text-faint); flex-shrink: 0; display: flex; }
+.loc-chevron svg { width: 16px; height: 16px; stroke-width: 2.5; }
+
+/* ---------------------------------------------------------------------- */
+/* Zone guide card + zone directory                                         */
+/* ---------------------------------------------------------------------- */
+.zone-card .card-title svg { color: var(--accent-text); }
+.zone-blurb { font-size: 15px; color: var(--text); line-height: 1.4; }
+.zone-tips { margin: 10px 0 0; padding-left: 18px; font-size: 14px; color: var(--text-dim); line-height: 1.5; }
+.zone-tips li { margin-bottom: 4px; }
+.zone-safety { margin-top: 12px; padding-top: 12px; border-top: var(--hairline) solid var(--separator); display: flex; flex-direction: column; gap: 8px; }
+.zone-safety-row { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+.zone-safety-row svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 1px; color: var(--text-faint); }
+.zone-safety-row b { color: var(--text); font-weight: 600; }
+#zoneCard .btn-refresh { width: 100%; justify-content: center; margin-top: 14px; min-height: 44px; font-size: 16px; border-radius: var(--radius-md); }
+
+.repo-mode-toggle { margin-bottom: 12px; }
+.repo-mode-toggle button { flex: 1; }
+
+.zone-group { margin-bottom: 8px; }
+.zone-group-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.zone-group-title { display: flex; align-items: center; gap: 6px; font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+.zone-group-title svg { width: 16px; height: 16px; color: var(--accent-text); flex-shrink: 0; }
+.zone-group-region { font-size: 13px; color: var(--text-faint); flex-shrink: 0; }
+.zone-group-blurb { font-size: 14px; color: var(--text-dim); margin: 4px 0 8px; line-height: 1.4; }
+.zone-focus-chip, .zone-back-chip { margin-bottom: 12px; }
+
+/* ---------------------------------------------------------------------- */
+/* Day notes journal                                                        */
+/* ---------------------------------------------------------------------- */
+.notes-input {
+  width: 100%;
+  background: var(--fill);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 16px;
+  line-height: 1.35;
+  font-family: inherit;
+  color: var(--text);
+  resize: none;
+  min-height: 72px;
+}
+.notes-input::placeholder { color: var(--text-faint); }
+.notes-input:focus { outline: none; box-shadow: 0 0 0 2px var(--accent-tint); }
+
+/* ---------------------------------------------------------------------- */
+/* Map tab (Leaflet)                                                        */
+/* ---------------------------------------------------------------------- */
+.map-card { padding: 0; overflow: hidden; }
+.map-wrap { position: relative; width: 100%; height: 62vh; min-height: 340px; isolation: isolate; }
+#mapEl { position: absolute; inset: 0; background: var(--card); }
+.map-unavailable { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; background: var(--card); z-index: 2; }
+.map-controls { position: absolute; right: 12px; bottom: 12px; display: flex; flex-direction: column; gap: 10px; z-index: 401; }
+.map-fab {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: var(--hairline) solid rgba(0,0,0,0.06);
+  background: var(--bg-elevated);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  backdrop-filter: blur(20px) saturate(1.6);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.14);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-text);
+  transition: transform 160ms var(--ease-spring);
+}
+.map-fab svg { width: 20px; height: 20px; }
+.map-fab:active { transform: scale(0.92); }
+.leaflet-control-attribution { font-size: 9px !important; }
+.leaflet-container { font-family: inherit; }
+
+/* ---------------------------------------------------------------------- */
+/* Search field + filter chips (Repository)                                 */
+/* ---------------------------------------------------------------------- */
+.search-bar {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--fill); border: none;
+  border-radius: 10px; padding: 0 10px; height: 36px; margin-bottom: 12px;
+}
+.search-bar svg { width: 16px; height: 16px; color: var(--text-dim); flex-shrink: 0; stroke-width: 2.2; }
+.search-bar input {
+  border: none; background: none; outline: none; color: var(--text);
+  font-size: 17px; flex: 1; min-width: 0; font-family: inherit; height: 100%;
+}
+.search-bar input::placeholder { color: var(--text-faint); }
+.search-bar input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.search-bar:focus-within { box-shadow: 0 0 0 2px var(--accent-tint); }
+
+.chip-row {
+  display: flex; gap: 8px; overflow-x: auto; margin: 0 -16px 14px; padding: 2px 16px;
+  /* The row routinely holds more chips than fit (5 categories at 393px),
+     with the scrollbar hidden and nothing else hinting it scrolls — the
+     last chip(s) were invisible with no affordance. Fade the trailing edge
+     so a partially-cut-off chip reads as "more this way" instead of just
+     ending. */
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
+  mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent 100%);
+}
+.chip-row::-webkit-scrollbar { display: none; }
+.chip {
+  flex: 0 0 auto; padding: 7px 14px; border-radius: 100px;
+  background: var(--fill); border: none;
+  font-size: 14px; font-weight: 600; color: var(--text);
+  display: flex; align-items: center; gap: 5px;
+  min-height: 44px;
+  transition: transform 160ms var(--ease-spring), background 160ms ease;
+}
+.chip svg { width: 14px; height: 14px; }
+.chip:active { transform: scale(0.96); }
+.chip.active { background: var(--accent-strong); color: #fff; }
+
+.repo-day-group { margin-bottom: 4px; }
+.repo-day-heading {
+  font-size: 13px; font-weight: 600; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: 0.02em;
+  padding: 14px 4px 6px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Saved tab                                                                */
+/* ---------------------------------------------------------------------- */
+.nearby-banner {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--accent-tint);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+.nearby-banner svg { width: 22px; height: 22px; color: var(--accent-text); flex-shrink: 0; }
+.nearby-banner .t { font-size: 15px; font-weight: 600; }
+.nearby-banner .s { font-size: 13px; color: var(--text-dim); margin-top: 1px; }
+
+/* ---------------------------------------------------------------------- */
+/* Trip tab — hero, route picker, day list, settings                        */
+/* ---------------------------------------------------------------------- */
+.trip-hero {
+  text-align: center;
+  padding: 22px 18px 18px;
+  background: var(--ink);
+  color: #fff;
+}
+.trip-hero .name { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: #fff; }
+.trip-hero .type-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+  color: #fff; background: rgba(255,255,255,0.16);
+  padding: 4px 10px; border-radius: 100px; margin-top: 8px;
+}
+.trip-hero .type-badge:empty { display: none; }
+.trip-hero .span { font-size: 14px; color: rgba(255,255,255,0.7); margin-top: 6px; font-weight: 500; }
+.route-svg-wrap { margin: 14px 0 4px; }
+.route-svg-wrap svg { width: 100%; height: auto; overflow: visible; }
+.route-svg-wrap .rh-track { stroke: rgba(255,255,255,0.28); stroke-width: 3; fill: none; stroke-linecap: round; }
+.route-svg-wrap .rh-progress { stroke: #ffffff; stroke-width: 3; fill: none; stroke-linecap: round; }
+.route-svg-wrap .rh-dot { fill: rgba(255,255,255,0.45); }
+.route-svg-wrap .rh-dot.start { fill: rgba(255,255,255,0.9); }
+.route-svg-wrap .rh-dot.current { fill: #fff; filter: drop-shadow(0 0 8px rgba(255,255,255,0.95)); animation: pulseDot 2.2s ease-in-out infinite; }
+@keyframes pulseDot {
+  0%, 100% { r: 5; opacity: 1; }
+  50% { r: 7; opacity: 0.7; }
+}
+.route-progress-label { display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.6); font-weight: 500; margin-top: 6px; }
+.trip-hero-actions { margin-top: 16px; display: flex; justify-content: center; }
+.btn-open-route {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.16); border: var(--hairline) solid rgba(255,255,255,0.22);
+  color: #fff; font-weight: 600; font-size: 15px;
+  min-height: 40px; padding: 8px 18px; border-radius: 100px;
+  transition: transform 160ms var(--ease-spring);
+}
+.btn-open-route svg { width: 15px; height: 15px; }
+.btn-open-route:active { transform: scale(0.96); }
+
+.route-picker { display: flex; flex-direction: column; gap: 0; }
+.route-option {
+  display: flex; align-items: center; gap: 12px;
+  background: transparent; border: none;
+  border-radius: 0; padding-top: 11px; padding-bottom: 11px;
+  text-align: left;
+  min-height: 60px;
+  transition: background 120ms ease;
+}
+.route-option::before { left: 50px; }
+.route-option:active { background: var(--fill-pressed); }
+.route-option.selected { background: transparent; }
+.route-option-check {
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+  border: 1.5px solid var(--border-strong); background: transparent;
+  display: flex; align-items: center; justify-content: center; color: transparent;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+.route-option-check svg { width: 13px; height: 13px; stroke-width: 3; }
+.route-option.selected .route-option-check { background: var(--accent-strong); border-color: var(--accent-strong); color: #fff; }
+.route-option-body { flex: 1; min-width: 0; }
+.route-option-top { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.route-option-label { font-size: 16px; font-weight: 500; }
+.route-option-type {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 2px 7px; border-radius: 100px; color: #fff; flex-shrink: 0;
+}
+.route-option-type.confirmed { background: var(--route-confirmed); }
+.route-option-type.alternate { background: var(--route-alternate); }
+.route-option-sub { font-size: 13px; color: var(--text-dim); margin-top: 2px; font-variant-numeric: tabular-nums; }
+
+.day-list-item {
+  display: flex; align-items: center; gap: 12px;
+  padding-top: 9px; padding-bottom: 9px;
+  border-top: none;
+  min-height: 56px;
+  transition: background 120ms ease;
+}
+.day-list-item::before { left: 64px; }
+.day-list-item:active { background: var(--fill-pressed); }
+.day-list-badge {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--fill); border: none;
+  font-size: 11px; font-weight: 600; line-height: 1.1; color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+.day-list-item.today .day-list-badge { background: var(--accent-strong); color: #fff; }
+.day-list-body { flex: 1; min-width: 0; }
+.day-list-city { font-size: 16px; font-weight: 500; }
+.day-list-date { font-size: 13px; color: var(--text-dim); margin-top: 2px; font-variant-numeric: tabular-nums; }
+.day-list-chevron { color: var(--text-faint); flex-shrink: 0; display: flex; }
+.day-list-chevron svg { width: 16px; height: 16px; stroke-width: 2.5; }
+
+.settings-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding-top: 10px; padding-bottom: 10px;
+  border-top: none;
+  min-height: 52px;
+}
+.settings-row::before { left: 16px; }
+.settings-label { font-size: 16px; font-weight: 400; }
+.settings-sub { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+
+.btn-refresh {
+  border: none; background: var(--accent-tint);
+  color: var(--accent-text); font-weight: 600; font-size: 15px;
+  min-height: 44px; padding: 6px 14px; border-radius: var(--radius-sm);
+  display: flex; align-items: center; gap: 6px;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform 160ms var(--ease-spring), background 160ms ease;
+}
+.btn-refresh svg { width: 15px; height: 15px; }
+.btn-refresh:active { transform: scale(0.96); background: rgba(232,121,43,0.26); }
+
+.section-title {
+  font-size: 28px; font-weight: 700; letter-spacing: -0.02em;
+  margin: 4px 2px 14px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Toast + offline banner                                                   */
+/* ---------------------------------------------------------------------- */
+.toast {
+  position: fixed;
+  bottom: calc(var(--tabbar-h) + var(--tabbar-gap) + 14px + var(--safe-bottom));
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--text);
+  border: none;
+  color: var(--bg);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 11px 20px;
+  border-radius: 100px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 260ms var(--ease-spring);
+  z-index: 100;
+  max-width: 85%;
+  text-align: center;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+/* The toast's usual home (just above the tab bar) sits on top of the open
+   detail sheet's bottom action row — e.g. tapping Save shows "Saved"
+   covering "On the plan". Move it to the top of the screen instead while a
+   sheet is open, where it doesn't overlap sheet content. */
+body.sheet-open .toast {
+  bottom: auto;
+  top: calc(var(--safe-top) + 12px);
+  transform: translateX(-50%) translateY(-10px);
+}
+body.sheet-open .toast.show { transform: translateX(-50%) translateY(0); }
+
+.offline-banner {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: var(--fill);
+  border: none;
+  border-radius: 100px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin: 0 auto 14px;
+  width: max-content;
+  max-width: 100%;
+}
+.offline-banner.show { display: flex; }
+.offline-banner svg { width: 14px; height: 14px; }
+
+/* ---------------------------------------------------------------------- */
+/* Areas database (Repository tab)                                          */
+/* ---------------------------------------------------------------------- */
+.repo-head { display: flex; align-items: center; min-height: 44px; margin: 0 0 8px; }
+.repo-head .section-title { margin: 4px 2px 6px; }
+.nav-back {
+  display: inline-flex; align-items: center; gap: 2px;
+  background: none; border: none; padding: 8px 8px 8px 0; margin-left: -6px;
+  color: var(--accent-text); font-size: 17px; font-weight: 400;
+  min-height: 44px;
+}
+.nav-back svg { width: 22px; height: 22px; stroke-width: 2.5; }
+.nav-back:active { opacity: 0.5; }
+
+.areas-intro { font-size: 13px; color: var(--text-faint); margin: 2px 4px 10px; }
+.areas-list { padding-top: 2px; padding-bottom: 2px; }
+.area-row {
+  position: relative;
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 -16px; padding: 12px 16px;
+  min-height: 72px;
+  transition: background 120ms ease;
+}
+.area-row + .area-row::before {
+  content: ''; position: absolute; top: 0; left: 68px; right: 0;
+  height: var(--hairline); background: var(--separator);
+}
+.area-row:active { background: var(--fill-pressed); }
+.area-icon {
+  width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent-strong); color: #fff;
+}
+.area-icon svg { width: 20px; height: 20px; }
+.area-body { flex: 1; min-width: 0; }
+.area-name { font-size: 16px; font-weight: 600; line-height: 1.25; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.area-near {
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  color: var(--green-text); background: rgba(52,199,89,0.14); padding: 2px 7px; border-radius: 100px;
+}
+.area-sub { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+.area-counts { display: flex; gap: 12px; margin-top: 6px; font-size: 12px; font-weight: 500; color: var(--text-faint); font-variant-numeric: tabular-nums; }
+.area-counts span { display: inline-flex; align-items: center; gap: 4px; }
+.area-counts svg { width: 13px; height: 13px; }
+
+.zone-hero { background: var(--ink); color: #fff; padding: 18px 16px; }
+.zone-hero-region { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(255,255,255,0.6); }
+.zone-hero-name { font-size: 24px; font-weight: 700; letter-spacing: -0.02em; margin-top: 4px; line-height: 1.15; }
+.zone-hero-blurb { font-size: 15px; color: rgba(255,255,255,0.78); margin-top: 8px; line-height: 1.4; }
+.zone-hero-stats { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+.zone-hero-stats span {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums;
+  background: rgba(255,255,255,0.12); padding: 5px 10px; border-radius: 100px;
+}
+.zone-hero-stats svg { width: 13px; height: 13px; }
+
+/* Category-tinted icon tiles (iOS Settings style) */
+.poi-icon.cat-gas { background: rgba(0,122,255,0.14); }
+.poi-icon.cat-gas svg { color: #0a6cf0; }
+.poi-icon.cat-food { background: rgba(255,149,0,0.16); }
+.poi-icon.cat-food svg { color: #c96a00; }
+.poi-icon.cat-camp { background: rgba(52,199,89,0.16); }
+.poi-icon.cat-camp svg { color: #1f8f45; }
+.poi-icon.cat-nature { background: rgba(94,92,230,0.14); }
+.poi-icon.cat-nature svg { color: #4e4bd6; }
+@media (prefers-color-scheme: dark) {
+  .poi-icon.cat-gas svg { color: #4da3ff; }
+  .poi-icon.cat-food svg { color: #ffb14d; }
+  .poi-icon.cat-camp svg { color: #4fd97a; }
+  .poi-icon.cat-nature svg { color: #8c8aff; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* POI detail sheet (UISheetPresentationController-style)                  */
+/* ---------------------------------------------------------------------- */
+.sheet-backdrop {
+  position: fixed; inset: 0; z-index: 90;
+  background: rgba(0,0,0,0.35);
+  display: flex; align-items: flex-end; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 220ms ease;
+}
+.sheet-backdrop.show { opacity: 1; pointer-events: auto; }
+body.sheet-open { overflow: hidden; }
+.sheet {
+  width: 100%; max-width: 560px;
+  max-height: calc(100dvh - var(--safe-top) - 40px);
+  overflow-y: auto;
+  background: var(--card);
+  border-radius: 20px 20px 0 0;
+  padding: 6px 16px calc(20px + var(--safe-bottom));
+  box-shadow: 0 -8px 40px rgba(0,0,0,0.25);
+  transform: translateY(24px);
+  transition: transform 300ms var(--ease-spring);
+}
+.sheet-backdrop.show .sheet { transform: translateY(0); }
+.sheet-grabber { width: 36px; height: 5px; border-radius: 3px; background: var(--fill-2); margin: 4px auto 12px; }
+.sheet-head { display: flex; align-items: flex-start; gap: 12px; }
+.sheet-head .poi-icon { width: 40px; height: 40px; border-radius: 10px; }
+.sheet-head .poi-icon svg { width: 20px; height: 20px; }
+.sheet-title-wrap { flex: 1; min-width: 0; }
+.sheet-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; }
+.sheet-sub { font-size: 14px; color: var(--text-dim); margin-top: 3px; }
+.sheet-close { width: 44px; height: 44px; color: var(--text-dim); flex-shrink: 0; margin: -7px -9px 0 0; display: flex; align-items: center; justify-content: center; }
+.sheet-close svg { width: 14px; height: 14px; stroke-width: 2.5; }
+.sheet-note { font-size: 16px; line-height: 1.45; margin-top: 14px; color: var(--text); }
+.sheet-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
+.sheet-fact { background: var(--card-2); border-radius: var(--radius-md); padding: 10px 10px 9px; min-width: 0; }
+.sheet-fact .k { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text-faint); }
+.sheet-fact .v { font-size: 15px; font-weight: 600; margin-top: 3px; line-height: 1.2; overflow-wrap: anywhere; }
+.sheet-fact .v.num { font-size: 12px; font-variant-numeric: tabular-nums; }
+.sheet-fact .s { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+.sheet-fact[role="button"]:active { background: var(--fill-pressed); }
+.sheet-days { margin-top: 16px; }
+.sheet-days .k { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text-faint); margin-bottom: 6px; }
+.sheet-day {
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+  background: var(--fill); border: none; border-radius: var(--radius-sm);
+  padding: 10px 12px; margin-bottom: 6px; font-size: 15px; font-weight: 500; color: var(--text); text-align: left;
+}
+.sheet-day span { color: var(--text-dim); font-size: 13px; font-variant-numeric: tabular-nums; }
+.sheet-day:active { background: var(--fill-pressed); }
+.sheet-actions { display: flex; gap: 10px; margin-top: 18px; }
+.sheet-actions > * { flex: 1; justify-content: center; min-height: 48px; font-size: 16px; border-radius: var(--radius-md); }
+.btn-primary {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--accent-strong); color: #fff; border: none; font-weight: 600;
+  transition: transform 160ms var(--ease-spring), opacity 160ms ease;
+}
+.btn-primary svg { width: 17px; height: 17px; }
+.btn-primary:active { transform: scale(0.97); opacity: 0.9; }
+.btn-refresh.is-saved { background: rgba(229,72,77,0.14); color: var(--accent-2); }
+
+::-webkit-scrollbar { width: 0; height: 0; }
+
+/* ---------------------------------------------------------------------- */
+/* Motion + accessibility                                                   */
+/* ---------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
