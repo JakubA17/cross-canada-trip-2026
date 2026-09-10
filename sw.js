@@ -1,4 +1,4 @@
-const CACHE_NAME = 'c2c-v20';
+const CACHE_NAME = 'c2c-v21';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -12,6 +12,7 @@ const PRECACHE = [
   '/js/app.js',
   '/data/manifest.json',
   '/data/zones.json',
+  '/data/didyouknow.json',
   '/data/routes/ground-truth.json',
   '/data/routes/loop1-10day.json',
   '/data/routes/loop2-21day.json',

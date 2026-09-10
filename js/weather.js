@@ -5,7 +5,7 @@
 (function (global) {
   'use strict';
 
-  const CACHE_KEY = 'c2c_weather_cache_v1';
+  const CACHE_KEY = 'c2c_weather_cache_v2';
   const STALE_MS = 1000 * 60 * 60 * 3; // refetch if older than 3h and online
 
   function readCache() {
@@ -38,7 +38,9 @@
 
   async function fetchLive(lat, lng) {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}` +
-      `&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true` +
+      `&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m,surface_pressure,visibility` +
+      `&hourly=temperature_2m,precipitation_probability,weather_code,uv_index,cloud_cover,wind_speed_10m` +
+      `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,uv_index_max,sunrise,sunset` +
       `&timezone=auto&forecast_days=16`;
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), 8000);
@@ -47,17 +49,39 @@
       clearTimeout(t);
       if (!res.ok) throw new Error('weather http ' + res.status);
       const json = await res.json();
+      const c = json.current || {};
       return {
         fetchedAt: Date.now(),
-        current: json.current_weather ? {
-          temp: json.current_weather.temperature,
-          code: json.current_weather.weathercode,
+        current: json.current ? {
+          temp: c.temperature_2m,
+          code: c.weather_code,
+          feelsLike: c.apparent_temperature,
+          humidity: c.relative_humidity_2m,
+          precip: c.precipitation,
+          windSpeed: c.wind_speed_10m,
+          windDir: c.wind_direction_10m,
+          windGusts: c.wind_gusts_10m,
+          pressure: c.surface_pressure,
+          visibility: c.visibility,
         } : null,
         daily: (json.daily?.time || []).map((date, i) => ({
           date,
-          code: json.daily.weathercode[i],
+          code: json.daily.weather_code[i],
           hi: Math.round(json.daily.temperature_2m_max[i]),
           lo: Math.round(json.daily.temperature_2m_min[i]),
+          precipProb: json.daily.precipitation_probability_max ? json.daily.precipitation_probability_max[i] : null,
+          uvMax: json.daily.uv_index_max ? json.daily.uv_index_max[i] : null,
+          sunrise: json.daily.sunrise ? json.daily.sunrise[i] : null,
+          sunset: json.daily.sunset ? json.daily.sunset[i] : null,
+        })),
+        hourly: (json.hourly?.time || []).map((time, i) => ({
+          time,
+          temp: json.hourly.temperature_2m[i],
+          code: json.hourly.weather_code[i],
+          precipProb: json.hourly.precipitation_probability[i],
+          uv: json.hourly.uv_index[i],
+          cloudCover: json.hourly.cloud_cover[i],
+          windSpeed: json.hourly.wind_speed_10m[i],
         })),
       };
     } catch (e) {
@@ -140,5 +164,37 @@
     return { synced, attempted, total: unique.length, skipped: false };
   }
 
-  global.Weather = { get, describe, keyFor, syncAll };
+  // Hourly entries for a given local calendar date (YYYY-MM-DD), or the next
+  // ~24h from now if no date given.
+  function hourlyForDate(entry, dateStr) {
+    if (!entry || !entry.hourly) return [];
+    if (!dateStr) {
+      const now = Date.now();
+      return entry.hourly.filter((h) => {
+        const t = new Date(h.time).getTime();
+        return t >= now - 1000 * 60 * 60 && t <= now + 1000 * 60 * 60 * 24;
+      });
+    }
+    return entry.hourly.filter((h) => h.time.slice(0, 10) === dateStr);
+  }
+
+  // Average cloud cover (%) across a night window (21:00 through 05:00 the
+  // next day) for stargazing scoring. Returns null if no hourly data covers it.
+  function nightCloudCover(entry, dateStr) {
+    if (!entry || !entry.hourly || !dateStr) return null;
+    const vals = entry.hourly.filter((h) => {
+      const hour = Number(h.time.slice(11, 13));
+      const day = h.time.slice(0, 10);
+      const isEveningOf = day === dateStr && hour >= 21;
+      const nextDate = new Date(dateStr + 'T00:00:00');
+      nextDate.setDate(nextDate.getDate() + 1);
+      const nextDateStr = nextDate.toISOString().slice(0, 10);
+      const isMorningAfter = day === nextDateStr && hour <= 5;
+      return isEveningOf || isMorningAfter;
+    }).map((h) => h.cloudCover).filter((v) => v != null);
+    if (!vals.length) return null;
+    return Math.round(vals.reduce((a, b) => a + b, 0) / vals.length);
+  }
+
+  global.Weather = { get, describe, keyFor, syncAll, hourlyForDate, nightCloudCover };
 })(typeof window !== 'undefined' ? window : globalThis);

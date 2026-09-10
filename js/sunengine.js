@@ -164,5 +164,67 @@
     return phaseForAltitude(altitudeDeg(date, lat, lng));
   }
 
-  global.SunEngine = { getTimes, getPosition, altitudeDeg, azimuthDeg, currentPhase, RAD };
+  // ---- moon phase / illumination (for the stargazing rating) --------------
+  // Same low-precision-astronomy family as the sun math above (geocentric
+  // ecliptic position -> equatorial coordinates -> phase angle). Good to a
+  // few percent, which is all a "how dark will it be tonight" indicator needs.
+  function declinationLB(l, b) {
+    return Math.asin(Math.sin(b) * Math.cos(OBLIQUITY) + Math.cos(b) * Math.sin(OBLIQUITY) * Math.sin(l));
+  }
+  function rightAscensionLB(l, b) {
+    return Math.atan2(
+      Math.sin(l) * Math.cos(OBLIQUITY) - Math.tan(b) * Math.sin(OBLIQUITY),
+      Math.cos(l)
+    );
+  }
+  function moonCoords(d) {
+    const L = RAD * (218.316 + 13.176396 * d);
+    const M = RAD * (134.963 + 13.064993 * d);
+    const F = RAD * (93.272 + 13.229350 * d);
+    const l = L + RAD * 6.289 * Math.sin(M);
+    const b = RAD * 5.128 * Math.sin(F);
+    const dist = 385001 - 20905 * Math.cos(M);
+    return { ra: rightAscensionLB(l, b), dec: declinationLB(l, b), dist };
+  }
+
+  /**
+   * Moon illumination for a given date (time-of-day independent — the phase
+   * barely moves within one night). Returns:
+   *   fraction: 0 (new moon, darkest skies) to 1 (full moon, brightest)
+   *   phase: 0-1 around the lunar cycle (0/1 = new, 0.5 = full)
+   */
+  function getMoonIllumination(date) {
+    const d = toDays(date);
+    const s = sunCoords(d);
+    const m = moonCoords(d);
+    const sdist = 149598000;
+    const phi = Math.acos(
+      Math.sin(s.dec) * Math.sin(m.dec) + Math.cos(s.dec) * Math.cos(m.dec) * Math.cos(s.ra - m.ra)
+    );
+    const inc = Math.atan2(sdist * Math.sin(phi), m.dist - sdist * Math.cos(phi));
+    const angle = Math.atan2(
+      Math.cos(s.dec) * Math.sin(s.ra - m.ra),
+      Math.sin(s.dec) * Math.cos(m.dec) - Math.cos(s.dec) * Math.sin(m.dec) * Math.cos(s.ra - m.ra)
+    );
+    return {
+      fraction: (1 + Math.cos(inc)) / 2,
+      phase: 0.5 + (0.5 * inc * (angle < 0 ? -1 : 1)) / Math.PI,
+    };
+  }
+
+  function moonPhaseName(phase) {
+    if (phase < 0.03 || phase > 0.97) return 'New Moon';
+    if (phase < 0.22) return 'Waxing Crescent';
+    if (phase < 0.28) return 'First Quarter';
+    if (phase < 0.47) return 'Waxing Gibbous';
+    if (phase < 0.53) return 'Full Moon';
+    if (phase < 0.72) return 'Waning Gibbous';
+    if (phase < 0.78) return 'Last Quarter';
+    return 'Waning Crescent';
+  }
+
+  global.SunEngine = {
+    getTimes, getPosition, altitudeDeg, azimuthDeg, currentPhase, RAD,
+    getMoonIllumination, moonPhaseName,
+  };
 })(typeof window !== 'undefined' ? window : globalThis);

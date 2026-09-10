@@ -81,10 +81,11 @@
         </div>
         <div id="daylightPanel"></div>
         <div class="sun-events" id="sunEvents"></div>
+        <div class="stargaze-row" id="stargazeRow"></div>
       </div>
 
       <!-- Weather card -->
-      <div class="card" id="weatherCard">
+      <div class="card" id="weatherCard" role="button" aria-label="Open detailed forecast">
         <div class="card-header">
           <div class="card-title">Weather</div>
           <span class="card-sub" id="weatherPlace"></span>
@@ -109,6 +110,23 @@
         </div>
         <div class="segmented" id="localTabs"></div>
         <div class="poi-list" id="localList"></div>
+      </div>
+
+      <!-- Worth a Look: a random highlight from the local directory -->
+      <div class="card" id="recommendCard">
+        <div class="card-header">
+          <div class="card-title">Worth a Look</div>
+          <button class="icon-btn" id="btnShuffleRecommend" aria-label="Show another suggestion"><span id="shuffleIcon"></span></button>
+        </div>
+        <div id="recommendBody"></div>
+      </div>
+
+      <!-- Did You Know: pre-researched local history & trivia -->
+      <div class="card" id="factsCard">
+        <div class="card-header">
+          <div class="card-title">Did You Know</div>
+        </div>
+        <div id="factsBody"></div>
       </div>
 
       <!-- Key locations / map -->
@@ -296,6 +314,14 @@
   <!-- POI detail sheet (iOS-style bottom sheet) -->
   <div class="sheet-backdrop" id="sheetBackdrop">
     <div class="sheet" id="poiSheet" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <!-- Full-screen weather modal (Apple Weather style) -->
+  <div class="weather-modal-backdrop" id="weatherModalBackdrop">
+    <div class="weather-modal" id="weatherModal" role="dialog" aria-modal="true">
+      <button class="weather-modal-close" id="btnCloseWeatherModal" aria-label="Close"><span id="weatherModalCloseIcon"></span></button>
+      <div class="weather-modal-scroll" id="weatherModalContent"></div>
+    </div>
   </div>
 
 </div>

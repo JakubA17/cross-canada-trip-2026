@@ -228,11 +228,15 @@
   let prefs = { units: 'km' };
   let REPO_INDEX = null;
   let ZONES = null; // { zoneId: { id, label, region, blurb, tips, safety, pois } }
+  let DIDYOUKNOW = null; // { zoneId: [{ text, topic }] }
   let repoMode = 'areas'; // 'areas' (zone database, default) | 'day'
   let repoZoneFocus = null; // zoneId when drilled into one area's directory
   let sheetSpot = null; // POI currently open in the detail sheet
   let weatherSyncBusy = false;
   let notesSaveTimer = null;
+  let recommendedPoi = null; // { poi, zoneId } currently shown in the "Worth a Look" card
+  let weatherModalDay = null; // day currently open in the full weather modal
+  let lastWeatherEntry = null; // most recently painted Weather.get() result, for the modal to reuse
 
   // ---- map (Leaflet) state -----------------------------------------------
   let leafletMap = null, mapRouteLayer = null, mapDayLayer = null, mapGpsLayer = null;
@@ -464,12 +468,57 @@
     ];
     $('#sunEvents').innerHTML = tiles.map(([k, v]) =>
       `<div class="sun-event"><div class="k">${k}</div><div class="v dim">${v}</div></div>`).join('');
+
+    renderStargaze(day);
+  }
+
+  // ---- stargazing rating ----------------------------------------------------
+  // Combines on-device moon illumination (always available, no network) with
+  // overnight cloud cover from the cached weather forecast when there is one.
+  // Cloud dominates the score since a full moon in a clear sky still beats an
+  // overcast new-moon night.
+  function stargazeRating(day, entry) {
+    const loc = effectiveLocation(day);
+    const moon = SunEngine.getMoonIllumination(new Date(day.date + 'T12:00:00'));
+    const moonPct = Math.round(moon.fraction * 100);
+    const src = entry || lastWeatherEntry;
+    const cloud = src ? Weather.nightCloudCover(src, day.date) : null;
+    let score = cloud == null
+      ? 100 - moonPct * 0.5
+      : (100 - cloud) * 0.7 + (100 - moonPct) * 0.3;
+    score = Math.round(clamp(score, 0, 100));
+    let label, starCount;
+    if (score >= 80) { label = 'Excellent'; starCount = 5; }
+    else if (score >= 65) { label = 'Good'; starCount = 4; }
+    else if (score >= 45) { label = 'Fair'; starCount = 3; }
+    else if (score >= 25) { label = 'Poor'; starCount = 2; }
+    else { label = 'Very poor'; starCount = 1; }
+    return { score, label, starCount, moonPct, moonPhase: SunEngine.moonPhaseName(moon.phase), cloud, loc };
+  }
+
+  function renderStargaze(day, entry) {
+    const row = $('#stargazeRow');
+    if (!row) return;
+    const r = stargazeRating(day, entry);
+    const stars = Array.from({ length: 5 }, (_, i) => i < r.starCount ? ICONS.starFilled : ICONS.star).join('');
+    const cloudTxt = r.cloud != null ? `${r.cloud}% cloud overnight` : 'connect for a sky forecast';
+    row.innerHTML = `
+      <div class="stargaze-chip">
+        ${ICONS.moon}
+        <div class="stargaze-meta">
+          <div class="stargaze-label">${esc(r.label)} for stargazing</div>
+          <div class="stargaze-sub">${esc(cloudTxt)} · ${r.moonPct}% moon (${esc(r.moonPhase)})</div>
+        </div>
+        <div class="stargaze-stars">${stars}</div>
+      </div>`;
   }
 
   // ---- weather card -------------------------------------------------------
   function paintWeather(entry, day) {
     const body = $('#weatherBody');
     $('#weatherPlace').textContent = day.city;
+    if (currentDay() === day) { lastWeatherEntry = entry; renderStargaze(day, entry); }
+    if (weatherModalDay === day) renderWeatherModalContent(day, entry);
     if (!entry) {
       body.innerHTML = '<div class="empty-note">No forecast cached yet — connect once to fetch it.</div>';
       return;
@@ -526,6 +575,118 @@
     Weather.get(loc.lat, loc.lng, (fresh) => { if (currentDay() === day) paintWeather(fresh, day); }, true, () => {
       toast("Couldn't reach the weather service — showing the last saved forecast");
     });
+  }
+
+  // ---- full-screen weather modal (Apple Weather style) ----------------------
+  function daySunTimes(day) {
+    const loc = effectiveLocation(day);
+    if (loc.live) return sunObjFromTimes(SunEngine.getTimes(new Date(day.date + 'T12:00:00'), loc.lat, loc.lng), day.tz);
+    return day.sun || sunObjFromTimes(SunEngine.getTimes(new Date(day.date + 'T12:00:00'), loc.lat, loc.lng), day.tz);
+  }
+
+  function renderWeatherModalContent(day, entry) {
+    const el = $('#weatherModalContent');
+    if (!el) return;
+    if (!entry) {
+      el.innerHTML = `<div class="wx-modal-empty">${ICONS.wifiOff}<div>No forecast cached yet for ${esc(day.city)}. Connect once to fetch it — it'll be saved for offline viewing after that.</div></div>`;
+      return;
+    }
+    const showCurrent = day.index === todayRealIndex && !!entry.current;
+    const todayDaily = entry.daily.find((d) => d.date === day.date);
+    const code = showCurrent ? entry.current.code : (todayDaily && todayDaily.code);
+    const [label, iconKey] = Weather.describe(code);
+    const temp = showCurrent ? Math.round(entry.current.temp) : (todayDaily ? todayDaily.hi : null);
+    const feelsLike = showCurrent && entry.current.feelsLike != null ? Math.round(entry.current.feelsLike) : null;
+
+    const hourly = Weather.hourlyForDate(entry, showCurrent ? null : day.date);
+    const hourlyHtml = hourly.length ? hourly.slice(0, 24).map((h) => {
+      const [, ic] = Weather.describe(h.code);
+      const hourLabel = new Date(h.time).toLocaleTimeString('en-CA', { hour: 'numeric', timeZone: day.tz });
+      return `<div class="wx-hour">
+        <div class="wx-hour-t">${esc(hourLabel)}</div>
+        <div class="wx-hour-icon">${ICONS[ic] || ICONS.cloud}</div>
+        <div class="wx-hour-precip">${h.precipProb != null && h.precipProb >= 10 ? h.precipProb + '%' : ''}</div>
+        <div class="wx-hour-temp">${Math.round(h.temp)}°</div>
+      </div>`;
+    }).join('') : '<div class="empty-note">No hourly data cached for this day yet.</div>';
+
+    const dailyHtml = entry.daily.slice(0, 10).map((dd) => {
+      const [, dic] = Weather.describe(dd.code);
+      const isThisDay = dd.date === day.date;
+      const wd = new Date(dd.date + 'T12:00:00').toLocaleDateString('en-CA', { weekday: 'short' });
+      return `<div class="wx-day-row ${isThisDay ? 'active' : ''}">
+        <div class="wx-day-label">${esc(wd)}</div>
+        <div class="wx-day-icon">${ICONS[dic] || ICONS.cloud}</div>
+        <div class="wx-day-precip">${dd.precipProb != null && dd.precipProb >= 10 ? dd.precipProb + '%' : ''}</div>
+        <div class="wx-day-range"><span class="lo">${dd.lo}°</span><span class="hi">${dd.hi}°</span></div>
+      </div>`;
+    }).join('');
+
+    const star = stargazeRating(day, entry);
+    const sun = daySunTimes(day);
+
+    const details = [
+      ['UV Index', todayDaily && todayDaily.uvMax != null ? Math.round(todayDaily.uvMax) : '—', 'sun'],
+      ['Wind', showCurrent && entry.current.windSpeed != null ? `${Math.round(entry.current.windSpeed)} km/h` : '—', 'wind'],
+      ['Humidity', showCurrent && entry.current.humidity != null ? `${Math.round(entry.current.humidity)}%` : '—', 'drop'],
+      ['Visibility', showCurrent && entry.current.visibility != null ? `${Math.round(entry.current.visibility / 1000)} km` : '—', 'eye'],
+      ['Pressure', showCurrent && entry.current.pressure != null ? `${Math.round(entry.current.pressure)} hPa` : '—', 'gauge'],
+      ['Sunrise', fmtClockLong(sun.sunrise), 'sunrise'],
+      ['Sunset', fmtClockLong(sun.sunset), 'sunset'],
+    ];
+
+    el.innerHTML = `
+      <div class="wx-hero wx-cond-${iconKey}">
+        <div class="wx-hero-place">${esc(day.city)}</div>
+        <div class="wx-hero-icon">${ICONS[iconKey] || ICONS.cloud}</div>
+        <div class="wx-hero-temp">${temp != null ? temp + '°' : '—'}</div>
+        <div class="wx-hero-desc">${esc(label)}</div>
+        <div class="wx-hero-sub">${feelsLike != null ? `Feels like ${feelsLike}°` : ''}${todayDaily ? `${feelsLike != null ? ' · ' : ''}H:${todayDaily.hi}° L:${todayDaily.lo}°` : ''}</div>
+      </div>
+      <div class="wx-section">
+        <div class="wx-section-title">${ICONS.clock}Hourly Forecast</div>
+        <div class="wx-hourly-scroll">${hourlyHtml}</div>
+      </div>
+      <div class="wx-section">
+        <div class="wx-section-title">${ICONS.calendarEvent}16-Day Forecast</div>
+        <div class="wx-daily-list">${dailyHtml}</div>
+      </div>
+      <div class="wx-section">
+        <div class="wx-section-title">${ICONS.moon}Stargazing Tonight</div>
+        <div class="wx-stargaze-detail">
+          <div class="wx-stargaze-label">${esc(star.label)} <span class="wx-stargaze-score">${star.score}/100</span></div>
+          <div class="wx-stargaze-sub">${star.cloud != null ? `${star.cloud}% cloud cover overnight` : 'Cloud forecast needs a connection'} · ${star.moonPct}% moon illumination (${esc(star.moonPhase)})</div>
+        </div>
+      </div>
+      <div class="wx-details-grid">
+        ${details.map(([k, v, ic]) => `<div class="wx-detail-tile">
+          <div class="wx-detail-icon">${ICONS[ic] || ICONS.cloud}</div>
+          <div class="wx-detail-k">${esc(k)}</div>
+          <div class="wx-detail-v">${esc(String(v))}</div>
+        </div>`).join('')}
+      </div>
+      <div class="wx-updated">${ICONS.clock}<span>Updated ${timeAgo(entry.fetchedAt)}</span></div>
+    `;
+  }
+
+  async function openWeatherModal(day) {
+    weatherModalDay = day;
+    $('#weatherModalBackdrop').classList.add('show');
+    document.body.classList.add('sheet-open');
+    const loc = effectiveLocation(day);
+    const cachedFirst = lastWeatherEntry && currentDay() === day ? lastWeatherEntry : null;
+    if (cachedFirst) renderWeatherModalContent(day, cachedFirst);
+    else renderWeatherModalContent(day, null);
+    const entry = await Weather.get(loc.lat, loc.lng, (fresh) => {
+      if (weatherModalDay === day) renderWeatherModalContent(day, fresh);
+    });
+    if (weatherModalDay === day && entry) renderWeatherModalContent(day, entry);
+  }
+
+  function closeWeatherModal() {
+    $('#weatherModalBackdrop').classList.remove('show');
+    document.body.classList.remove('sheet-open');
+    weatherModalDay = null;
   }
 
   // ---- full-trip weather sync: pre-fetch & cache every location on every ----
@@ -729,6 +890,60 @@
       ${safety.note ? `<div class="zone-safety-row">${ICONS.sparkle}<div>${esc(safety.note)}</div></div>` : ''}
     `;
     $('#btnBrowseZone').dataset.zoneid = day.zoneId;
+  }
+
+  // ---- "Worth a Look": a random highlight pulled from the local directory --
+  const RECOMMEND_CATS = ['nature', 'food', 'camp'];
+
+  function pickRecommendation(day) {
+    if (!ZONES || !ZONES[day.zoneId]) { recommendedPoi = null; return; }
+    const pool = ZONES[day.zoneId].pois.filter((p) => RECOMMEND_CATS.includes(p.category));
+    if (!pool.length) { recommendedPoi = null; return; }
+    let choices = pool;
+    if (pool.length > 1 && recommendedPoi && recommendedPoi.zoneId === day.zoneId) {
+      const others = pool.filter((p) => p.name !== recommendedPoi.poi.name);
+      if (others.length) choices = others;
+    }
+    const poi = choices[Math.floor(Math.random() * choices.length)];
+    recommendedPoi = { poi, zoneId: day.zoneId };
+  }
+
+  function renderRecommend(day, reroll) {
+    const body = $('#recommendBody');
+    if (!body) return;
+    if (reroll || !recommendedPoi || recommendedPoi.zoneId !== day.zoneId) pickRecommendation(day);
+    if (!recommendedPoi) { body.innerHTML = '<div class="empty-note">Directory not loaded yet.</div>'; return; }
+    const { poi } = recommendedPoi;
+    const iconKey = CAT_ICON[poi.category] || 'mapPin';
+    const id = zonePoiId(day.zoneId, poi);
+    const payload = encodeURIComponent(JSON.stringify({
+      id, name: poi.name, lat: poi.lat, lng: poi.lng, category: poi.category,
+      city: poi.nearTown || '', note: poi.note || '', zoneId: day.zoneId,
+      address: poi.address || '', phone: poi.phone || '', hours: poi.hours || '',
+    }));
+    body.innerHTML = `<div class="poi-row" data-id="${id}" data-detail="${payload}" role="button">
+      <div class="poi-icon cat-${poi.category}">${ICONS[iconKey]}</div>
+      <div class="poi-body">
+        <div class="poi-name">${esc(poi.name)}</div>
+        <div class="poi-note">${esc(poi.nearTown || '')}${poi.nearTown && poi.note ? ' · ' : ''}${esc(poi.note || '')}</div>
+      </div>
+      <div class="loc-chevron">${ICONS.chevronRightSm}</div>
+    </div>`;
+  }
+
+  // ---- "Did You Know": pre-researched local history & trivia, per zone -----
+  function renderFacts(day) {
+    const body = $('#factsBody');
+    const card = $('#factsCard');
+    if (!body || !card) return;
+    const facts = DIDYOUKNOW && day.zoneId ? DIDYOUKNOW[day.zoneId] : null;
+    if (!facts || !facts.length) { card.style.display = 'none'; return; }
+    card.style.display = '';
+    body.innerHTML = facts.map((f) => `
+      <div class="fact-row">
+        <div class="fact-topic">${ICONS.sparkle}<span>${esc(f.topic)}</span></div>
+        <div class="fact-text">${esc(f.text)}</div>
+      </div>`).join('');
   }
 
   // ---- day notes (offline personal journal, on-device only) -----------------
@@ -1376,6 +1591,8 @@
     renderLocalList(day);
     renderKeyLocations(day);
     renderZoneGuide(day);
+    renderRecommend(day);
+    renderFacts(day);
     renderNotes(day);
     renderTodayNearby();
     if ($('#view-repo').classList.contains('active')) renderRepo();
@@ -1490,6 +1707,15 @@
       const refreshBtn = e.target.closest('#btnRefreshWeather');
       if (refreshBtn) { forceRefreshWeather(); return; }
 
+      const weatherCardBtn = e.target.closest('#weatherCard');
+      if (weatherCardBtn) { openWeatherModal(currentDay()); return; }
+
+      const closeWxBtn = e.target.closest('#btnCloseWeatherModal');
+      if (closeWxBtn || e.target === $('#weatherModalBackdrop')) { closeWeatherModal(); return; }
+
+      const shuffleBtn = e.target.closest('#btnShuffleRecommend');
+      if (shuffleBtn) { renderRecommend(currentDay(), true); return; }
+
       // Tapping a directory row (outside its action buttons) opens the detail sheet.
       const detailRow = e.target.closest('[data-detail]');
       if (detailRow && !e.target.closest('.poi-actions') && !e.target.closest('[data-action]')) {
@@ -1545,6 +1771,17 @@
 
     window.addEventListener('online', updateOnlineStatus);
     window.addEventListener('offline', updateOnlineStatus);
+
+    // Auto-refresh the moment connectivity comes back — re-syncs weather
+    // (current day first, then the whole trip in the background) so the app
+    // picks back up automatically instead of waiting for a manual refresh.
+    window.addEventListener('online', () => {
+      if (!TRIP) return;
+      const day = currentDay();
+      const loc = effectiveLocation(day);
+      Weather.get(loc.lat, loc.lng, (fresh) => { if (currentDay() === day) paintWeather(fresh, day); }, true);
+      syncAllRoutesWeather(false);
+    });
   }
 
   // ---- boot ------------------------------------------------------------
@@ -1561,6 +1798,8 @@
     $('#mapFitIcon').innerHTML = ICONS.layers;
     $('#syncAllIcon').innerHTML = ICONS.refresh;
     $('#exportIcon').innerHTML = ICONS.download;
+    $('#shuffleIcon').innerHTML = ICONS.shuffle;
+    $('#weatherModalCloseIcon').innerHTML = ICONS.close;
 
     updateOnlineStatus();
     wireEvents();
@@ -1580,6 +1819,11 @@
       ZONES = {};
       (zJson.zones || []).forEach((z) => { ZONES[z.id] = z; });
     } catch (e) { ZONES = null; /* offline directory just won't show zone info this run */ }
+
+    try {
+      const bundledDYK = (typeof window !== 'undefined' && window.__C2C_DATA__) ? window.__C2C_DATA__['data/didyouknow.json'] : null;
+      DIDYOUKNOW = bundledDYK || (await (await fetch('/data/didyouknow.json')).json());
+    } catch (e) { DIDYOUKNOW = null; /* "Did you know" card just won't show this run */ }
 
     // One-time migration off the old position-based saved-spot ids (see
     // zonePoiId / poiRowHtml comments) onto the stable name-based scheme.
