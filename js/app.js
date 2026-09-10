@@ -612,13 +612,21 @@
   // 375-393px wide (see #localTabs in styles.css), and the longer versions
   // ("Eat & Drink", "Camp & Park") don't fit next to an icon in ~90px,
   // which was pushing "Nature" off-screen with no scroll affordance.
+  // #localTabs is deliberately locked to exactly 4 fixed columns (see the
+  // CSS) — a prior fix for silent off-screen clipping when this was a
+  // scrolling row. Keep it at the original 4 "right now" categories; the
+  // newer utility categories (lodging/medical/repair) live in the full
+  // Repository directory instead, not this quick nearby-browse control.
   const LOCAL_CATS = [
     { key: 'food', label: 'Eat', icon: 'utensils' },
     { key: 'gas', label: 'Gas', icon: 'fuel' },
     { key: 'camp', label: 'Camp', icon: 'tent' },
     { key: 'nature', label: 'Nature', icon: 'mountain' },
   ];
-  const CAT_ICON = { food: 'utensils', gas: 'fuel', camp: 'tent', nature: 'mountain' };
+  const CAT_ICON = {
+    food: 'utensils', gas: 'fuel', camp: 'tent', nature: 'mountain',
+    lodging: 'bed', medical: 'medical', repair: 'wrench',
+  };
 
   function renderLocalTabs() {
     $('#localTabs').innerHTML = LOCAL_CATS.map((c) =>
@@ -640,6 +648,7 @@
     const iconKey = CAT_ICON[category] || 'mapPin';
     const payload = encodeURIComponent(JSON.stringify({
       id, name: poi.name, lat: poi.lat, lng: poi.lng, category, dayId: day.id, city: poi.nearTown || day.city, note: poi.note || '', zoneId: day.zoneId,
+      address: poi.address || '', phone: poi.phone || '', hours: poi.hours || '',
     }));
     return `<div class="poi-row" data-id="${id}" data-detail="${payload}" role="button">
       <div class="poi-icon cat-${category}">${ICONS[iconKey]}</div>
@@ -761,11 +770,14 @@
     { key: 'gas', label: 'Gas', icon: 'fuel' },
     { key: 'camp', label: 'Camp & Park', icon: 'tent' },
     { key: 'nature', label: 'Nature', icon: 'mountain' },
+    { key: 'lodging', label: 'Lodging', icon: 'bed' },
+    { key: 'medical', label: 'Medical', icon: 'medical' },
+    { key: 'repair', label: 'Auto Repair', icon: 'wrench' },
   ];
 
   function buildRepoIndex() {
     const rows = [];
-    const cats = ['food', 'gas', 'camp', 'nature'];
+    const cats = ['food', 'gas', 'camp', 'nature', 'lodging', 'medical', 'repair'];
     TRIP.days.forEach((day) => {
       cats.forEach((cat) => {
         nearestZonePois(day, cat, 4).forEach((poi, idx) => rows.push({ poi, category: cat, day, idx }));
@@ -811,8 +823,11 @@
   // The curated offline directory (data/zones.json): every researched stop,
   // grouped by area, then by category. Not tied to the day-by-day plan, so it
   // is the thing to open when plans change and you need "what's around here".
-  const CAT_LABEL = { food: 'Eat & Drink', gas: 'Gas', camp: 'Camp & Park', nature: 'Nature & Photo' };
-  const CAT_ORDER = ['gas', 'food', 'camp', 'nature'];
+  const CAT_LABEL = {
+    food: 'Eat & Drink', gas: 'Gas', camp: 'Camp & Park', nature: 'Nature & Photo',
+    lodging: 'Lodging', medical: 'Medical', repair: 'Auto Repair',
+  };
+  const CAT_ORDER = ['gas', 'food', 'camp', 'nature', 'lodging', 'medical', 'repair'];
 
   function slug(s) { return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''); }
   function zonePoiId(zoneId, poi) { return `${zoneId}-${poi.category}-${slug(poi.name)}`; }
@@ -847,6 +862,7 @@
     const payload = encodeURIComponent(JSON.stringify({
       id, name: poi.name, lat: poi.lat, lng: poi.lng, category: poi.category,
       city: poi.nearTown || '', note: poi.note || '', zoneId,
+      address: poi.address || '', phone: poi.phone || '', hours: poi.hours || '',
     }));
     return `<div class="poi-row" data-id="${id}" data-detail="${payload}" role="button">
       <div class="poi-icon cat-${poi.category}">${ICONS[iconKey]}</div>
@@ -1043,6 +1059,11 @@
         <button class="icon-btn sheet-close" data-sheetclose="1" aria-label="Close">${ICONS.close}</button>
       </div>
       ${spot.note ? `<div class="sheet-note">${esc(spot.note)}</div>` : ''}
+      ${(spot.address || spot.hours || spot.phone) ? `<div class="sheet-contact">
+        ${spot.address ? `<div class="sheet-contact-row">${ICONS.mapPin}<div><div class="k">Address</div><div class="v">${esc(spot.address)}</div></div></div>` : ''}
+        ${spot.hours ? `<div class="sheet-contact-row">${ICONS.clock}<div><div class="k">Hours</div><div class="v">${esc(spot.hours)}</div></div></div>` : ''}
+        ${spot.phone ? `<div class="sheet-contact-row">${ICONS.phone}<div><div class="k">Phone</div><div class="v"><a href="tel:${esc(spot.phone.replace(/[^0-9+]/g, ''))}">${esc(spot.phone)}</a></div></div></div>` : ''}
+      </div>` : ''}
       <div class="sheet-facts">
         <div class="sheet-fact"><div class="k">Distance</div><div class="v">${Geo.formatDistance(km, prefs.units === 'mi')}</div><div class="s">${compass} of ${loc.live ? 'you' : 'planned stop'}</div></div>
         <div class="sheet-fact"><div class="k">Area</div><div class="v">${zone ? esc(zone.label.split(' & ')[0]) : '—'}</div><div class="s">${zone ? esc(zone.region) : ''}</div></div>
@@ -1054,6 +1075,7 @@
       </div>` : ''}
       <div class="sheet-actions">
         <button class="btn-primary" data-action="open" data-lat="${spot.lat}" data-lng="${spot.lng}" data-label="${esc(spot.name)}">${ICONS.navArrow}Directions</button>
+        ${spot.phone ? `<a class="btn-refresh" href="tel:${esc(spot.phone.replace(/[^0-9+]/g, ''))}">${ICONS.phone}Call</a>` : ''}
         <button class="btn-refresh ${saved ? 'is-saved' : ''}" data-action="save" data-poi="${encodeURIComponent(JSON.stringify(spot))}">${saved ? ICONS.heartFilled : ICONS.heart}${saved ? 'Saved' : 'Save'}</button>
       </div>`;
     $('#sheetBackdrop').classList.add('show');

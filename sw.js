@@ -1,7 +1,28 @@
-const CACHE_NAME = 'c2c-v19';
-const CHUNKS = 44;
-const PRECACHE = ['/', '/index.html', '/manifest.webmanifest'];
-for (let i = 0; i < CHUNKS; i++) PRECACHE.push('/app/' + i + '.b64');
+const CACHE_NAME = 'c2c-v20';
+const PRECACHE = [
+  '/',
+  '/index.html',
+  '/manifest.webmanifest',
+  '/css/styles.css',
+  '/js/icons.js',
+  '/js/sunengine.js',
+  '/js/geo.js',
+  '/js/store.js',
+  '/js/weather.js',
+  '/js/app.js',
+  '/data/manifest.json',
+  '/data/zones.json',
+  '/data/routes/ground-truth.json',
+  '/data/routes/loop1-10day.json',
+  '/data/routes/loop2-21day.json',
+  '/data/routes/loop3-28day.json',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png',
+  '/icons/icon-maskable-192.png',
+  '/icons/icon-maskable-512.png',
+  '/icons/apple-touch-icon.png',
+  '/icons/favicon-32.png',
+];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

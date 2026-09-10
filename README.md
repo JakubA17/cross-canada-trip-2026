@@ -43,9 +43,37 @@ Hand-edit any of these — they're plain JSON. Each day has:
 
 Add a route by dropping a new `data/routes/<id>.json` file (same shape —
 just a top-level `{ "days": [...] }`) and adding an entry for it to
-`data/manifest.json`. `build_trip_data.py` is a leftover generator for the
-old single-route placeholder data and is no longer used — safe to ignore
-or delete.
+`data/manifest.json`.
+
+## Editing the Repository (offline address book)
+
+`data/zones.json` is the full offline directory shown in the Repository
+tab — every researched stop along the route, grouped into zones. Each
+zone has a `pois` array; each POI is real, verified, currently-operating
+data, not placeholder content:
+
+```jsonc
+{
+  "name": "Banff Mineral Springs Hospital",
+  "category": "medical",   // gas | food | camp | nature | lodging | medical | repair
+  "lat": 51.176817, "lng": -115.573318,
+  "address": "305 Lynx St, Banff, AB T1L 1H7",
+  "phone": "403-762-2222",              // or null if not publicly listed — never guess
+  "hours": "Emergency: 24 hours",       // or the literal string
+                                         // "Hours not published — call ahead"
+  "note": "One sentence on why this matters for a traveler.",
+  "nearTown": "Banff, AB"
+}
+```
+
+Adding a category beyond the 7 above also needs an entry in `CAT_ICON`,
+`CAT_LABEL`, `CAT_ORDER`, and `REPO_CHIPS` in `js/app.js`, plus a
+matching icon in `js/icons.js`. The "What's Local" quick-browse control
+on the Today tab (`#localTabs`) is intentionally locked to its original 4
+categories (gas/food/camp/nature) — see the comment above `LOCAL_CATS` in
+`js/app.js` before adding to it; it's a fixed 4-column grid with no
+scroll, chosen after a scrolling version silently clipped content off
+the right edge with no visible affordance.
 
 ## Running locally
 

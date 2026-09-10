@@ -247,6 +247,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   flex-wrap: wrap;
   line-height: 1.25;
 }
+.day-banner__weekday .weekday-sep { display: inline-flex; align-items: center; gap: 6px; }
 .day-banner__weekday .dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.45); flex-shrink: 0; }
 .day-banner__city { color: #fff; font-weight: 600; }
 
@@ -561,6 +562,13 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
 @media (max-width: 360px) {
   .daylight.compact .dl-scale { gap: 4px; }
   .daylight.compact .dl-t.len { display: none; }
+}
+
+/* Below ~420px "GOLDEN AM"/"GOLDEN PM" wrap to two lines while the shorter
+   "BLUE AM"/"BLUE PM" labels don't, leaving a lopsided 1x4 row. Two columns
+   gives every label enough width to stay on one line. */
+@media (max-width: 420px) {
+  .sun-events { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 .daylight.full {
@@ -1086,6 +1094,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
   min-height: 44px; padding: 6px 14px; border-radius: var(--radius-sm);
   display: flex; align-items: center; gap: 6px;
   white-space: nowrap; flex-shrink: 0;
+  text-decoration: none;
   transition: transform 160ms var(--ease-spring), background 160ms ease;
 }
 .btn-refresh svg { width: 15px; height: 15px; }
@@ -1215,11 +1224,20 @@ body.sheet-open .toast.show { transform: translateX(-50%) translateY(0); }
 .poi-icon.cat-camp svg { color: #1f8f45; }
 .poi-icon.cat-nature { background: rgba(94,92,230,0.14); }
 .poi-icon.cat-nature svg { color: #4e4bd6; }
+.poi-icon.cat-lodging { background: rgba(175,82,222,0.14); }
+.poi-icon.cat-lodging svg { color: #9333c9; }
+.poi-icon.cat-medical { background: rgba(255,59,48,0.14); }
+.poi-icon.cat-medical svg { color: #d92b1f; }
+.poi-icon.cat-repair { background: rgba(142,142,147,0.18); }
+.poi-icon.cat-repair svg { color: #5c5c60; }
 @media (prefers-color-scheme: dark) {
   .poi-icon.cat-gas svg { color: #4da3ff; }
   .poi-icon.cat-food svg { color: #ffb14d; }
   .poi-icon.cat-camp svg { color: #4fd97a; }
   .poi-icon.cat-nature svg { color: #8c8aff; }
+  .poi-icon.cat-lodging svg { color: #c876ec; }
+  .poi-icon.cat-medical svg { color: #ff6b60; }
+  .poi-icon.cat-repair svg { color: #a8a8ad; }
 }
 
 /* ---------------------------------------------------------------------- */
@@ -1256,6 +1274,12 @@ body.sheet-open { overflow: hidden; }
 .sheet-close { width: 44px; height: 44px; color: var(--text-dim); flex-shrink: 0; margin: -7px -9px 0 0; display: flex; align-items: center; justify-content: center; }
 .sheet-close svg { width: 14px; height: 14px; stroke-width: 2.5; }
 .sheet-note { font-size: 16px; line-height: 1.45; margin-top: 14px; color: var(--text); }
+.sheet-contact { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+.sheet-contact-row { display: flex; align-items: flex-start; gap: 10px; }
+.sheet-contact-row svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: var(--text-dim); }
+.sheet-contact-row .k { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text-faint); }
+.sheet-contact-row .v { font-size: 15px; line-height: 1.35; margin-top: 2px; color: var(--text); }
+.sheet-contact-row .v a { color: var(--accent-text); text-decoration: none; }
 .sheet-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 16px; }
 .sheet-fact { background: var(--card-2); border-radius: var(--radius-md); padding: 10px 10px 9px; min-width: 0; }
 .sheet-fact .k { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text-faint); }
