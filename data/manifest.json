@@ -1,0 +1,32 @@
+{
+  "tripName": "Coast to Coast — Cross-Canada Road Trip",
+  "defaultRoute": "ground_truth",
+  "routes": [
+    {
+      "id": "ground_truth",
+      "label": "Confirmed Itinerary",
+      "shortLabel": "Ground Truth",
+      "type": "confirmed",
+      "startDate": "2026-09-19",
+      "endDate": "2026-10-05",
+      "dayCount": 18,
+      "originCity": "Copeland, ON",
+      "destCity": "Enderby, BC → US border (TBD)",
+      "file": "data/routes/ground-truth.json",
+      "note": "Real, booked route. Days beyond Oct 5 are undecided and not yet included."
+    },
+    {
+      "id": "alt_v1_10day",
+      "label": "ChatGPT 1st Version — 10-Day Midland to Okanagan",
+      "shortLabel": "1st Version (10-day)",
+      "type": "alternate",
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-28",
+      "dayCount": 10,
+      "originCity": "Midland, ON",
+      "destCity": "Kelowna, BC",
+      "file": "data/routes/loop1-10day.json",
+      "note": "AI-proposed one-way route. Dates are provisional, anchored to the same Sept 19 start for comparison."
+    }
+  ]
+}

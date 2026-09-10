@@ -1,0 +1,1068 @@
+{
+  "meta": {
+    "tripName": "Coast to Coast \u2014 Cross-Canada Road Trip",
+    "startDate": "2026-09-05",
+    "endDate": "2026-09-20",
+    "days": 16,
+    "note": "Sample placeholder itinerary \u2014 edit data/trip.json (or re-run build_trip_data.py) with your real bookings, times and addresses."
+  },
+  "days": [
+    {
+      "id": "d01",
+      "index": 1,
+      "date": "2026-09-05",
+      "tz": "America/Vancouver",
+      "city": "Victoria, BC",
+      "region": "Vancouver Island",
+      "lat": 48.4284,
+      "lng": -123.3656,
+      "driveFromPrev": null,
+      "summary": "Trip start \u2014 harbour city on the Pacific edge.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Coffee at the Inner Harbour",
+          "type": "food"
+        },
+        {
+          "time": "10:30",
+          "title": "Butchart Gardens",
+          "type": "sight",
+          "lat": 48.561,
+          "lng": -123.472
+        },
+        {
+          "time": "15:00",
+          "title": "Fisherman's Wharf",
+          "type": "sight",
+          "lat": 48.4235,
+          "lng": -123.3853
+        },
+        {
+          "time": "19:00",
+          "title": "Sunset \u2014 Ogden Point breakwater",
+          "type": "photo",
+          "lat": 48.4144,
+          "lng": -123.3856
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Red Fish Blue Fish",
+            "lat": 48.4229,
+            "lng": -123.3702,
+            "note": "Dockside seafood shack"
+          }
+        ],
+        "gas": [
+          {
+            "name": "Petro-Canada \u2014 Douglas St",
+            "lat": 48.4353,
+            "lng": -123.3697
+          }
+        ],
+        "photo": [
+          {
+            "name": "Ogden Point Breakwater",
+            "lat": 48.4144,
+            "lng": -123.3856,
+            "note": "Golden hour over the strait"
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Butchart Gardens",
+          "lat": 48.561,
+          "lng": -123.472
+        },
+        {
+          "name": "Inner Harbour",
+          "lat": 48.4229,
+          "lng": -123.3707
+        }
+      ]
+    },
+    {
+      "id": "d02",
+      "index": 2,
+      "date": "2026-09-06",
+      "tz": "America/Vancouver",
+      "city": "Vancouver, BC",
+      "region": "Lower Mainland",
+      "lat": 49.2827,
+      "lng": -123.1207,
+      "driveFromPrev": "3.5 hr incl. ferry",
+      "summary": "Ferry over from the Island into the city.",
+      "agenda": [
+        {
+          "time": "10:00",
+          "title": "Stanley Park seawall",
+          "type": "sight",
+          "lat": 49.3017,
+          "lng": -123.1444
+        },
+        {
+          "time": "13:00",
+          "title": "Granville Island Public Market",
+          "type": "food",
+          "lat": 49.2714,
+          "lng": -123.1348
+        },
+        {
+          "time": "17:30",
+          "title": "Capilano Suspension Bridge",
+          "type": "sight",
+          "lat": 49.3429,
+          "lng": -123.115
+        },
+        {
+          "time": "20:00",
+          "title": "Sunset Beach golden hour",
+          "type": "photo",
+          "lat": 49.2795,
+          "lng": -123.14
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Granville Island Market",
+            "lat": 49.2714,
+            "lng": -123.1348
+          }
+        ],
+        "gas": [
+          {
+            "name": "Shell \u2014 West Georgia St",
+            "lat": 49.2856,
+            "lng": -123.1259
+          }
+        ],
+        "photo": [
+          {
+            "name": "Vancouver Lookout",
+            "lat": 49.2856,
+            "lng": -123.1113
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Stanley Park",
+          "lat": 49.3017,
+          "lng": -123.1444
+        },
+        {
+          "name": "Granville Island",
+          "lat": 49.2714,
+          "lng": -123.1348
+        }
+      ]
+    },
+    {
+      "id": "d03",
+      "index": 3,
+      "date": "2026-09-07",
+      "tz": "America/Vancouver",
+      "city": "Whistler, BC",
+      "region": "Sea to Sky",
+      "lat": 50.1163,
+      "lng": -122.9574,
+      "driveFromPrev": "2 hr",
+      "summary": "Sea-to-Sky Highway north \u2014 one of the most scenic drives in the country.",
+      "agenda": [
+        {
+          "time": "09:00",
+          "title": "Sea to Sky Gondola stop",
+          "type": "sight",
+          "lat": 49.6839,
+          "lng": -123.1614
+        },
+        {
+          "time": "13:00",
+          "title": "Whistler Village",
+          "type": "food",
+          "lat": 50.1163,
+          "lng": -122.9574
+        },
+        {
+          "time": "15:30",
+          "title": "Peak 2 Peak Gondola",
+          "type": "sight",
+          "lat": 50.0837,
+          "lng": -122.9491
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Whistler Village Square eats",
+            "lat": 50.1163,
+            "lng": -122.9574
+          }
+        ],
+        "gas": [
+          {
+            "name": "Petro-Canada \u2014 Whistler",
+            "lat": 50.115,
+            "lng": -122.955
+          }
+        ],
+        "photo": [
+          {
+            "name": "Joffre Lakes (side trip)",
+            "lat": 50.3689,
+            "lng": -122.493,
+            "note": "~1 hr detour, turquoise glacial lake"
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Whistler Village",
+          "lat": 50.1163,
+          "lng": -122.9574
+        },
+        {
+          "name": "Peak 2 Peak Gondola",
+          "lat": 50.0837,
+          "lng": -122.9491
+        }
+      ]
+    },
+    {
+      "id": "d04",
+      "index": 4,
+      "date": "2026-09-08",
+      "tz": "America/Vancouver",
+      "city": "Kamloops, BC",
+      "region": "Thompson-Okanagan",
+      "lat": 50.6745,
+      "lng": -120.3273,
+      "driveFromPrev": "3 hr",
+      "summary": "Coast mountains give way to dry grassland canyon country.",
+      "agenda": [
+        {
+          "time": "12:00",
+          "title": "Kamloops Lake viewpoint",
+          "type": "photo",
+          "lat": 50.7167,
+          "lng": -120.7167
+        },
+        {
+          "time": "16:00",
+          "title": "Riverside Park walk",
+          "type": "sight",
+          "lat": 50.6733,
+          "lng": -120.3242
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Downtown Kamloops eats",
+            "lat": 50.676,
+            "lng": -120.34
+          }
+        ],
+        "gas": [
+          {
+            "name": "Husky \u2014 Trans-Canada Hwy",
+            "lat": 50.68,
+            "lng": -120.36
+          }
+        ],
+        "photo": [
+          {
+            "name": "Kamloops Lake overlook",
+            "lat": 50.7167,
+            "lng": -120.7167
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Riverside Park",
+          "lat": 50.6733,
+          "lng": -120.3242
+        }
+      ]
+    },
+    {
+      "id": "d05",
+      "index": 5,
+      "date": "2026-09-09",
+      "tz": "America/Vancouver",
+      "city": "Revelstoke, BC",
+      "region": "Columbia Mountains",
+      "lat": 50.9981,
+      "lng": -118.1957,
+      "driveFromPrev": "3 hr",
+      "summary": "Into the Columbia Mountains \u2014 glaciers and old-growth cedar.",
+      "agenda": [
+        {
+          "time": "10:00",
+          "title": "Meadows in the Sky Parkway",
+          "type": "sight",
+          "lat": 51.073,
+          "lng": -118.19
+        },
+        {
+          "time": "14:00",
+          "title": "Enchanted Forest",
+          "type": "sight",
+          "lat": 51.158,
+          "lng": -118.545
+        },
+        {
+          "time": "18:30",
+          "title": "Sunset from Mt. Revelstoke summit",
+          "type": "photo",
+          "lat": 51.073,
+          "lng": -118.19
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Downtown Revelstoke",
+            "lat": 50.9981,
+            "lng": -118.1957
+          }
+        ],
+        "gas": [
+          {
+            "name": "Chevron \u2014 Trans-Canada Hwy",
+            "lat": 51.0,
+            "lng": -118.2
+          }
+        ],
+        "photo": [
+          {
+            "name": "Mount Revelstoke summit road",
+            "lat": 51.073,
+            "lng": -118.19
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Mount Revelstoke National Park",
+          "lat": 51.073,
+          "lng": -118.19
+        }
+      ]
+    },
+    {
+      "id": "d06",
+      "index": 6,
+      "date": "2026-09-10",
+      "tz": "America/Edmonton",
+      "city": "Banff, AB",
+      "region": "Canadian Rockies",
+      "lat": 51.1784,
+      "lng": -115.5708,
+      "driveFromPrev": "2.5 hr",
+      "summary": "Rockies proper \u2014 the postcard stretch of the trip begins.",
+      "agenda": [
+        {
+          "time": "09:30",
+          "title": "Banff Gondola \u2014 Sulphur Mountain",
+          "type": "sight",
+          "lat": 51.15,
+          "lng": -115.5717
+        },
+        {
+          "time": "13:00",
+          "title": "Bow Falls + Surprise Corner",
+          "type": "photo",
+          "lat": 51.1725,
+          "lng": -115.565
+        },
+        {
+          "time": "17:00",
+          "title": "Lake Minnewanka drive",
+          "type": "sight",
+          "lat": 51.2333,
+          "lng": -115.4333
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Banff Ave eateries",
+            "lat": 51.1784,
+            "lng": -115.5708
+          }
+        ],
+        "gas": [
+          {
+            "name": "Petro-Canada \u2014 Banff Ave",
+            "lat": 51.177,
+            "lng": -115.569
+          }
+        ],
+        "photo": [
+          {
+            "name": "Surprise Corner (Bow Falls view)",
+            "lat": 51.1725,
+            "lng": -115.565
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Banff Gondola",
+          "lat": 51.15,
+          "lng": -115.5717
+        },
+        {
+          "name": "Lake Minnewanka",
+          "lat": 51.2333,
+          "lng": -115.4333
+        }
+      ]
+    },
+    {
+      "id": "d07",
+      "index": 7,
+      "date": "2026-09-11",
+      "tz": "America/Edmonton",
+      "city": "Lake Louise, AB",
+      "region": "Canadian Rockies",
+      "lat": 51.4254,
+      "lng": -116.1773,
+      "driveFromPrev": "1 hr",
+      "summary": "Short drive, huge payoff \u2014 Moraine Lake and the Icefields Parkway gateway.",
+      "agenda": [
+        {
+          "time": "07:00",
+          "title": "Moraine Lake at sunrise",
+          "type": "photo",
+          "lat": 51.3217,
+          "lng": -116.186
+        },
+        {
+          "time": "10:00",
+          "title": "Lake Louise shoreline walk",
+          "type": "sight",
+          "lat": 51.4254,
+          "lng": -116.1773
+        },
+        {
+          "time": "14:00",
+          "title": "Icefields Parkway scenic drive north",
+          "type": "sight",
+          "lat": 52.2159,
+          "lng": -117.214
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Lake Louise Village",
+            "lat": 51.437,
+            "lng": -116.177
+          }
+        ],
+        "gas": [
+          {
+            "name": "Petro-Canada \u2014 Lake Louise Village",
+            "lat": 51.437,
+            "lng": -116.177
+          }
+        ],
+        "photo": [
+          {
+            "name": "Moraine Lake Rockpile",
+            "lat": 51.3217,
+            "lng": -116.186,
+            "note": "Arrive pre-dawn \u2014 parking fills early"
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Moraine Lake",
+          "lat": 51.3217,
+          "lng": -116.186
+        },
+        {
+          "name": "Lake Louise",
+          "lat": 51.4254,
+          "lng": -116.1773
+        }
+      ]
+    },
+    {
+      "id": "d08",
+      "index": 8,
+      "date": "2026-09-12",
+      "tz": "America/Edmonton",
+      "city": "Calgary, AB",
+      "region": "Prairies gateway",
+      "lat": 51.0447,
+      "lng": -114.0719,
+      "driveFromPrev": "2 hr",
+      "summary": "Down out of the mountains onto the prairie edge.",
+      "agenda": [
+        {
+          "time": "11:00",
+          "title": "Calgary Tower",
+          "type": "sight",
+          "lat": 51.0444,
+          "lng": -114.0631
+        },
+        {
+          "time": "13:30",
+          "title": "Studio Bell (National Music Centre)",
+          "type": "sight",
+          "lat": 51.0472,
+          "lng": -114.0522
+        },
+        {
+          "time": "18:00",
+          "title": "Peace Bridge sunset",
+          "type": "photo",
+          "lat": 51.0533,
+          "lng": -114.0703
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Inglewood strip",
+            "lat": 51.0417,
+            "lng": -114.0333
+          }
+        ],
+        "gas": [
+          {
+            "name": "Husky \u2014 Memorial Dr",
+            "lat": 51.05,
+            "lng": -114.05
+          }
+        ],
+        "photo": [
+          {
+            "name": "Peace Bridge",
+            "lat": 51.0533,
+            "lng": -114.0703
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Calgary Tower",
+          "lat": 51.0444,
+          "lng": -114.0631
+        }
+      ]
+    },
+    {
+      "id": "d09",
+      "index": 9,
+      "date": "2026-09-13",
+      "tz": "America/Regina",
+      "city": "Regina, SK",
+      "region": "Prairies",
+      "lat": 50.4452,
+      "lng": -104.6189,
+      "driveFromPrev": "7 hr",
+      "summary": "Long prairie push \u2014 big sky driving.",
+      "agenda": [
+        {
+          "time": "17:00",
+          "title": "Wascana Centre lakeside walk",
+          "type": "sight",
+          "lat": 50.4333,
+          "lng": -104.6017
+        },
+        {
+          "time": "18:30",
+          "title": "Saskatchewan Legislative Building",
+          "type": "sight",
+          "lat": 50.4297,
+          "lng": -104.6178
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Downtown Regina",
+            "lat": 50.4452,
+            "lng": -104.6189
+          }
+        ],
+        "gas": [
+          {
+            "name": "Co-op \u2014 Trans-Canada Hwy",
+            "lat": 50.46,
+            "lng": -104.64
+          }
+        ],
+        "photo": [
+          {
+            "name": "Wascana Lake at dusk",
+            "lat": 50.4333,
+            "lng": -104.6017
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Wascana Centre",
+          "lat": 50.4333,
+          "lng": -104.6017
+        }
+      ]
+    },
+    {
+      "id": "d10",
+      "index": 10,
+      "date": "2026-09-14",
+      "tz": "America/Winnipeg",
+      "city": "Winnipeg, MB",
+      "region": "Prairies",
+      "lat": 49.8951,
+      "lng": -97.1384,
+      "driveFromPrev": "6 hr",
+      "summary": "The Forks \u2014 where two rivers and centuries of trade routes meet.",
+      "agenda": [
+        {
+          "time": "17:00",
+          "title": "The Forks Market",
+          "type": "food",
+          "lat": 49.8917,
+          "lng": -97.1306
+        },
+        {
+          "time": "19:00",
+          "title": "Canadian Museum for Human Rights",
+          "type": "sight",
+          "lat": 49.8917,
+          "lng": -97.1275
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "The Forks Market",
+            "lat": 49.8917,
+            "lng": -97.1306
+          }
+        ],
+        "gas": [
+          {
+            "name": "Petro-Canada \u2014 Pembina Hwy",
+            "lat": 49.86,
+            "lng": -97.15
+          }
+        ],
+        "photo": [
+          {
+            "name": "The Forks riverwalk",
+            "lat": 49.8917,
+            "lng": -97.1306
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "The Forks",
+          "lat": 49.8917,
+          "lng": -97.1306
+        }
+      ]
+    },
+    {
+      "id": "d11",
+      "index": 11,
+      "date": "2026-09-15",
+      "tz": "America/Thunder_Bay",
+      "city": "Thunder Bay, ON",
+      "region": "Northern Ontario",
+      "lat": 48.3809,
+      "lng": -89.2477,
+      "driveFromPrev": "7 hr",
+      "summary": "Into Ontario along the north shore of Lake Superior.",
+      "agenda": [
+        {
+          "time": "17:00",
+          "title": "Sleeping Giant lookout",
+          "type": "photo",
+          "lat": 48.3167,
+          "lng": -88.85
+        },
+        {
+          "time": "19:30",
+          "title": "Kakabeka Falls",
+          "type": "sight",
+          "lat": 48.4011,
+          "lng": -89.6236
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Downtown Thunder Bay",
+            "lat": 48.3809,
+            "lng": -89.2477
+          }
+        ],
+        "gas": [
+          {
+            "name": "Esso \u2014 Trans-Canada Hwy",
+            "lat": 48.4,
+            "lng": -89.25
+          }
+        ],
+        "photo": [
+          {
+            "name": "Sleeping Giant Provincial Park",
+            "lat": 48.3167,
+            "lng": -88.85
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Kakabeka Falls",
+          "lat": 48.4011,
+          "lng": -89.6236
+        }
+      ]
+    },
+    {
+      "id": "d12",
+      "index": 12,
+      "date": "2026-09-16",
+      "tz": "America/Toronto",
+      "city": "Sault Ste. Marie, ON",
+      "region": "Northern Ontario",
+      "lat": 46.5136,
+      "lng": -84.3358,
+      "driveFromPrev": "6 hr",
+      "summary": "Lake Superior's eastern shore, gateway to Algoma country.",
+      "agenda": [
+        {
+          "time": "16:00",
+          "title": "Whitefish Island trail",
+          "type": "sight",
+          "lat": 46.5175,
+          "lng": -84.3467
+        },
+        {
+          "time": "19:00",
+          "title": "St. Marys River boardwalk sunset",
+          "type": "photo",
+          "lat": 46.51,
+          "lng": -84.335
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Downtown Sault Ste. Marie",
+            "lat": 46.5136,
+            "lng": -84.3358
+          }
+        ],
+        "gas": [
+          {
+            "name": "Petro-Canada \u2014 Great Northern Rd",
+            "lat": 46.54,
+            "lng": -84.35
+          }
+        ],
+        "photo": [
+          {
+            "name": "Agawa Canyon lookout (seasonal train)",
+            "lat": 47.05,
+            "lng": -84.55
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Whitefish Island",
+          "lat": 46.5175,
+          "lng": -84.3467
+        }
+      ]
+    },
+    {
+      "id": "d13",
+      "index": 13,
+      "date": "2026-09-17",
+      "tz": "America/Toronto",
+      "city": "Ottawa, ON",
+      "region": "National Capital Region",
+      "lat": 45.4215,
+      "lng": -75.6972,
+      "driveFromPrev": "9 hr",
+      "summary": "Long haul east into the capital.",
+      "agenda": [
+        {
+          "time": "18:00",
+          "title": "Parliament Hill",
+          "type": "sight",
+          "lat": 45.4236,
+          "lng": -75.7003
+        },
+        {
+          "time": "20:00",
+          "title": "ByWard Market dinner",
+          "type": "food",
+          "lat": 45.429,
+          "lng": -75.6919
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "ByWard Market",
+            "lat": 45.429,
+            "lng": -75.6919
+          }
+        ],
+        "gas": [
+          {
+            "name": "Shell \u2014 Bank St",
+            "lat": 45.4,
+            "lng": -75.69
+          }
+        ],
+        "photo": [
+          {
+            "name": "Rideau Canal locks, Parliament backdrop",
+            "lat": 45.4211,
+            "lng": -75.6923
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Parliament Hill",
+          "lat": 45.4236,
+          "lng": -75.7003
+        }
+      ]
+    },
+    {
+      "id": "d14",
+      "index": 14,
+      "date": "2026-09-18",
+      "tz": "America/Toronto",
+      "city": "Montreal, QC",
+      "region": "Quebec",
+      "lat": 45.5019,
+      "lng": -73.5674,
+      "driveFromPrev": "2 hr",
+      "summary": "Old-world streets and a mountain in the middle of the city.",
+      "agenda": [
+        {
+          "time": "10:00",
+          "title": "Old Montreal + Notre-Dame Basilica",
+          "type": "sight",
+          "lat": 45.5045,
+          "lng": -73.5563
+        },
+        {
+          "time": "16:00",
+          "title": "Mount Royal lookout",
+          "type": "photo",
+          "lat": 45.5048,
+          "lng": -73.5878
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Old Montreal bistros",
+            "lat": 45.5045,
+            "lng": -73.5563
+          }
+        ],
+        "gas": [
+          {
+            "name": "Petro-Canada \u2014 Rene-Levesque",
+            "lat": 45.499,
+            "lng": -73.57
+          }
+        ],
+        "photo": [
+          {
+            "name": "Mount Royal Kondiaronk lookout",
+            "lat": 45.5048,
+            "lng": -73.5878
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Notre-Dame Basilica",
+          "lat": 45.5045,
+          "lng": -73.5563
+        },
+        {
+          "name": "Mount Royal",
+          "lat": 45.5048,
+          "lng": -73.5878
+        }
+      ]
+    },
+    {
+      "id": "d15",
+      "index": 15,
+      "date": "2026-09-19",
+      "tz": "America/Toronto",
+      "city": "Quebec City, QC",
+      "region": "Quebec",
+      "lat": 46.8139,
+      "lng": -71.208,
+      "driveFromPrev": "3 hr",
+      "summary": "The walled Old City and one of the tallest waterfalls in the province.",
+      "agenda": [
+        {
+          "time": "11:00",
+          "title": "Old Quebec + Chateau Frontenac",
+          "type": "sight",
+          "lat": 46.8123,
+          "lng": -71.2048
+        },
+        {
+          "time": "15:00",
+          "title": "Montmorency Falls",
+          "type": "photo",
+          "lat": 46.8869,
+          "lng": -71.1444
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Petit Champlain district",
+            "lat": 46.8117,
+            "lng": -71.2028
+          }
+        ],
+        "gas": [
+          {
+            "name": "Esso \u2014 Boulevard Charest",
+            "lat": 46.815,
+            "lng": -71.23
+          }
+        ],
+        "photo": [
+          {
+            "name": "Montmorency Falls suspension bridge",
+            "lat": 46.8869,
+            "lng": -71.1444
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Chateau Frontenac",
+          "lat": 46.8123,
+          "lng": -71.2048
+        },
+        {
+          "name": "Montmorency Falls",
+          "lat": 46.8869,
+          "lng": -71.1444
+        }
+      ]
+    },
+    {
+      "id": "d16",
+      "index": 16,
+      "date": "2026-09-20",
+      "tz": "America/Halifax",
+      "city": "Halifax, NS",
+      "region": "Maritimes",
+      "lat": 44.6488,
+      "lng": -63.5752,
+      "driveFromPrev": "8.5 hr",
+      "summary": "Coast to coast \u2014 Atlantic tidewater at last.",
+      "agenda": [
+        {
+          "time": "10:00",
+          "title": "Peggy's Cove lighthouse",
+          "type": "photo",
+          "lat": 44.4918,
+          "lng": -63.9168
+        },
+        {
+          "time": "15:00",
+          "title": "Halifax Waterfront Boardwalk",
+          "type": "sight",
+          "lat": 44.6474,
+          "lng": -63.5697
+        },
+        {
+          "time": "18:30",
+          "title": "Citadel Hill sunset",
+          "type": "photo",
+          "lat": 44.6478,
+          "lng": -63.5806
+        }
+      ],
+      "local": {
+        "food": [
+          {
+            "name": "Halifax Waterfront eateries",
+            "lat": 44.6474,
+            "lng": -63.5697
+          }
+        ],
+        "gas": [
+          {
+            "name": "Irving \u2014 Barrington St",
+            "lat": 44.65,
+            "lng": -63.58
+          }
+        ],
+        "photo": [
+          {
+            "name": "Peggy's Cove",
+            "lat": 44.4918,
+            "lng": -63.9168,
+            "note": "Iconic \u2014 arrive early or late to beat crowds"
+          }
+        ],
+        "events": []
+      },
+      "keyLocations": [
+        {
+          "name": "Peggy's Cove",
+          "lat": 44.4918,
+          "lng": -63.9168
+        },
+        {
+          "name": "Citadel Hill",
+          "lat": 44.6478,
+          "lng": -63.5806
+        }
+      ]
+    }
+  ]
+}
