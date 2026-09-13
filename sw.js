@@ -1,4 +1,4 @@
-const CACHE_NAME = 'c2c-v23';
+const CACHE_NAME = 'c2c-v24';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -13,6 +13,7 @@ const PRECACHE = [
   '/data/manifest.json',
   '/data/zones.json',
   '/data/didyouknow.json',
+  '/data/flags.json',
   '/data/routes/ground-truth.json',
   '/data/routes/loop1-10day.json',
   '/data/routes/loop2-21day.json',
@@ -26,8 +27,16 @@ const PRECACHE = [
 ];
 
 self.addEventListener('install', (event) => {
+  // Plain fetch() (what cache.addAll() uses internally) is still subject to
+  // the browser's own HTTP cache, so a version bump here can silently
+  // install stale JS/JSON if an earlier response for that URL is sitting in
+  // the browser's cache with no strong cache-control header. {cache:
+  // 'reload'} forces each precache request to revalidate with the network
+  // so a bumped CACHE_NAME always means genuinely fresh files.
   event.waitUntil(
-    caches.open(CACHE_NAME).then((c) => c.addAll(PRECACHE)).then(() => self.skipWaiting())
+    caches.open(CACHE_NAME)
+      .then((c) => Promise.all(PRECACHE.map((url) => fetch(url, { cache: 'reload' }).then((res) => c.put(url, res)))))
+      .then(() => self.skipWaiting())
   );
 });
 

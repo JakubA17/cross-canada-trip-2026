@@ -232,6 +232,86 @@
     </div>`;
   }
 
+  // ---- trip-discrepancy flags ---------------------------------------------
+  // Surfaces real conflicts turned up by research (e.g. a campground that
+  // turns out to be closed on the planned date) WITHOUT rewriting the
+  // itinerary itself — the plan stays exactly as booked/roadbooked; this is
+  // just a dismissible warning layered on top so the discrepancy isn't
+  // silently lost in a paragraph of agenda text.
+  function activeFlagsForDay(day) {
+    if (!FLAGS || !day) return [];
+    return FLAGS.filter((f) => f.dayId === day.id);
+  }
+
+  // Flags whose target day is still ahead of `day` by 1..leadDays trip-days —
+  // the "heads up, coming soon" case — using each day's own `index` rather
+  // than parsing calendar dates so it lines up exactly with the app's
+  // day-by-day model regardless of any date gaps.
+  function upcomingFlagsFromDay(day) {
+    if (!FLAGS || !day || !TRIP) return [];
+    const out = [];
+    FLAGS.forEach((f) => {
+      const target = TRIP.days.find((d) => d.id === f.dayId);
+      if (!target) return;
+      const gap = target.index - day.index;
+      const lead = typeof f.leadDays === 'number' ? f.leadDays : 2;
+      if (gap > 0 && gap <= lead) out.push({ ...f, daysAway: gap, targetDay: target });
+    });
+    return out;
+  }
+
+  function flagRowHtml(f, opts) {
+    const dismissed = Store.isFlagDismissed(f.id);
+    if (dismissed && !opts.showDismissed) return '';
+    const sevClass = f.severity === 'high' ? 'is-high' : 'is-medium';
+    const whenTxt = opts.mode === 'upcoming'
+      ? `In ${f.daysAway} day${f.daysAway === 1 ? '' : 's'} — ${esc(f.targetDay.city)} (${fmtDateShort(f.targetDay.date)})`
+      : (opts.mode === 'list' ? `${esc(f.dayCity || '')} (${fmtDateShort(f.dayDate || '')})` : 'Today');
+    return `<div class="flag-row ${sevClass} ${dismissed ? 'is-dismissed' : ''}" data-flagid="${esc(f.id)}">
+      <div class="flag-icon">${ICONS.alertTriangle || ICONS.info || '!'}</div>
+      <div class="flag-body">
+        <div class="flag-when">${whenTxt}</div>
+        <div class="flag-title">${esc(f.title)}</div>
+        <div class="flag-detail">${esc(f.detail)}</div>
+        ${f.source ? `<div class="flag-source">Source: ${esc(f.source)}</div>` : ''}
+      </div>
+      <button class="flag-dismiss" data-dismissflag="${esc(f.id)}" aria-label="${dismissed ? 'Restore this discrepancy' : 'Dismiss this discrepancy'}">
+        ${dismissed ? 'Undo' : ICONS.close}
+      </button>
+    </div>`;
+  }
+
+  /** Banner(s) shown at the top of the Today tab for the currently viewed day. */
+  function renderDiscrepancy(day) {
+    const slot = $('#discrepancySlot');
+    if (!slot) return;
+    if (!FLAGS || !FLAGS.length) { slot.innerHTML = ''; return; }
+    const here = activeFlagsForDay(day).map((f) => flagRowHtml(f, { mode: 'today' })).join('');
+    const soon = upcomingFlagsFromDay(day).map((f) => flagRowHtml(f, { mode: 'upcoming' })).join('');
+    const rows = here + soon;
+    slot.innerHTML = rows ? `<div class="discrepancy-banner">${rows}</div>` : '';
+  }
+
+  /** Full, collectable list of every flag across the trip — Trip tab. */
+  function renderTripFlags() {
+    const card = $('#tripFlagsCard');
+    const list = $('#tripFlagsList');
+    if (!card || !list || !TRIP) return;
+    if (!FLAGS || !FLAGS.length) { card.hidden = true; return; }
+    const rows = FLAGS.map((f) => {
+      const d = TRIP.days.find((x) => x.id === f.dayId);
+      return { ...f, dayCity: d ? d.city : '', dayDate: d ? d.date : '' };
+    }).filter((f) => f.dayCity); // only flags that map onto the currently selected route
+    if (!rows.length) { card.hidden = true; return; }
+    card.hidden = false;
+    const activeCount = rows.filter((f) => !Store.isFlagDismissed(f.id)).length;
+    const dismissedCount = rows.length - activeCount;
+    $('#tripFlagsSub').textContent = dismissedCount
+      ? `${activeCount} open · ${dismissedCount} dismissed`
+      : `${activeCount} open`;
+    list.innerHTML = rows.map((f) => flagRowHtml(f, { mode: 'list', showDismissed: true })).join('');
+  }
+
   // ---- state -----------------------------------------------------------
   let MANIFEST = null;
   let ROUTES_CACHE = {}; // routeId -> { days: [...], sunWindow }
@@ -246,6 +326,7 @@
   let REPO_INDEX = null;
   let ZONES = null; // { zoneId: { id, label, region, blurb, tips, safety, pois } }
   let DIDYOUKNOW = null; // { zoneId: [{ text, topic }] }
+  let FLAGS = null; // [{ id, dayId, severity, title, detail, source, leadDays }] — researched plan discrepancies
   let repoMode = 'areas'; // 'areas' (zone database, default) | 'day'
   let repoZoneFocus = null; // zoneId when drilled into one area's directory
   let sheetSpot = null; // POI currently open in the detail sheet
@@ -1376,6 +1457,7 @@
   }
 
   function renderTripTab() {
+    renderTripFlags();
     const route = currentRouteMeta();
     $('#tripName').textContent = MANIFEST.tripName;
     $('#tripTypeBadge').textContent = route.type === 'confirmed' ? 'Confirmed Itinerary' : 'Alternate Route';
@@ -1602,6 +1684,7 @@
     if (!TRIP) return;
     renderBanner();
     const day = currentDay();
+    renderDiscrepancy(day);
     renderSunCard(day);
     renderWeather(day);
     renderAgenda(day);
@@ -1671,6 +1754,15 @@
 
       const openZoneRow = e.target.closest('[data-openzone]');
       if (openZoneRow) { openZone(openZoneRow.dataset.openzone); return; }
+
+      const dismissFlagBtn = e.target.closest('[data-dismissflag]');
+      if (dismissFlagBtn) {
+        const id = dismissFlagBtn.dataset.dismissflag;
+        if (Store.isFlagDismissed(id)) Store.undismissFlag(id); else Store.dismissFlag(id);
+        renderDiscrepancy(currentDay());
+        if ($('#view-trip').classList.contains('active')) renderTripFlags();
+        return;
+      }
 
       const browseZoneBtn = e.target.closest('#btnBrowseZone, [data-triptozone]');
       if (browseZoneBtn) { openZone(browseZoneBtn.dataset.zoneid || browseZoneBtn.dataset.triptozone || null); return; }
@@ -1851,6 +1943,11 @@
       const bundledDYK = (typeof window !== 'undefined' && window.__C2C_DATA__) ? window.__C2C_DATA__['data/didyouknow.json'] : null;
       DIDYOUKNOW = bundledDYK || (await (await fetch('/data/didyouknow.json')).json());
     } catch (e) { DIDYOUKNOW = null; /* "Did you know" card just won't show this run */ }
+
+    try {
+      const bundledFlags = (typeof window !== 'undefined' && window.__C2C_DATA__) ? window.__C2C_DATA__['data/flags.json'] : null;
+      FLAGS = bundledFlags || (await (await fetch('/data/flags.json')).json());
+    } catch (e) { FLAGS = null; /* discrepancy banners just won't show this run */ }
 
     // One-time migration off the old position-based saved-spot ids (see
     // zonePoiId / poiRowHtml comments) onto the stable name-based scheme.

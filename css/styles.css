@@ -51,6 +51,10 @@
   --green: #34c759;
   --green-text: #0f7a30;               /* green for TEXT on light surfaces — ~5.5:1 (was --green itself at 1.98–2.39:1) */
   --red: #ff3b30;
+  --red-text: #c0261d;                 /* red for TEXT on light surfaces — ~5.9:1 */
+  --red-tint: rgba(255,59,48,0.12);
+  --amber: #d9821b;                    /* amber for TEXT/icons on light surfaces — ~4.6:1 */
+  --amber-tint: rgba(217,130,27,0.14);
 
   --shadow: 0 12px 32px -8px rgba(0,0,0,0.22);
   --shadow-sm: none;
@@ -120,6 +124,10 @@
     --green: #30d158;
     --green-text: #30d158;             /* already ~6.3:1 against dark surfaces — no change needed */
     --red: #ff453a;
+    --red-text: #ff6961;               /* red for TEXT on dark surfaces — ~5.7:1 */
+    --red-tint: rgba(255,69,58,0.20);
+    --amber: #f0a83c;                  /* amber for TEXT/icons on dark surfaces — ~7.6:1 */
+    --amber-tint: rgba(240,168,60,0.20);
     --shadow-xs: 0 3px 8px rgba(0,0,0,0.40), 0 3px 1px rgba(0,0,0,0.20);
     --ink: #121213;
     /* --route-confirmed intentionally NOT overridden here — it's a fixed
@@ -1005,6 +1013,42 @@ button:focus-visible, input:focus-visible, textarea:focus-visible {
 .nearby-banner svg { width: 22px; height: 22px; color: var(--accent-text); flex-shrink: 0; }
 .nearby-banner .t { font-size: 15px; font-weight: 600; }
 .nearby-banner .s { font-size: 13px; color: var(--text-dim); margin-top: 1px; }
+
+/* ---------------------------------------------------------------------- */
+/* Trip-discrepancy flags — dismissible warnings for researched plan        */
+/* conflicts (e.g. a campground confirmed closed on the planned date).      */
+/* The itinerary text itself is left untouched; this is a layer on top.     */
+/* ---------------------------------------------------------------------- */
+.discrepancy-banner { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.flag-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  border-radius: var(--radius-md);
+  padding: 12px 12px 12px 14px;
+  border-left: 4px solid var(--red);
+  background: var(--red-tint);
+}
+.flag-row.is-medium { border-left-color: var(--amber); background: var(--amber-tint); }
+.flag-row.is-dismissed { opacity: 0.55; }
+.flag-icon { flex-shrink: 0; margin-top: 1px; }
+.flag-icon svg { width: 20px; height: 20px; color: var(--red-text); }
+.flag-row.is-medium .flag-icon svg { color: var(--amber); }
+.flag-body { flex: 1; min-width: 0; }
+.flag-when {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--red-text); margin-bottom: 2px;
+}
+.flag-row.is-medium .flag-when { color: var(--amber); }
+.flag-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+.flag-detail { font-size: 13px; color: var(--text-dim); line-height: 1.4; }
+.flag-source { font-size: 11px; color: var(--text-faint); margin-top: 6px; font-style: italic; }
+.flag-dismiss {
+  flex-shrink: 0; border: none; background: transparent; color: var(--text-dim);
+  cursor: pointer; padding: 4px 6px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 600;
+}
+.flag-dismiss:hover { background: var(--fill); }
+.flag-dismiss svg { width: 18px; height: 18px; display: block; }
+
+#tripFlagsList { display: flex; flex-direction: column; gap: 10px; }
 
 /* ---------------------------------------------------------------------- */
 /* Trip tab — hero, route picker, day list, settings                        */

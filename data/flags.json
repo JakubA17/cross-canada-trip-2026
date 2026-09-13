@@ -1,0 +1,29 @@
+[
+  {
+    "id": "flag-twelvemile-closure",
+    "dayId": "gt-d28",
+    "severity": "high",
+    "title": "Twelvemile Beach Campground is closed for the season",
+    "detail": "Re-verified directly on nps.gov: all of Pictured Rocks' drive-in campgrounds (Twelvemile Beach, Hurricane River, Little Beaver Lake) run May 15–Oct 15 only, with water and toilets shut off after that. This visit lands Oct 16, 2026 — the day after closing, so it's confirmed closed, not just borderline. The itinerary still lists it as the planned overnight; use Tahquamenon Falls SP (Rivermouth/Lower Falls campground, likely open but worth confirming) or the Soo Locks Campground in Sault Ste. Marie, MI (a real municipal RV park/campground, season May 1–Oct 20, comfortably covers this date) instead.",
+    "source": "nps.gov/piro camping page",
+    "leadDays": 2
+  },
+  {
+    "id": "flag-vanriper-borderline",
+    "dayId": "gt-d27",
+    "severity": "medium",
+    "title": "Van Riper State Park's camping season may not cover this date",
+    "detail": "Michigan DNR's official 2026 operating-dates page couldn't be pulled directly, but the 2025 season closed Oct 17 (cabins Oct 14) — close enough to this trip's Oct 15, 2026 date that it isn't a sure thing. Call the park or check MiDNRReservations.com before counting on it; have a Marquette-area motel as backup.",
+    "source": "Michigan DNR (2025 season dates, 2026 unconfirmed)",
+    "leadDays": 2
+  },
+  {
+    "id": "flag-bellefourche-tailend",
+    "severity": "medium",
+    "dayId": "gt-d24",
+    "title": "Belle Fourche River Campground is right at the end of its season",
+    "detail": "This is the real NPS campground at Devils Tower National Monument. Its season runs roughly May 16–Oct 14 per recreation.gov — the planned Oct 12, 2026 visit is very likely fine but is right at the tail end. Worth a quick confirmation call to the monument (307-467-5283) before relying on it.",
+    "source": "recreation.gov / Devils Tower NM (307-467-5283)",
+    "leadDays": 2
+  }
+]

@@ -40,6 +40,7 @@
     plus: s('<path d="M12 5v14M5 12h14"/>'),
     externalLink: s('<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 13v6a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h6"/>'),
     close: s('<path d="M18 6L6 18M6 6l12 12"/>'),
+    alertTriangle: s('<path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4M12 17h.01"/>'),
     gps: s('<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>'),
     sparkle: s('<path d="M12 2l1.6 5.2L19 9l-5.4 1.8L12 16l-1.6-5.2L5 9l5.4-1.8L12 2z"/>'),
     tent: s('<path d="M12 3l9 17H3z"/><path d="M12 3l5 17M12 3L7 20M9.5 15h5"/>'),

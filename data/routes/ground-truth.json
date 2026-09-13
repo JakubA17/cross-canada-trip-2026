@@ -1557,7 +1557,7 @@
       "lat": 46.495,
       "lng": -84.347,
       "driveFromPrev": "~350–450 km plus hikes",
-      "summary": "Marquette → Munising → H-58 → Miners Castle → Miners Beach → Twelvemile Beach → Grand Marais → Tahquamenon Falls → Sault Ste. Marie. Pictured Rocks NPS specifically warns that GPS can route onto unsuitable roads — use the official park map. Sunrise over Lake Superior, then the Miners Castle/Miners Beach trails and a look at Twelvemile Beach, before Tahquamenon Falls' short trails. Fuel in Munising/Grand Marais if needed, and definitely in Sault Ste. Marie. Confirmed: Pictured Rocks' drive-in campgrounds (Twelvemile Beach, Hurricane River, Little Beaver Lake) run May 15–Oct 15 only, water/toilets shut off after — Oct 16 is the day after closing, so plan on Tahquamenon's Rivermouth/Lower Falls campground or a Sault Ste. Marie motel instead of Twelvemile Beach. If H-58 is affected by snow, detour via M-28/US-2; keep to paved routes if shoreline roads are wet. Sunset at Tahquamenon Falls/river.",
+      "summary": "Marquette → Munising → H-58 → Miners Castle → Miners Beach → Twelvemile Beach → Grand Marais → Tahquamenon Falls → Sault Ste. Marie. Pictured Rocks NPS specifically warns that GPS can route onto unsuitable roads — use the official park map. Sunrise over Lake Superior, then the Miners Castle/Miners Beach trails and a look at Twelvemile Beach, before Tahquamenon Falls' short trails. Fuel in Munising/Grand Marais if needed, and definitely in Sault Ste. Marie. Twelvemile Beach is an excellent overnight if it's operating and reservable; otherwise use Tahquamenon or Sault Ste. Marie — verify seasonal dates. If H-58 is affected by snow, detour via M-28/US-2; keep to paved routes if shoreline roads are wet. Sunset at Twelvemile Beach if camping there, otherwise at Tahquamenon Falls/river.",
       "agenda": [
         {
           "time": "07:15",
@@ -1586,7 +1586,7 @@
         },
         {
           "time": "18:30",
-          "title": "Camp: Tahquamenon Falls SP or Sault Ste. Marie (Twelvemile Beach CG closed for the season)",
+          "title": "Camp: Twelvemile Beach (Pictured Rocks) if operating, otherwise Tahquamenon or Sault Ste. Marie",
           "type": "camp"
         }
       ],

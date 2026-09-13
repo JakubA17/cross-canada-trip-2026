@@ -7,6 +7,7 @@
   const KEY_SAVED = 'c2c_saved_spots_v1';
   const KEY_PREFS = 'c2c_prefs_v1';
   const KEY_NOTES = 'c2c_day_notes_v1';
+  const KEY_DISMISSED_FLAGS = 'c2c_dismissed_flags_v1';
 
   function read(key, fallback) {
     try {
@@ -93,6 +94,20 @@
       write(KEY_NOTES, all);
     },
 
+    // ---- trip-discrepancy flag dismissals (id -> true), offline, on-device --
+    getDismissedFlags() { return read(KEY_DISMISSED_FLAGS, {}); },
+    isFlagDismissed(id) { return !!this.getDismissedFlags()[id]; },
+    dismissFlag(id) {
+      const all = this.getDismissedFlags();
+      all[id] = true;
+      write(KEY_DISMISSED_FLAGS, all);
+    },
+    undismissFlag(id) {
+      const all = this.getDismissedFlags();
+      delete all[id];
+      write(KEY_DISMISSED_FLAGS, all);
+    },
+
     // ---- backup / export everything kept on-device --------------------------
     exportAll() {
       return {
@@ -101,6 +116,7 @@
         saved: this.getSaved(),
         notes: this.getNotes(),
         prefs: this.getPrefs(),
+        dismissedFlags: this.getDismissedFlags(),
       };
     },
   };

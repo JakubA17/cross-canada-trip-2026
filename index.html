@@ -61,6 +61,9 @@
     <div id="todayNearbySlot"></div>
     <section class="view active" id="view-today">
 
+      <!-- Trip-discrepancy banner(s) for the current day / a few days ahead -->
+      <div id="discrepancySlot"></div>
+
       <!-- Sun / light card -->
       <div class="card sun-card" id="sunCard">
         <div class="card-header">
@@ -228,6 +231,14 @@
         <div class="trip-hero-actions">
           <button class="btn-open-route" id="btnOpenRoute"><span id="openRouteIcon"></span>Open full route in Maps</button>
         </div>
+      </div>
+
+      <div class="card" id="tripFlagsCard" hidden>
+        <div class="card-header">
+          <div class="card-title">Trip Discrepancies</div>
+          <span class="card-sub" id="tripFlagsSub"></span>
+        </div>
+        <div id="tripFlagsList"></div>
       </div>
 
       <div class="card">
