@@ -1,42 +1,226 @@
 {
   "z1": [
-    { "text": "Sudbury's Big Nickel — a nine-metre replica of a 1951 five-cent coin — was the brainchild of local fireman Ted Szilva, who raised the roughly $35,000 to build it in just months so it would be ready for Canada's 1964 centennial push; it was built three feet outside Sudbury's border in Copper Cliff, which conveniently meant no building permit was required.", "topic": "Sudbury's Big Nickel" },
-    { "text": "Espanola got its Spanish-sounding name from a man named Frise Espagnol, who married into the local Anishinaabe community — when French voyageurs heard his children speaking Spanish, they called the area 'Espagnole,' which later got anglicized.", "topic": "Espanola's odd name" },
-    { "text": "Killarney Provincial Park was inaccessible by road until 1962, so when Group of Seven painters like A.Y. Jackson and Franklin Carmichael came to paint its white quartzite hills and turquoise lakes, they had to paddle in by canoe — Jackson's conservation efforts later earned him the nickname 'Grandfather of Killarney Park.'", "topic": "Group of Seven by canoe" }
+    {
+      "text": "Sudbury's Big Nickel — a nine-metre replica of a 1951 five-cent coin — was the brainchild of local fireman Ted Szilva, who raised the roughly $35,000 to build it in just months so it would be ready for Canada's 1964 centennial push; it was built three feet outside Sudbury's border in Copper Cliff, which conveniently meant no building permit was required.",
+      "topic": "Sudbury's Big Nickel"
+    },
+    {
+      "text": "Espanola got its Spanish-sounding name from a man named Frise Espagnol, who married into the local Anishinaabe community — when French voyageurs heard his children speaking Spanish, they called the area 'Espagnole,' which later got anglicized.",
+      "topic": "Espanola's odd name"
+    },
+    {
+      "text": "Killarney Provincial Park was inaccessible by road until 1962, so when Group of Seven painters like A.Y. Jackson and Franklin Carmichael came to paint its white quartzite hills and turquoise lakes, they had to paddle in by canoe — Jackson's conservation efforts later earned him the nickname 'Grandfather of Killarney Park.'",
+      "topic": "Group of Seven by canoe"
+    }
   ],
   "z2": [
-    { "text": "The famous Wawa Goose almost didn't happen at all — when the Trans-Canada Highway's final route threatened to bypass the town entirely, local businessmen built a giant goose statue (out of chicken wire and plaster at first, later steel from the town's own Helen Mine) just to give travellers a reason to pull off.", "topic": "Wawa's giant goose" },
-    { "text": "White River claims the title of birthplace of the real Winnie-the-Pooh: in 1914 a Canadian soldier named Harry Colebourn bought an orphaned bear cub here for $20 at the train station, named her 'Winnie' after Winnipeg, and later left her at the London Zoo — where a boy named Christopher Robin fell for her.", "topic": "Winnie-the-Pooh's real start" },
-    { "text": "The stretch of highway between Thunder Bay and Nipigon sits on Canada's richest amethyst deposit — the Amethyst Mine Panorama has a seam 1,200 feet long and 55 feet deep, discovered by accident in 1955 during road construction to a forest fire lookout tower.", "topic": "Canada's amethyst belt" }
+    {
+      "text": "The famous Wawa Goose almost didn't happen at all — when the Trans-Canada Highway's final route threatened to bypass the town entirely, local businessmen built a giant goose statue (out of chicken wire and plaster at first, later steel from the town's own Helen Mine) just to give travellers a reason to pull off.",
+      "topic": "Wawa's giant goose"
+    },
+    {
+      "text": "White River claims the title of birthplace of the real Winnie-the-Pooh: in 1914 a Canadian soldier named Harry Colebourn bought an orphaned bear cub here for $20 at the train station, named her 'Winnie' after Winnipeg, and later left her at the London Zoo — where a boy named Christopher Robin fell for her.",
+      "topic": "Winnie-the-Pooh's real start"
+    },
+    {
+      "text": "The stretch of highway between Thunder Bay and Nipigon sits on Canada's richest amethyst deposit — the Amethyst Mine Panorama has a seam 1,200 feet long and 55 feet deep, discovered by accident in 1955 during road construction to a forest fire lookout tower.",
+      "topic": "Canada's amethyst belt"
+    }
   ],
   "z3": [
-    { "text": "Atikokan calls itself the 'Canoeing Capital of Canada' and serves as the main gateway into Quetico Provincial Park, a wilderness of nearly 3,000 lakes whose canoe routes were first paddled by the Ojibwe in birchbark canoes as early as the 1400s.", "topic": "Canoeing capital" },
-    { "text": "Quetico started life in 1909 as a forest reserve set up specifically to protect its red and white pine stands and a dwindling moose population, becoming a full provincial park in 1913 — one of Ontario's earliest conservation experiments.", "topic": "Quetico's early conservation" },
-    { "text": "Kenora's name is a mashup invented in 1905 by stitching together the first letters of three neighbouring communities — Keewatin, Norman, and Rat Portage — the last of those being an old name that referred to muskrats migrating between the lake and the Winnipeg River.", "topic": "Kenora's mashup name" }
+    {
+      "text": "Atikokan calls itself the 'Canoeing Capital of Canada' and serves as the main gateway into Quetico Provincial Park, a wilderness of nearly 3,000 lakes whose canoe routes were first paddled by the Ojibwe in birchbark canoes as early as the 1400s.",
+      "topic": "Canoeing capital"
+    },
+    {
+      "text": "Quetico started life in 1909 as a forest reserve set up specifically to protect its red and white pine stands and a dwindling moose population, becoming a full provincial park in 1913 — one of Ontario's earliest conservation experiments.",
+      "topic": "Quetico's early conservation"
+    },
+    {
+      "text": "Kenora's name is a mashup invented in 1905 by stitching together the first letters of three neighbouring communities — Keewatin, Norman, and Rat Portage — the last of those being an old name that referred to muskrats migrating between the lake and the Winnipeg River.",
+      "topic": "Kenora's mashup name"
+    }
   ],
   "z4": [
-    { "text": "The Forks in downtown Winnipeg, where the Red and Assiniboine rivers meet, has been a gathering place for over 6,000 years — archaeologists found a hearth there with catfish bones and stone tool flakes from millennia before European fur traders ever showed up.", "topic": "6,000-year meeting place" },
-    { "text": "Portage la Prairie briefly declared independence in 1868: local trader Thomas Spence proclaimed the settlement 'The Republic of Manitobah,' complete with its own council and taxes, before Ottawa shut the whole thing down.", "topic": "The Republic of Manitobah" },
-    { "text": "Riding Mountain National Park sits atop the Manitoba Escarpment, rising nearly 500 metres above the surrounding prairie — early explorers had to dismount and lead their horses up it on foot, which is how 'Riding Mountain' got its name long before it became a park in 1929.", "topic": "Riding Mountain's name" }
+    {
+      "text": "The Forks in downtown Winnipeg, where the Red and Assiniboine rivers meet, has been a gathering place for over 6,000 years — archaeologists found a hearth there with catfish bones and stone tool flakes from millennia before European fur traders ever showed up.",
+      "topic": "6,000-year meeting place"
+    },
+    {
+      "text": "Portage la Prairie briefly declared independence in 1868: local trader Thomas Spence proclaimed the settlement 'The Republic of Manitobah,' complete with its own council and taxes, before Ottawa shut the whole thing down.",
+      "topic": "The Republic of Manitobah"
+    },
+    {
+      "text": "Riding Mountain National Park sits atop the Manitoba Escarpment, rising nearly 500 metres above the surrounding prairie — early explorers had to dismount and lead their horses up it on foot, which is how 'Riding Mountain' got its name long before it became a park in 1929.",
+      "topic": "Riding Mountain's name"
+    }
   ],
   "z5": [
-    { "text": "Moose Jaw's famous underground tunnels were real — built for steam heating between buildings — but the legend that Al Capone hid out down there is just that, a legend the RCMP says has no evidence behind it (the story reportedly took off in the 1970s to drum up tourism).", "topic": "Moose Jaw's Capone myth" },
-    { "text": "In 1946 Swift Current launched a pilot project that became the first government-funded medical plan in North America, laying the groundwork for Saskatchewan's province-wide Medicare in 1962 — the system that spread across Canada.", "topic": "Birthplace of Medicare" },
-    { "text": "Medicine Hat's 20-story-tall Saamis Tepee — the world's tallest tepee at 215 feet — wasn't originally built for the city at all; it was constructed for the 1988 Calgary Winter Olympics and only moved to Medicine Hat in 1991.", "topic": "World's tallest tepee" }
+    {
+      "text": "Moose Jaw's famous underground tunnels were real — built for steam heating between buildings — but the legend that Al Capone hid out down there is just that, a legend the RCMP says has no evidence behind it (the story reportedly took off in the 1970s to drum up tourism).",
+      "topic": "Moose Jaw's Capone myth"
+    },
+    {
+      "text": "In 1946 Swift Current launched a pilot project that became the first government-funded medical plan in North America, laying the groundwork for Saskatchewan's province-wide Medicare in 1962 — the system that spread across Canada.",
+      "topic": "Birthplace of Medicare"
+    },
+    {
+      "text": "Medicine Hat's 20-story-tall Saamis Tepee — the world's tallest tepee at 215 feet — wasn't originally built for the city at all; it was constructed for the 1988 Calgary Winter Olympics and only moved to Medicine Hat in 1991.",
+      "topic": "World's tallest tepee"
+    }
   ],
   "z6": [
-    { "text": "Canmore started in 1884 as a railway whistle-stop until prospectors found coal on the Bow River — within decades it was pumping out nearly five million tons a year, until the last mine finally shut down on Friday the 13th, 1979.", "topic": "Canmore's coal boom" },
-    { "text": "Banff National Park — Canada's first — was born from a squabble: three railway workers stumbled on a hot spring in 1883, and competing claims over who could profit from it pushed Ottawa to set the area aside as a reserve in 1885 instead.", "topic": "A hot spring turf war" },
-    { "text": "Above the tiny railway town of Field, BC, a geologist stumbled on a Cambrian fossil bed in 1909 so well-preserved it captured 500-million-year-old soft-bodied creatures in stone — the Burgess Shale, now a UNESCO World Heritage Site.", "topic": "Burgess Shale discovery" }
+    {
+      "text": "Canmore started in 1884 as a railway whistle-stop until prospectors found coal on the Bow River — within decades it was pumping out nearly five million tons a year, until the last mine finally shut down on Friday the 13th, 1979.",
+      "topic": "Canmore's coal boom"
+    },
+    {
+      "text": "Banff National Park — Canada's first — was born from a squabble: three railway workers stumbled on a hot spring in 1883, and competing claims over who could profit from it pushed Ottawa to set the area aside as a reserve in 1885 instead.",
+      "topic": "A hot spring turf war"
+    },
+    {
+      "text": "Above the tiny railway town of Field, BC, a geologist stumbled on a Cambrian fossil bed in 1909 so well-preserved it captured 500-million-year-old soft-bodied creatures in stone — the Burgess Shale, now a UNESCO World Heritage Site.",
+      "topic": "Burgess Shale discovery"
+    }
   ],
   "z7": [
-    { "text": "Rogers Pass, between Golden and Revelstoke, is the site of Canada's deadliest avalanche: on March 4, 1910, a slide buried 58 railway workers who were clearing an earlier avalanche — the CPR eventually gave up on the pass and bored the 8-km Connaught Tunnel through the mountain instead.", "topic": "Canada's deadliest avalanche" },
-    { "text": "Building the railway through the Rockies came at a brutal human cost — between 1880 and 1885 around 15,000 to 17,000 Chinese laborers worked the line to Craigellachie for lower pay and the most dangerous jobs, and Revelstoke grew up as a key maintenance hub for that railway.", "topic": "Railway's Chinese laborers" },
-    { "text": "Salmon Arm's wharf on Shuswap Lake is billed as the longest wharf in North America, and the town only really took off after the Canadian Pacific Railway came through in 1886 — before that it was mostly homesteaders growing fruit to sell to bigger towns nearby.", "topic": "Longest wharf in North America" }
+    {
+      "text": "Rogers Pass, between Golden and Revelstoke, is the site of Canada's deadliest avalanche: on March 4, 1910, a slide buried 58 railway workers who were clearing an earlier avalanche — the CPR eventually gave up on the pass and bored the 8-km Connaught Tunnel through the mountain instead.",
+      "topic": "Canada's deadliest avalanche"
+    },
+    {
+      "text": "Building the railway through the Rockies came at a brutal human cost — between 1880 and 1885 around 15,000 to 17,000 Chinese laborers worked the line to Craigellachie for lower pay and the most dangerous jobs, and Revelstoke grew up as a key maintenance hub for that railway.",
+      "topic": "Railway's Chinese laborers"
+    },
+    {
+      "text": "Salmon Arm's wharf on Shuswap Lake is billed as the longest wharf in North America, and the town only really took off after the Canadian Pacific Railway came through in 1886 — before that it was mostly homesteaders growing fruit to sell to bigger towns nearby.",
+      "topic": "Longest wharf in North America"
+    }
   ],
   "z8": [
-    { "text": "Mount Robson, the highest peak in the Canadian Rockies at nearly 13,000 feet, wasn't summited until 1913 — the successful climbers included Austrian-born mountain guide Conrad Kain, who helped pioneer alpine climbing across the Rockies.", "topic": "First ascent of Mount Robson" },
-    { "text": "Helmcken Falls in Wells Gray Park drops 141 metres — taller than Niagara — over a canyon carved by ice-age meltwater roughly 10,000 years ago, cutting through a lava plateau that had formed over 200,000 years earlier.", "topic": "A waterfall taller than Niagara" },
-    { "text": "Kelowna's lake monster Ogopogo has roots in Syilx oral tradition, where it was known as the sacred spirit N'ha-a-itk long before European settlers arrived — the catchy name 'Ogopogo' only got attached in 1929, borrowed from a British music-hall novelty song.", "topic": "Ogopogo's real origins" }
+    {
+      "text": "Mount Robson, the highest peak in the Canadian Rockies at nearly 13,000 feet, wasn't summited until 1913 — the successful climbers included Austrian-born mountain guide Conrad Kain, who helped pioneer alpine climbing across the Rockies.",
+      "topic": "First ascent of Mount Robson"
+    },
+    {
+      "text": "Helmcken Falls in Wells Gray Park drops 141 metres — taller than Niagara — over a canyon carved by ice-age meltwater roughly 10,000 years ago, cutting through a lava plateau that had formed over 200,000 years earlier.",
+      "topic": "A waterfall taller than Niagara"
+    },
+    {
+      "text": "Kelowna's lake monster Ogopogo has roots in Syilx oral tradition, where it was known as the sacred spirit N'ha-a-itk long before European settlers arrived — the catchy name 'Ogopogo' only got attached in 1929, borrowed from a British music-hall novelty song.",
+      "topic": "Ogopogo's real origins"
+    }
+  ],
+  "z9": [
+    {
+      "text": "The mile-long cliff face at Dry Falls once carried more water than all the rivers on Earth combined — when an ice dam holding back glacial Lake Missoula repeatedly failed at the end of the last Ice Age, walls of water up to 400 feet high roared across eastern Washington and, for a time, made Dry Falls the largest waterfall ever known to exist, five times wider than Niagara.",
+      "topic": "The world's biggest waterfall (now dry)"
+    },
+    {
+      "text": "Geologists spent decades ridiculing J Harlen Bretz, the scientist who first proposed in the 1920s that catastrophic floods — not slow erosion — carved the scablands' coulees, dry falls, and giant ripple marks; he was proven right only after satellite imagery confirmed the shape of glacial Lake Missoula, and in 1979, at age 96, he finally received geology's highest honor for it.",
+      "topic": "The scientist who was right all along"
+    },
+    {
+      "text": "Grand Coulee Dam contains nearly 12 million cubic yards of concrete — about three times as much as Hoover Dam — and was built during the Depression partly as a jobs program before its hydropower turned out to be exactly what the Pacific Northwest needed to build aircraft and refine aluminum for World War II.",
+      "topic": "A Depression-era dam that helped win a war"
+    }
+  ],
+  "z10": [
+    {
+      "text": "The sandstone cliff at Madison Buffalo Jump State Park was used by Native peoples — likely Shoshone and later Blackfeet — for roughly 2,000 years, as hunters disguised in wolf and bison hides drove entire herds over the edge in carefully choreographed stampedes, providing meat, hides, and bone tools for the whole community in a single event.",
+      "topic": "Madison Buffalo Jump's bison-hunting history"
+    },
+    {
+      "text": "Virginia City exploded almost overnight after gold was found in Alder Gulch in 1863, and the resulting boomtown briefly became the territorial capital of Montana in 1865; today it preserves more than 100 original gold-rush-era buildings, making it one of the most intact 1860s mining towns left in the American West.",
+      "topic": "Virginia City's gold rush history"
+    },
+    {
+      "text": "On the night of August 17, 1959, a magnitude 7.3–7.5 earthquake centered near Hebgen Lake triggered a massive landslide that thundered down the canyon at close to 100 mph, dumping roughly 80 million tons of rock into the Madison River in under a minute — killing 28 campers and damming the river to create the aptly named Earthquake (Quake) Lake almost instantly.",
+      "topic": "Earthquake Lake and the 1959 Hebgen Lake quake"
+    }
+  ],
+  "z11": [
+    {
+      "text": "Grand Prismatic Spring's rainbow bands aren't dye or minerals in the water itself — they're colonies of heat-loving microorganisms (thermophiles) whose pigments shift with water temperature, from deep blue at the scalding 189°F center to orange and red near the cooler edges.",
+      "topic": "Grand Prismatic microbial colors"
+    },
+    {
+      "text": "Nearly the entire park sits inside the Yellowstone Caldera, a supervolcano crater roughly 30 by 45 miles wide formed by a cataclysmic eruption about 640,000 years ago — the geyser basins you'll walk through are essentially the volcano's plumbing system venting at the surface.",
+      "topic": "Yellowstone supervolcano caldera"
+    },
+    {
+      "text": "Old Faithful isn't actually the park's most predictable or most powerful geyser — its eruption interval currently averages roughly 60 to 110 minutes and has been slowly lengthening over recent decades, while Norris Basin's Steamboat Geyser dwarfs it, blasting water 300 to 400 feet high but erupting unpredictably, sometimes years apart.",
+      "topic": "Old Faithful eruption intervals"
+    }
+  ],
+  "z12": [
+    {
+      "text": "Wolves vanished from Yellowstone in 1926 when rangers shot the last known pups in Lamar Valley — it took nearly 70 years and a landmark 1995 reintroduction, when 14 wolves trapped in Alberta were released from acclimation pens right here in Lamar Valley, for howls to return to what biologists now call 'America's Serengeti.'",
+      "topic": "Lamar Valley's wolf reintroduction"
+    },
+    {
+      "text": "Cody, Wyoming was founded in 1896 by William F. 'Buffalo Bill' Cody himself, who saw tourist potential in the route toward Yellowstone's new East Entrance; his 1902 hotel, the Irma, was named after his daughter and still operates downtown, its cherrywood back bar a gift from Queen Victoria.",
+      "topic": "Buffalo Bill's namesake town"
+    },
+    {
+      "text": "The jagged Absaroka Range flanking this whole route isn't the product of the Yellowstone hotspot at all — it's the eroded remains of a massive volcanic field that erupted an estimated 29,000 cubic kilometers of lava and ash between 53 and 43 million years ago, tens of millions of years before Yellowstone's supervolcano ever existed.",
+      "topic": "The Absarokas' ancient volcanoes"
+    }
+  ],
+  "z13": [
+    {
+      "text": "Devils Tower became America's very first national monument on September 24, 1906, when Theodore Roosevelt used his brand-new authority under the Antiquities Act to protect it — years before the National Park Service itself even existed.",
+      "topic": "America's first national monument"
+    },
+    {
+      "text": "The tower's dramatic fluted columns are igneous rock — molten magma that pushed into the sedimentary layers roughly 50 million years ago and cooled slowly underground, cracking into mostly hexagonal columns as it shrank; millions of years of erosion later stripped away the softer rock around it, leaving the 1,267-foot core standing alone above the Belle Fourche River.",
+      "topic": "How Devils Tower formed"
+    },
+    {
+      "text": "More than 20 Native American tribes hold Devils Tower sacred, knowing it by names like Bear Lodge or Bear's Tipi, and the Bighorn Medicine Wheel a bit further west — an 82-foot stone circle with 28 spokes atop Medicine Mountain — has been used for ceremony, vision quests, and tracking the summer solstice for nearly 7,000 years.",
+      "topic": "Sacred ground on both ends of the drive"
+    }
+  ],
+  "z14": [
+    {
+      "text": "The Badlands are eroding at roughly one inch per year — among the fastest erosion rates on Earth — as wind and rain wear away the soft layered clay, sandstone, and volcanic ash. At that pace, geologists estimate the entire formation will have worn flat within about 500,000 years, meaning the jagged spires and buttes you're driving past are a genuinely temporary landscape.",
+      "topic": "Badlands' vanishing landscape"
+    },
+    {
+      "text": "The Lakota name for this region, Mako Sica, translates literally to 'bad land' — a name French trappers later echoed as 'les mauvaises terres à traverser,' or 'bad lands to cross.' The label wasn't about scenery: extreme summer heat, biting winter wind, scarce and often muddy water, and clay that turns to impassable slop when wet made the area brutally difficult to travel, even though Lakota people hunted and lived across it for generations.",
+      "topic": "Why they're called the Badlands"
+    },
+    {
+      "text": "Wall Drug was a struggling small-town pharmacy until 1936, when owner Dorothy Hustead had a Depression-era brainstorm: put up a roadside sign offering free ice water to sweltering travelers on Route 16. Her husband Ted built and planted signs, Burma-Shave style, along the highway, and thirsty motorists started showing up before he'd even finished. That one sign grew into the sprawling Wall Drug complex — and the thousands of novelty signs pointing to it from as far away as the Eiffel Tower and Antarctica.",
+      "topic": "Wall Drug's free ice water"
+    }
+  ],
+  "z15": [
+    {
+      "text": "Split Rock Lighthouse wasn't built until 1910 — construction was ordered after the infamous November 1905 'Mataafa Storm,' a hurricane-force gale that wrecked or stranded nearly 30 ships on Lake Superior, including the steamer Mataafa, which broke apart just outside Duluth's harbor as horrified crowds watched from shore.",
+      "topic": "Split Rock Lighthouse History"
+    },
+    {
+      "text": "Gooseberry Falls tumbles over layers of ancient basalt and rhyolite laid down by lava flows over a billion years ago, part of the same Midcontinent Rift volcanic activity that shaped much of the North Shore's rugged, cliff-lined coastline.",
+      "topic": "Gooseberry Falls Geology"
+    },
+    {
+      "text": "Lake Superior is the largest freshwater lake in the world by surface area — about 31,700 square miles, roughly the size of South Carolina — and holds so much water (nearly 3 quadrillion gallons) that it could cover all of North and South America in about a foot of water.",
+      "topic": "Lake Superior Scale"
+    }
+  ],
+  "z16": [
+    {
+      "text": "The 'pictures' in Pictured Rocks aren't painted on — they're mineral stains. Groundwater seeps down through cracks in the 200-foot sandstone cliffs and streaks the rock face as it evaporates: iron oxide leaves reddish-orange, manganese leaves black, copper leaves blue-green, and limonite leaves white, giving the cliffs their painted look and the park its name.",
+      "topic": "Pictured Rocks' mineral-stained cliffs"
+    },
+    {
+      "text": "Tahquamenon Falls runs the color of root beer, and it's not pollution — it's tannins. The river drains a vast cedar, spruce, and hemlock swamp upstream, and the tannic acid leached from that decaying bark and vegetation stains the water amber. At over 200 feet wide, the Upper Falls is one of the largest waterfalls east of the Mississippi.",
+      "topic": "Tahquamenon Falls' root-beer water"
+    },
+    {
+      "text": "The Soo Locks in Sault Ste. Marie, first built in 1855, exist because Lake Superior sits about 21 feet higher than Lake Huron, with the rapids of the St. Marys River in between — impassable to cargo ships without them. They remain among the busiest lock systems in the world, lifting and lowering iron ore, grain, and coal freighters between the two lakes.",
+      "topic": "Why the Soo Locks exist"
+    }
   ]
 }

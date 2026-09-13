@@ -3,7 +3,7 @@
   "label": "Confirmed Itinerary",
   "type": "confirmed",
   "originCity": "Copeland, ON",
-  "destCity": "Enderby, BC (heading south to US border, TBD)",
+  "destCity": "Midland, ON",
   "days": [
     {
       "id": "gt-d01",
@@ -774,81 +774,922 @@
       "id": "gt-d17",
       "index": 17,
       "date": "2026-10-05",
-      "tz": "America/Vancouver",
-      "city": "Enderby (Splatsin Centre), BC",
-      "region": "Okanagan Valley",
-      "lat": 50.52,
-      "lng": -119.08,
-      "driveFromPrev": "0 km (retreat)",
-      "summary": "Okanagan Valley retreat at the Splatsin Centre, 5767 Old Vernon Rd, near Enderby.",
+      "tz": "America/Los_Angeles",
+      "city": "Sun Lakes–Dry Falls, WA",
+      "region": "Channeled Scablands",
+      "lat": 47.5917,
+      "lng": -119.362,
+      "driveFromPrev": "~550 km / 6½–7 hr",
+      "summary": "Depart Enderby and cross into the US at Oroville/Osoyoos, then run WA-17 down through the Okanogan Highlands into the Channeled Scablands — the coulees and cataract cliffs carved by the Ice Age Missoula Floods. Top up fuel in Penticton or Osoyoos before the border, and again in Moses Lake/Coulee City if needed; enter the Scablands with ≥¾ tank. Sunset and next morning's sunrise are both at the Dry Falls overlook — a 400 ft dry cataract once the largest waterfall known to have existed. Camp at Sun Lakes–Dry Falls State Park (confirm 2026 site status on arrival); if rain/wind turns severe, shorten the rim walk and stay off unmaintained coulee roads after dark.",
       "agenda": [
         {
           "time": "09:00",
-          "title": "Retreat at Splatsin Centre",
-          "type": "event"
-        }
-      ],
-      "keyLocations": [
-        {
-          "name": "Splatsin Centre, 5767 Old Vernon Rd, Enderby, BC",
-          "lat": 50.52,
-          "lng": -119.08
-        }
-      ],
-      "zoneId": "z7",
-      "sun": {
-        "dawn": "06:31",
-        "sunrise": "07:04",
-        "noon": "12:45",
-        "sunset": "18:26",
-        "dusk": "18:58",
-        "blueEnd": "06:44",
-        "goldenEnd": "07:47",
-        "goldenStart": "17:42",
-        "blueStart": "18:46",
-        "daylight": 682,
-        "tzAbbr": "PDT"
-      }
-    },
-    {
-      "id": "gt-d18",
-      "index": 18,
-      "date": "2026-10-06",
-      "tz": "America/Vancouver",
-      "city": "Enderby, BC (heading south to US border, destination TBD)",
-      "region": "Okanagan Valley",
-      "lat": 50.5497,
-      "lng": -119.1414,
-      "driveFromPrev": "TBD",
-      "summary": "Depart Enderby, BC heading south toward the US border; exact route, destination, and distance still to be determined.",
-      "agenda": [
-        {
-          "time": "09:00",
-          "title": "Depart Enderby, BC, heading south to the US",
+          "title": "Depart Enderby, BC",
           "type": "drive"
+        },
+        {
+          "time": "10:30",
+          "title": "Cross US border at Oroville, WA",
+          "type": "drive"
+        },
+        {
+          "time": "16:00",
+          "title": "Dry Falls Overlook — sunset light on the cataract",
+          "type": "sight"
+        },
+        {
+          "time": "18:00",
+          "title": "Camp: Sun Lakes–Dry Falls State Park",
+          "type": "camp"
         }
       ],
       "keyLocations": [
         {
           "name": "Enderby, BC",
-          "lat": 50.5497,
-          "lng": -119.1414
+          "lat": 50.549,
+          "lng": -119.146
+        },
+        {
+          "name": "Penticton / Osoyoos fuel",
+          "lat": 49.5,
+          "lng": -119.59
+        },
+        {
+          "name": "Oroville, WA (border)",
+          "lat": 48.94,
+          "lng": -119.44
+        },
+        {
+          "name": "Dry Falls Overlook",
+          "lat": 47.5917,
+          "lng": -119.362
+        },
+        {
+          "name": "Sun Lakes–Dry Falls State Park",
+          "lat": 47.5917,
+          "lng": -119.362
         }
       ],
-      "zoneId": "z7",
-      "sun": {
-        "dawn": "06:33",
-        "sunrise": "07:05",
-        "noon": "12:45",
-        "sunset": "18:24",
-        "dusk": "18:56",
-        "blueEnd": "06:45",
-        "goldenEnd": "07:49",
-        "goldenStart": "17:40",
-        "blueStart": "18:44",
-        "daylight": 679,
-        "tzAbbr": "PDT"
-      }
+      "zoneId": "z9"
+    },
+    {
+      "id": "gt-d18",
+      "index": 18,
+      "date": "2026-10-06",
+      "tz": "America/Los_Angeles",
+      "city": "Coeur d'Alene, ID",
+      "region": "Channeled Scablands & Idaho Panhandle",
+      "lat": 47.7,
+      "lng": -116.8,
+      "driveFromPrev": "~300–400 km",
+      "summary": "Sunrise at Dry Falls, then WA-17/WA-2/WA-155 up to Steamboat Rock State Park for a summit or shoreline hike (allow 2–3 hr), and a stop at Grand Coulee Dam. Fuel in Spokane or Coeur d'Alene — from here on, hold to the half-tank rule for the rest of the trip. Sunset over Lake Coeur d'Alene or a legal public-land site east of the lake. Preferred overnight is a legal dispersed site on Idaho Panhandle National Forest land, only where the current MVUM and local closure notices permit — stay on maintained gravel in the 2WD Sprinter; if forest roads are wet or snowy, use a developed campground or commercial dry-camping option around Coeur d'Alene instead. Don't turn this into a pure transit day — the Scablands deserve the time.",
+      "agenda": [
+        {
+          "time": "07:15",
+          "title": "Sunrise at Dry Falls",
+          "type": "sight"
+        },
+        {
+          "time": "09:00",
+          "title": "Depart for Steamboat Rock State Park",
+          "type": "drive"
+        },
+        {
+          "time": "10:30",
+          "title": "Steamboat Rock summit / shoreline hike",
+          "type": "sight"
+        },
+        {
+          "time": "14:00",
+          "title": "Grand Coulee Dam",
+          "type": "sight"
+        },
+        {
+          "time": "17:00",
+          "title": "Fuel in Spokane / Coeur d'Alene",
+          "type": "drive"
+        },
+        {
+          "time": "19:00",
+          "title": "Camp near Coeur d'Alene (Idaho Panhandle NF or fallback)",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Dry Falls (sunrise)",
+          "lat": 47.5917,
+          "lng": -119.362
+        },
+        {
+          "name": "Steamboat Rock State Park",
+          "lat": 47.8659,
+          "lng": -119.1276
+        },
+        {
+          "name": "Grand Coulee Dam",
+          "lat": 47.956,
+          "lng": -118.981
+        },
+        {
+          "name": "Spokane, WA",
+          "lat": 47.6588,
+          "lng": -117.426
+        },
+        {
+          "name": "Coeur d'Alene, ID",
+          "lat": 47.6777,
+          "lng": -116.7805
+        }
+      ],
+      "zoneId": "z9"
+    },
+    {
+      "id": "gt-d19",
+      "index": 19,
+      "date": "2026-10-07",
+      "tz": "America/Denver",
+      "city": "Madison Buffalo Jump, MT",
+      "region": "Bitterroot & Big Sky Country",
+      "lat": 45.6094,
+      "lng": -111.5697,
+      "driveFromPrev": "~500 km / 5½–6 hr",
+      "summary": "I-90 east over Lookout Pass into Montana — check Idaho/Montana DOT road status before leaving Coeur d'Alene, and do not attempt a snow-covered pass on summer tires. Missoula is the main fuel reset; top up again at Three Forks if needed. Finish at Madison Buffalo Jump State Park, a prehistoric bison-hunting cliff (a working substitute for a European-style Neolithic monument on this route) — walk the trail to the top, about 1½–2 hr, for archaeological interpretation and Madison Valley views. Sunset from the top looking across the valley. Camp at Red Mountain Campground on the Madison River (verify seasonal status and access before arrival) as a primitive/developed fallback.",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart Coeur d'Alene, ID",
+          "type": "drive"
+        },
+        {
+          "time": "10:30",
+          "title": "Lookout Pass, ID/MT state line",
+          "type": "drive"
+        },
+        {
+          "time": "13:30",
+          "title": "Fuel in Missoula, MT",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Madison Buffalo Jump trail to the top",
+          "type": "sight"
+        },
+        {
+          "time": "18:15",
+          "title": "Sunset over the Madison Valley",
+          "type": "sight"
+        },
+        {
+          "time": "19:00",
+          "title": "Camp: Red Mountain Campground, Madison River",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Coeur d'Alene, ID",
+          "lat": 47.6777,
+          "lng": -116.7805
+        },
+        {
+          "name": "Lookout Pass",
+          "lat": 47.4558,
+          "lng": -115.7018
+        },
+        {
+          "name": "Missoula, MT",
+          "lat": 46.8721,
+          "lng": -113.994
+        },
+        {
+          "name": "Madison Buffalo Jump State Park",
+          "lat": 45.7943,
+          "lng": -111.472
+        },
+        {
+          "name": "Red Mountain Campground",
+          "lat": 45.6094,
+          "lng": -111.5697
+        }
+      ],
+      "zoneId": "z10"
+    },
+    {
+      "id": "gt-d20",
+      "index": 20,
+      "date": "2026-10-08",
+      "tz": "America/Denver",
+      "city": "Yellowstone (Madison), WY",
+      "region": "Madison Valley & Yellowstone West",
+      "lat": 44.646,
+      "lng": -110.8649,
+      "driveFromPrev": "~300 km / 4 hr plus stops",
+      "summary": "Three Forks → Twin Bridges → Sheridan → Virginia City for a short walking tour of the preserved 1863 gold-rush townsite, then down the Ennis/Madison Valley (optional riverside walk) and US-191 to West Yellowstone. Fill the tank completely in West Yellowstone before entering the park — no need to leave again if this is done right. Sunset over the Madison River / west entrance area. Yellowstone GPS can route onto closed roads; use the official NPS park map and road-status page, not blind turn-by-turn. Camp at Madison Campground, the preferred Yellowstone base for this trip (confirm 2026 operating status immediately before travel); if Madison is unavailable, use West Yellowstone lodging/campground as the practical fallback — don't improvise roadside camping inside the park.",
+      "agenda": [
+        {
+          "time": "08:30",
+          "title": "Depart Madison Buffalo Jump / Three Forks",
+          "type": "drive"
+        },
+        {
+          "time": "10:30",
+          "title": "Virginia City walking tour",
+          "type": "sight"
+        },
+        {
+          "time": "12:30",
+          "title": "Ennis / Madison Valley riverside stop",
+          "type": "sight"
+        },
+        {
+          "time": "15:00",
+          "title": "Fill up completely in West Yellowstone",
+          "type": "drive"
+        },
+        {
+          "time": "16:00",
+          "title": "Enter Yellowstone West Entrance",
+          "type": "drive"
+        },
+        {
+          "time": "18:00",
+          "title": "Camp: Madison Campground, Yellowstone",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Three Forks, MT",
+          "lat": 45.9046,
+          "lng": -111.5528
+        },
+        {
+          "name": "Virginia City, MT",
+          "lat": 45.293,
+          "lng": -111.946
+        },
+        {
+          "name": "Ennis / Madison Valley",
+          "lat": 45.349,
+          "lng": -111.733
+        },
+        {
+          "name": "West Yellowstone, MT",
+          "lat": 44.6621,
+          "lng": -111.1041
+        },
+        {
+          "name": "Madison Campground, Yellowstone",
+          "lat": 44.646,
+          "lng": -110.8649
+        }
+      ],
+      "zoneId": "z10"
+    },
+    {
+      "id": "gt-d21",
+      "index": 21,
+      "date": "2026-10-09",
+      "tz": "America/Denver",
+      "city": "Yellowstone — Grand Prismatic & Firehole, WY",
+      "region": "Yellowstone Geyser Country",
+      "lat": 44.646,
+      "lng": -110.8649,
+      "driveFromPrev": "~100–150 km sightseeing",
+      "summary": "A geyser-basin day out of Madison: Firehole Canyon Drive at sunrise, Midway Geyser Basin and the Grand Prismatic Spring overlook in the late afternoon, and the Fairy Falls trailhead for a combined 2½–3½ hr hike to the falls and the prismatic overlook. No need to leave the park for fuel if the tank was filled in West Yellowstone — just keep it ≥½. October mornings here can be below freezing; carry traction aids and warm layers. If the Fairy Falls trailhead is icy or the parking is inaccessible, fall back to the Midway/Upper Geyser Basin boardwalks instead. Sunset over the Madison River. Camp again at Madison.",
+      "agenda": [
+        {
+          "time": "07:00",
+          "title": "Sunrise: Firehole Canyon Drive",
+          "type": "sight"
+        },
+        {
+          "time": "10:00",
+          "title": "Fairy Falls trailhead — hike to the falls + Grand Prismatic overlook",
+          "type": "sight"
+        },
+        {
+          "time": "15:00",
+          "title": "Midway Geyser Basin / Grand Prismatic Spring boardwalk",
+          "type": "sight"
+        },
+        {
+          "time": "18:00",
+          "title": "Sunset on the Madison River",
+          "type": "sight"
+        },
+        {
+          "time": "19:00",
+          "title": "Camp: Madison Campground",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Firehole Canyon Drive",
+          "lat": 44.643,
+          "lng": -110.866
+        },
+        {
+          "name": "Grand Prismatic Spring",
+          "lat": 44.525,
+          "lng": -110.838
+        },
+        {
+          "name": "Fairy Falls Trailhead",
+          "lat": 44.5813,
+          "lng": -110.4901
+        },
+        {
+          "name": "Firehole Falls",
+          "lat": 44.639,
+          "lng": -110.859
+        },
+        {
+          "name": "Madison Campground",
+          "lat": 44.646,
+          "lng": -110.8649
+        }
+      ],
+      "zoneId": "z11"
+    },
+    {
+      "id": "gt-d22",
+      "index": 22,
+      "date": "2026-10-10",
+      "tz": "America/Denver",
+      "city": "Yellowstone — Hayden Valley & Grand Canyon, WY",
+      "region": "Yellowstone Geyser Country",
+      "lat": 44.646,
+      "lng": -110.8649,
+      "driveFromPrev": "~180–220 km",
+      "summary": "Madison → Norris → Canyon → Hayden Valley → Canyon South Rim → Norris → back to Madison. Sunrise and wildlife-watching in Hayden Valley (carry binoculars/long lens — October is excellent for wildlife activity and give animals the right of way), then the Grand Canyon of the Yellowstone South Rim walk out to Artist Point, with an optional stop at the Norris Porcelain Basin — 4–8 km of walking total. No planned fuel stop today. If snow/ice affects the Canyon roads, stay lower around Madison/Norris and use the geothermal basins instead. Sunset back in Hayden Valley on the return if road conditions allow. Camp again at Madison.",
+      "agenda": [
+        {
+          "time": "06:45",
+          "title": "Sunrise + wildlife watching, Hayden Valley pullouts",
+          "type": "sight"
+        },
+        {
+          "time": "10:00",
+          "title": "Grand Canyon of the Yellowstone — South Rim / Artist Point walk",
+          "type": "sight"
+        },
+        {
+          "time": "13:00",
+          "title": "Norris Porcelain Basin",
+          "type": "sight"
+        },
+        {
+          "time": "18:00",
+          "title": "Sunset return through Hayden Valley (conditions permitting)",
+          "type": "sight"
+        },
+        {
+          "time": "19:00",
+          "title": "Camp: Madison Campground",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Hayden Valley pullouts",
+          "lat": 44.65,
+          "lng": -110.48
+        },
+        {
+          "name": "Grand Canyon South Rim / Artist Point",
+          "lat": 44.72,
+          "lng": -110.496
+        },
+        {
+          "name": "Norris Porcelain Basin",
+          "lat": 44.724,
+          "lng": -110.704
+        },
+        {
+          "name": "Madison Campground",
+          "lat": 44.646,
+          "lng": -110.8649
+        }
+      ],
+      "zoneId": "z11"
+    },
+    {
+      "id": "gt-d23",
+      "index": 23,
+      "date": "2026-10-11",
+      "tz": "America/Denver",
+      "city": "Cody, WY",
+      "region": "Lamar Valley & Absaroka Front",
+      "lat": 44.788,
+      "lng": -109.258,
+      "driveFromPrev": "~300–350 km / full scenic day",
+      "summary": "The most weather-sensitive day of the trip. Madison → Norris → Canyon → Tower-Roosevelt → Lamar Valley → Cooke City → Cody, with a real decision point at Dunraven Pass. GREEN: high route (Dunraven/Beartooth-adjacent approach) open and dry — go. YELLOW: skip the Beartooth/Chief Joseph highway alternatives. RED: significant snow — exit Yellowstone via the East Entrance and take the lower route to Cody. Never force Dunraven or Beartooth in a 2WD van — check the morning of, not the night before. Sunrise wildlife walk in Lamar Valley, short trail near Tower if dry. Fill up completely in Cody. Overnight at Hogan & Luce, a developed primitive-style BLM campground/fallback near Cody; true dispersed public land is only an option where roads are legal and dry. Sunset over Cody or the foothills if the high country is closed.",
+      "agenda": [
+        {
+          "time": "06:45",
+          "title": "Sunrise wildlife walk, Lamar Valley",
+          "type": "sight"
+        },
+        {
+          "time": "09:00",
+          "title": "Tower-Roosevelt short trail (if dry)",
+          "type": "sight"
+        },
+        {
+          "time": "11:00",
+          "title": "Weather decision at Dunraven Pass — green/yellow/red call",
+          "type": "sight"
+        },
+        {
+          "time": "14:00",
+          "title": "Cooke City → Cody, fill up completely",
+          "type": "drive"
+        },
+        {
+          "time": "18:00",
+          "title": "Camp: Hogan & Luce / Cody area",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Lamar Valley",
+          "lat": 44.91,
+          "lng": -110.12
+        },
+        {
+          "name": "Tower-Roosevelt",
+          "lat": 44.922,
+          "lng": -110.42
+        },
+        {
+          "name": "Dunraven Pass (decision point)",
+          "lat": 44.775,
+          "lng": -110.449
+        },
+        {
+          "name": "Cody, WY",
+          "lat": 44.5263,
+          "lng": -109.0565
+        },
+        {
+          "name": "Hogan & Luce / Cody area campground",
+          "lat": 44.788,
+          "lng": -109.258
+        }
+      ],
+      "zoneId": "z12"
+    },
+    {
+      "id": "gt-d24",
+      "index": 24,
+      "date": "2026-10-12",
+      "tz": "America/Denver",
+      "city": "Devils Tower, WY",
+      "region": "Bighorn Mountains & Devils Tower",
+      "lat": 44.582,
+      "lng": -104.706,
+      "driveFromPrev": "~430–500 km / 6–7 hr depending on mountain route",
+      "summary": "Cody → Powell → Lovell → Shell Canyon → Bighorn Mountains → Sheridan → Devils Tower. October 12 is near the seasonal edge for high mountain roads — check WYDOT the morning of departure. Shell Canyon has a short walk if conditions are good; if the Bighorn high roads are snow-covered, take the lower basin route to Sheridan instead of climbing a snowy pass in 2WD. Fuel in Sheridan, top up again before Devils Tower. Sunset on the west/southwest side of Devils Tower, then a ~1.3 mi walk of the Tower Trail around its base. Overnight at Belle Fourche River Campground near the monument (verify October operating status).",
+      "agenda": [
+        {
+          "time": "08:00",
+          "title": "Depart Cody, WY",
+          "type": "drive"
+        },
+        {
+          "time": "10:00",
+          "title": "Shell Canyon short walk (conditions permitting)",
+          "type": "sight"
+        },
+        {
+          "time": "11:30",
+          "title": "Bighorn Mountains — Burgess Junction / US-14 pass",
+          "type": "drive"
+        },
+        {
+          "time": "14:00",
+          "title": "Fuel in Sheridan, WY",
+          "type": "drive"
+        },
+        {
+          "time": "17:00",
+          "title": "Devils Tower Tower Trail (~1.3 mi loop)",
+          "type": "sight"
+        },
+        {
+          "time": "18:15",
+          "title": "Sunset on Devils Tower's west/southwest side",
+          "type": "sight"
+        },
+        {
+          "time": "19:00",
+          "title": "Camp: Belle Fourche River Campground",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Cody, WY",
+          "lat": 44.5263,
+          "lng": -109.0565
+        },
+        {
+          "name": "Shell Canyon",
+          "lat": 44.55,
+          "lng": -107.7
+        },
+        {
+          "name": "Burgess Junction / US-14 (Bighorns)",
+          "lat": 44.377,
+          "lng": -107.585
+        },
+        {
+          "name": "Sheridan, WY",
+          "lat": 44.797,
+          "lng": -106.956
+        },
+        {
+          "name": "Devils Tower National Monument",
+          "lat": 44.59,
+          "lng": -104.715
+        },
+        {
+          "name": "Belle Fourche River Campground",
+          "lat": 44.582,
+          "lng": -104.706
+        }
+      ],
+      "zoneId": "z13"
+    },
+    {
+      "id": "gt-d25",
+      "index": 25,
+      "date": "2026-10-13",
+      "tz": "America/Denver",
+      "city": "Badlands (Sage Creek), SD",
+      "region": "Black Hills Gateway & Badlands",
+      "lat": 43.8941,
+      "lng": -102.4139,
+      "driveFromPrev": "~300–350 km",
+      "summary": "Devils Tower → Hulett → Spearfish Canyon Scenic Byway → Spearfish → Deadwood → I-90 → Wall → Badlands Loop Road. Sunrise at Devils Tower, then either Spearfish Falls or the Little Spearfish Trail, followed by short Badlands rim hikes late in the day. Fuel at Wall before entering the Badlands. Sunset at Pinnacles Overlook. Overnight at Sage Creek Campground — primitive and free when open, but do not take the Sage Creek road after heavy rain or snow unless NPS confirms it's open and passable; if the rim road is wet or snowy, use Cedar Pass campground or an established commercial campground around Wall instead.",
+      "agenda": [
+        {
+          "time": "07:15",
+          "title": "Sunrise at Devils Tower",
+          "type": "sight"
+        },
+        {
+          "time": "09:00",
+          "title": "Spearfish Canyon Scenic Byway — Spearfish Falls / Little Spearfish Trail",
+          "type": "sight"
+        },
+        {
+          "time": "13:00",
+          "title": "Fuel in Wall, SD",
+          "type": "drive"
+        },
+        {
+          "time": "14:30",
+          "title": "Badlands Loop Road — short rim hikes",
+          "type": "sight"
+        },
+        {
+          "time": "18:00",
+          "title": "Sunset at Pinnacles Overlook",
+          "type": "sight"
+        },
+        {
+          "time": "19:00",
+          "title": "Camp: Sage Creek Campground",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Devils Tower (sunrise)",
+          "lat": 44.59,
+          "lng": -104.715
+        },
+        {
+          "name": "Spearfish Canyon",
+          "lat": 44.375,
+          "lng": -103.95
+        },
+        {
+          "name": "Wall, SD",
+          "lat": 43.992,
+          "lng": -102.242
+        },
+        {
+          "name": "Pinnacles Overlook",
+          "lat": 43.887,
+          "lng": -102.238
+        },
+        {
+          "name": "Sage Creek Campground",
+          "lat": 43.8941,
+          "lng": -102.4139
+        }
+      ],
+      "zoneId": "z14"
+    },
+    {
+      "id": "gt-d26",
+      "index": 26,
+      "date": "2026-10-14",
+      "tz": "America/Chicago",
+      "city": "Sioux Falls, SD",
+      "region": "Badlands & South Dakota Prairie",
+      "lat": 43.547,
+      "lng": -96.729,
+      "driveFromPrev": "~550 km",
+      "summary": "Sunrise at Sage Creek / the Badlands, then the Notch Trail if dry (includes a ladder — NPS advises caution when wet/icy) or the Cliff Shelf Trail as the safer alternative, plus an optional stretch of the Castle Trail. Fuel at Chamberlain and again at Sioux Falls — don't let the tank fall below half on I-90. If snow or ice affects the Badlands trails, do the viewpoints only and leave early for I-90. Sunset on the prairie near Sioux Falls if there's time. Overnight at a Minnesota state/national-forest campground or other legal public-land site near the route — choose a maintained road in October.",
+      "agenda": [
+        {
+          "time": "06:45",
+          "title": "Sunrise, Sage Creek / Badlands",
+          "type": "sight"
+        },
+        {
+          "time": "08:30",
+          "title": "Notch Trail (if dry) or Cliff Shelf Trail",
+          "type": "sight"
+        },
+        {
+          "time": "13:00",
+          "title": "Fuel in Chamberlain, SD",
+          "type": "drive"
+        },
+        {
+          "time": "16:30",
+          "title": "Fuel in Sioux Falls, SD",
+          "type": "drive"
+        },
+        {
+          "time": "18:30",
+          "title": "Sunset on the prairie near Sioux Falls (time permitting)",
+          "type": "sight"
+        },
+        {
+          "time": "19:30",
+          "title": "Camp: MN state park campground near the SD/MN border",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Sage Creek / Badlands (sunrise)",
+          "lat": 43.894,
+          "lng": -102.414
+        },
+        {
+          "name": "Notch Trailhead",
+          "lat": 43.751,
+          "lng": -102.053
+        },
+        {
+          "name": "Cliff Shelf Trail",
+          "lat": 43.734,
+          "lng": -102.017
+        },
+        {
+          "name": "Chamberlain, SD",
+          "lat": 43.81,
+          "lng": -99.33
+        },
+        {
+          "name": "Sioux Falls, SD",
+          "lat": 43.547,
+          "lng": -96.729
+        }
+      ],
+      "zoneId": "z14"
+    },
+    {
+      "id": "gt-d27",
+      "index": 27,
+      "date": "2026-10-15",
+      "tz": "America/Chicago",
+      "city": "Marquette area, MI",
+      "region": "Lake Superior North Shore",
+      "lat": 46.2795,
+      "lng": -88.1027,
+      "driveFromPrev": "~500–600 km depending on stops",
+      "summary": "A long but scenic transition day — leave Duluth early. Fuel in Duluth, then MN-61 up the North Shore: Gooseberry Falls trails and, conditions/time permitting, the Split Rock River Loop, plus the Split Rock Lighthouse overlook. Continue on MN-61 through Superior/Ashland/Ironwood and into Michigan's Upper Peninsula toward Marquette, fueling again there. Sunset over the Lake Superior shoreline near Split Rock. If lake-effect snow develops, stay on US-2/I-75 rather than remote forest roads. Overnight at a legal dispersed or forest campground in the Upper Peninsula on a currently open road — avoid soft lakeshore roads after rain; Van Riper State Park on Hwy 41 west of Marquette is a solid, verified fallback right on the route.",
+      "agenda": [
+        {
+          "time": "07:00",
+          "title": "Depart Minnesota, fuel in Duluth",
+          "type": "drive"
+        },
+        {
+          "time": "09:00",
+          "title": "Gooseberry Falls trails",
+          "type": "sight"
+        },
+        {
+          "time": "11:00",
+          "title": "Split Rock Lighthouse overlook / Split Rock River Loop",
+          "type": "sight"
+        },
+        {
+          "time": "17:00",
+          "title": "Sunset on the Lake Superior shoreline",
+          "type": "sight"
+        },
+        {
+          "time": "19:30",
+          "title": "Fuel in Marquette, MI",
+          "type": "drive"
+        },
+        {
+          "time": "20:00",
+          "title": "Camp: Van Riper State Park (or open UP forest site)",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Duluth, MN",
+          "lat": 46.7867,
+          "lng": -92.1005
+        },
+        {
+          "name": "Gooseberry Falls State Park",
+          "lat": 47.138,
+          "lng": -91.47
+        },
+        {
+          "name": "Split Rock Lighthouse",
+          "lat": 46.659,
+          "lng": -91.388
+        },
+        {
+          "name": "Lake Superior shoreline (Ashland/Ironwood)",
+          "lat": 47.0,
+          "lng": -90.5
+        },
+        {
+          "name": "Marquette, MI",
+          "lat": 46.5435,
+          "lng": -87.3954
+        },
+        {
+          "name": "Van Riper State Park",
+          "lat": 46.2795,
+          "lng": -88.1027
+        }
+      ],
+      "zoneId": "z15"
+    },
+    {
+      "id": "gt-d28",
+      "index": 28,
+      "date": "2026-10-16",
+      "tz": "America/New_York",
+      "city": "Sault Ste. Marie, MI",
+      "region": "Upper Peninsula & Pictured Rocks",
+      "lat": 46.495,
+      "lng": -84.347,
+      "driveFromPrev": "~350–450 km plus hikes",
+      "summary": "Marquette → Munising → H-58 → Miners Castle → Miners Beach → Twelvemile Beach → Grand Marais → Tahquamenon Falls → Sault Ste. Marie. Pictured Rocks NPS specifically warns that GPS can route onto unsuitable roads — use the official park map. Sunrise over Lake Superior, then the Miners Castle/Miners Beach trails and a look at Twelvemile Beach, before Tahquamenon Falls' short trails. Fuel in Munising/Grand Marais if needed, and definitely in Sault Ste. Marie. Confirmed: Pictured Rocks' drive-in campgrounds (Twelvemile Beach, Hurricane River, Little Beaver Lake) run May 15–Oct 15 only, water/toilets shut off after — Oct 16 is the day after closing, so plan on Tahquamenon's Rivermouth/Lower Falls campground or a Sault Ste. Marie motel instead of Twelvemile Beach. If H-58 is affected by snow, detour via M-28/US-2; keep to paved routes if shoreline roads are wet. Sunset at Tahquamenon Falls/river.",
+      "agenda": [
+        {
+          "time": "07:15",
+          "title": "Sunrise over Lake Superior",
+          "type": "sight"
+        },
+        {
+          "time": "08:30",
+          "title": "Miners Castle / Miners Beach trail",
+          "type": "sight"
+        },
+        {
+          "time": "11:00",
+          "title": "Twelvemile Beach",
+          "type": "sight"
+        },
+        {
+          "time": "14:00",
+          "title": "Tahquamenon Falls short trails",
+          "type": "sight"
+        },
+        {
+          "time": "17:30",
+          "title": "Fuel in Sault Ste. Marie, MI",
+          "type": "drive"
+        },
+        {
+          "time": "18:30",
+          "title": "Camp: Tahquamenon Falls SP or Sault Ste. Marie (Twelvemile Beach CG closed for the season)",
+          "type": "camp"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Miners Castle, Pictured Rocks",
+          "lat": 46.542,
+          "lng": -86.51
+        },
+        {
+          "name": "Miners Beach Trail",
+          "lat": 46.515,
+          "lng": -86.53
+        },
+        {
+          "name": "Twelvemile Beach",
+          "lat": 46.514,
+          "lng": -86.467
+        },
+        {
+          "name": "Tahquamenon Falls",
+          "lat": 46.611,
+          "lng": -85.206
+        },
+        {
+          "name": "Sault Ste. Marie, MI",
+          "lat": 46.495,
+          "lng": -84.347
+        }
+      ],
+      "zoneId": "z16"
+    },
+    {
+      "id": "gt-d29",
+      "index": 29,
+      "date": "2026-10-17",
+      "tz": "America/Toronto",
+      "city": "Midland, ON",
+      "region": "Georgian Bay Approach",
+      "lat": 44.75,
+      "lng": -79.885,
+      "driveFromPrev": "~700 km / 7½–8½ hr plus border stop",
+      "summary": "Trip finish — no hikes planned, this is a travel day. Optional sunrise at the St. Marys River before crossing the International Bridge into Sault Ste. Marie, ON. Fill up in Sault Ste. Marie, ON, top up again around Sudbury. Keep passports and vehicle documents readily accessible at the border, and build a 1–2 hr border/weather buffer into the day. Hwy 17 → Sudbury → Hwy 69 → Hwy 400 → Midland — the same Georgian Bay/boreal corridor run in reverse on Day 1. If a major snow event hits Hwy 17, delay departure rather than attempt a long winter drive; check Ontario 511 before leaving. Arrive home in Midland.",
+      "agenda": [
+        {
+          "time": "07:00",
+          "title": "Optional sunrise at the St. Marys River",
+          "type": "sight"
+        },
+        {
+          "time": "08:00",
+          "title": "Cross International Bridge into Sault Ste. Marie, ON",
+          "type": "drive"
+        },
+        {
+          "time": "08:30",
+          "title": "Fill up in Sault Ste. Marie, ON",
+          "type": "drive"
+        },
+        {
+          "time": "12:30",
+          "title": "Fuel in Sudbury, ON",
+          "type": "drive"
+        },
+        {
+          "time": "15:00",
+          "title": "Rest stop, Parry Sound area",
+          "type": "drive"
+        },
+        {
+          "time": "17:30",
+          "title": "Arrive home: Midland, ON",
+          "type": "sight"
+        }
+      ],
+      "keyLocations": [
+        {
+          "name": "Sault Ste. Marie, MI (International Bridge)",
+          "lat": 46.5,
+          "lng": -84.345
+        },
+        {
+          "name": "Sault Ste. Marie, ON",
+          "lat": 46.522,
+          "lng": -84.346
+        },
+        {
+          "name": "Sudbury, ON",
+          "lat": 46.491,
+          "lng": -80.993
+        },
+        {
+          "name": "Parry Sound area",
+          "lat": 45.341,
+          "lng": -80.034
+        },
+        {
+          "name": "Midland, ON (finish)",
+          "lat": 44.75,
+          "lng": -79.885
+        }
+      ],
+      "zoneId": "z1"
     }
   ],
   "sunWindow": {

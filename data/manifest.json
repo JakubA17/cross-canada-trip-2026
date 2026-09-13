@@ -8,12 +8,12 @@
       "shortLabel": "Ground Truth",
       "type": "confirmed",
       "startDate": "2026-09-19",
-      "endDate": "2026-10-05",
-      "dayCount": 18,
+      "endDate": "2026-10-17",
+      "dayCount": 29,
       "originCity": "Copeland, ON",
-      "destCity": "Enderby, BC → US border (TBD)",
+      "destCity": "Midland, ON",
       "file": "data/routes/ground-truth.json",
-      "note": "Real, booked route. Days beyond Oct 5 are undecided and not yet included."
+      "note": "Real, booked route: Ontario to BC (Sept 19–Oct 5), then the full return leg via Washington, Idaho, Montana, Yellowstone, Wyoming, South Dakota, Minnesota and Michigan back to Midland, ON (Oct 5–17), per the Sprinter Roadbook."
     },
     {
       "id": "alt_v1_10day",
